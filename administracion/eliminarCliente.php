@@ -39,7 +39,7 @@
         <?php
          }else{
           echo "Debes iniciar sesión para poder entrar en esta zona";
-          header("Refresh: 3; url=login.php", true, 303);
+          header("location:login.php");
          }
         ?>
     </body>

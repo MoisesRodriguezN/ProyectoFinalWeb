@@ -27,7 +27,7 @@
           $consulta = $conexion->query("SELECT codCliente FROM cliente WHERE codCliente=".$_POST['codCliente']);
 
           if ($consulta->rowCount() > 0) {
-            header( "refresh:3;url=index.php" );
+            header( "refresh:3;url=indexAdmin.php" );
           ?>
             Ya existe un cliente con DNI <?= $_POST['dni'] ?><br>
             Por favor, vuelva al <a href="indexAdmin.php">panel de Administración del hotel</a>.
@@ -47,8 +47,8 @@
           ?> 
           <?php
             }else{
-             echo "Debes iniciar sesión para poder entrar en esta zona";
-             header("Refresh: 3; url=login.php", true, 303);
+              echo "Debes iniciar sesión para poder entrar en esta zona";
+              header("location:login.php");
             }
           ?>
   </body>

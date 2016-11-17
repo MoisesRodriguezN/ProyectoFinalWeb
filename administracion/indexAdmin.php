@@ -24,7 +24,7 @@
   </head>
   <body>
     <?php
-    if ( $_SESSION['logueadoAdmin'] == true){
+    if ($_SESSION['logueadoAdmin']){
       try {
         $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");
       } catch (PDOException $e) {
@@ -154,7 +154,7 @@
     <?php
      }else{
       echo "Debes iniciar sesión para poder entrar en esta zona";
-      header("Refresh: 3; url=login.php", true, 303);
+      header("location:login.php");
      }
     ?>
   </body>
