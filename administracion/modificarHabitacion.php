@@ -45,7 +45,7 @@
       <?php
         }else{
          echo "Debes iniciar sesión para poder entrar en esta zona";
-         header("location:login.php");
+         header("location:login.php"); //dsf
         }
       ?>
   </body>
