@@ -109,7 +109,7 @@
                       <input type="text" maxlength="3" size="2" name="codHabitacion" autofocus placeholder="Cod" value="<?= $habitacion->codHabitacion ?>">
                     </td>
                     <td>
-                      <input type="text" maxlength="9" size="9" name="tipo" placeholder="tipo" value="<?= $habitacion->tipo ?>">
+                      <input type="text" maxlength="10" size="9" name="tipo" placeholder="tipo" value="<?= $habitacion->tipo ?>">
                     </td>
                     <td>
                       <input type="text" maxlength="30" size="10" name="capacidad" placeholder="capacidad" value="<?= $habitacion->capacidad ?>">
