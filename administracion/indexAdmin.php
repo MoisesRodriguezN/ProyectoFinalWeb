@@ -32,14 +32,15 @@
         die ("Error: " . $e->getMessage());
       }
       
+      //Buscador por DNI
       $dni = null;
       if(isset($_GET['dni'])){
         $dni=$_GET['dni'];
       }
       
-      if(isset($dni)){
+      if(isset($dni)){  //Consulta para buscador DNI
         $consulta = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "' ORDER BY apellido1, apellido2, nombre");
-      }else{
+      }else{ //Consulta sin realizar búsqueda
         $consulta = $conexion->query("SELECT * FROM cliente ORDER BY apellido1, apellido2, nombre");
       }
     ?>
@@ -58,8 +59,8 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="indexAdmin.php">Clientes</a></li>
               <li><a href="adminHabitaciones.php">Habitaciones</a></li>
-              <!--<li><a href="#">Page 2</a></li>
-              <li><a href="#">Page 3</a></li>-->
+              <li><a href="reservas.php">Reservas</a></li>
+              <!--<li><a href="#">Page 3</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="indexAdmin.php"><span class="glyphicon glyphicon-user"></span> <?= ucfirst($_SESSION['nombreAdmin'])?></a></li> 
