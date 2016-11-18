@@ -69,10 +69,14 @@
           </div>
         </div>
       </nav>
-        <div>
-          <form name="filtrar" action="indexAdmin.php" method="GET">
-            DNI: <input type="text" name="dni" value=""><br>
-            <input type="submit" class="btn btn-info" value="Filtrar" />
+        <div class="form-group">
+          <form class="form-inline" name="filtrar" action="indexAdmin.php" method="GET">
+            <div class="form-group">
+              <label for="buscadorDni">DNI: </label>
+              <input type="text" class="form-control" id="buscadorDni" name="dni" 
+                    placeholder="Introduce un DNI">
+            </div>
+            <button type="submit" class="btn btn-default">Filtrar</button>
           </form>
         </div>
       <div class="table-responsive">
