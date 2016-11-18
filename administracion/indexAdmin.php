@@ -6,7 +6,6 @@
   <head>
     <meta charset="UTF-8">
     <title>Administración Hotel - Clientes</title>
-      <link href="http://meyerweb.com/eric/tools/css/reset/reset.css" rel="stylesheet">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
      

@@ -6,6 +6,87 @@
   <head>
     <meta charset="UTF-8">
     <title>Modificacioń de clientes</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+    <style>
+      body{
+          background-color: aliceblue;
+      }
+      .contenedorForm{
+          width:100%;  
+          margin: 2% auto 0 auto;
+      }
+      .formCentrado{
+          width:90%;
+          margin: 0 auto;
+      }
+      
+      .cuadroForm{
+          margin: 3% auto;
+          padding-bottom: 5%;
+          padding-top: 5%;
+          width:95%;
+          background-color: lightblue;
+          border-radius: 10px;
+      }
+    
+     @media screen and (min-width: 768px) {
+      .contenedorForm{
+        width:35%;  
+        margin: 2% auto 0 auto;
+      } 
+    } 
+    
+    @media screen and (min-resolution: 192dpi) and (orientation: portrait) {
+      .contenedorForm{
+        width:100%;  
+        margin: 2% auto 0 auto;
+      } 
+      input[type=text]{
+        height: 10rem;
+        font-size: 6rem;
+      }
+      
+      button[type=submit]{
+        font-size: 6rem;
+      }
+      
+      label{
+        font-size: 6rem;
+      }
+
+      .cabeceraDivForm{
+          text-align: center;
+          font-size: 8rem; 
+      }
+    } 
+    
+    @media screen and (min-resolution: 192dpi) and (orientation: landscape) {
+      .contenedorForm{
+        width:100%;  
+        margin: 1% auto 0 auto;
+      } 
+      input[type=text]{
+        height: 6rem;
+        font-size: 4rem;
+      }
+      
+      button[type=submit]{
+        font-size: 4rem;
+      }
+      
+      label{
+        font-size: 4rem;
+      }
+
+      .cabeceraDivForm{
+          text-align: center;
+          font-size: 4rem; 
+      }
+    } 
+    
+
+    </style>
   </head>
   <body>
       <?php
@@ -32,15 +113,41 @@
           $conexion->close();
         }else{
       ?>
-          <form action="modificarCliente.php" method="post">
-            <input type="hidden" name="accion" value="actualizar">
-            CodCliente: <input type="text" name="codCliente" value="<?= $cliente->codCliente ?>" readonly="readonly"><br>
-            DNI: <input type="text" name="DNI" value="<?= $cliente->DNI ?>"><br>
-            nombre: <input type="text" name="nombre" value="<?= $cliente->nombre ?>"><br>
-            apellido1: <input type="text" name="apellido1" value="<?= $cliente->apellido1 ?>"><br>
-            apellido2: <input type="text" name="apellido2" value="<?= $cliente->apellido2 ?>"><br> 
-            <input type="submit" value="Modificar">
-          </form>
+        <div class="contenedorForm">
+          <div class="panel panel-primary">
+              <div class="panel-heading cabeceraDivForm">Formulario de modificación de clientes</div>
+              <div class="cuadroForm">
+                <form action="modificarCliente.php" class="formCentrado" method="post">
+                  <div class="form-group">
+                    <label for="inputCodCliente">CodCliente:</label>
+                    <input type="hidden" name="accion" value="actualizar">
+                    <input type="text" name="codCliente" id="inputCodCliente" class="form-control" value="<?= $cliente->codCliente ?>" readonly="readonly">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputDni">DNI:</label>
+                    <input type="text" name="DNI" id="inputDni" class="form-control" value="<?= $cliente->DNI ?>">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputNobre">Nombre:</label>
+                    <input type="text" name="nombre" id="inputNombre" class="form-control" value="<?= $cliente->nombre ?>">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputApellido">Apellido1:</label>
+                    <input type="text" name="nombre" id="inputApellido" class="form-control" value="<?= $cliente->apellido1 ?>">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputApellido2">Apellido2:</label>
+                    <input type="text" name="nombre" id="inputApellido2" class="form-control" value="<?= $cliente->apellido2 ?>">
+                  </div>
+                  <button type="submit" class="btn btn-default">Enviar</button>
+                </form>
+              </div>
+            </div>
+          </div>
       <?php
         }
       ?> 
