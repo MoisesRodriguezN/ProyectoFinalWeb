@@ -8,12 +8,13 @@
     <title>Modificacioń de clientes</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       body{
           background-color: aliceblue;
       }
       .contenedorForm{
-          width:100%;  
+          width:35%;  
           margin: 2% auto 0 auto;
       }
       .formCentrado{
@@ -29,63 +30,58 @@
           background-color: lightblue;
           border-radius: 10px;
       }
-    
-     @media screen and (min-width: 768px) {
-      .contenedorForm{
-        width:35%;  
-        margin: 2% auto 0 auto;
-      } 
-    } 
-    
-    @media screen and (min-resolution: 192dpi) and (orientation: portrait) {
-      .contenedorForm{
-        width:100%;  
-        margin: 2% auto 0 auto;
-      } 
-      input[type=text]{
-        height: 10rem;
-        font-size: 6rem;
-      }
       
-      button[type=submit]{
-        font-size: 6rem;
-      }
-      
-      label{
-        font-size: 6rem;
-      }
+      @media screen and (max-width: 1000px){ /*Móviles*/
+          
+          
+          .contenedorForm{
+            width:60%;  
+            margin: 2% auto 0 auto;
+          } 
+          input[type=text]{
+            height: 3rem;
+            font-size: 2rem;
+          }
 
-      .cabeceraDivForm{
-          text-align: center;
-          font-size: 8rem; 
-      }
-    } 
-    
-    @media screen and (min-resolution: 192dpi) and (orientation: landscape) {
-      .contenedorForm{
-        width:100%;  
-        margin: 1% auto 0 auto;
-      } 
-      input[type=text]{
-        height: 6rem;
-        font-size: 4rem;
+          button[type=submit]{
+            font-size: 2rem;
+          }
+
+          label{
+            font-size: 2rem;
+          }
+
+          .cabeceraDivForm{
+              text-align: center;
+              font-size: 2rem; 
+          }
       }
       
-      button[type=submit]{
-        font-size: 4rem;
-      }
-      
-      label{
-        font-size: 4rem;
-      }
+      @media screen and (max-width: 640px){ /*Móviles*/
+          
+          
+          .contenedorForm{
+            width:100%;  
+            margin: 2% auto 0 auto;
+          } 
+          input[type=text]{
+            height: 4rem;
+            font-size: 2rem;
+          }
 
-      .cabeceraDivForm{
-          text-align: center;
-          font-size: 4rem; 
-      }
-    } 
-    
+          button[type=submit]{
+            font-size: 2rem;
+          }
 
+          label{
+            font-size: 2rem;
+          }
+
+          .cabeceraDivForm{
+              text-align: center;
+              font-size: 4rem; 
+          }
+      }
     </style>
   </head>
   <body>
@@ -115,7 +111,7 @@
       ?>
         <div class="contenedorForm">
           <div class="panel panel-primary">
-              <div class="panel-heading cabeceraDivForm">Formulario de modificación de clientes</div>
+              <div class="panel-heading cabeceraDivForm">Modificación de clientes</div>
               <div class="cuadroForm">
                 <form action="modificarCliente.php" class="formCentrado" method="post">
                   <div class="form-group">
