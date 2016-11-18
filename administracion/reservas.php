@@ -22,9 +22,14 @@
       }
       
       .centrado{
-        margin: 1em 5%;
+        margin: 1em 1%;
       }
-
+      
+      @media (min-width: 768px) {
+          .centrado{
+          margin: 1em 5%;
+        } 
+      }
     </style> 
   </head>
   <body>
@@ -36,8 +41,7 @@
         echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
         die ("Error: " . $e->getMessage());
       }
-      $consultaTotal = $conexion->query("SELECT * FROM habitacion");
-      
+      $consultaTotal = $conexion->query("SELECT * FROM reserva");
       $totalFilas = $consultaTotal->rowCount();
       
       $TAMANO_PAGINA = 10;
@@ -51,7 +55,10 @@
       }
       //calculo el total de páginas
       $totalPaginas = ceil($totalFilas / $TAMANO_PAGINA);
-      $consulta = $conexion->query("SELECT * FROM habitacion ORDER BY codHabitacion ASC LIMIT " . $inicio . "," . $TAMANO_PAGINA);
+      $consulta = $conexion->query("SELECT * FROM reserva r "
+        . "JOIN habitacion h ON (r.codHabitacion = h.codHabitacion) "
+        . "JOIN cliente c ON (c.codCliente = r.codCliente) "
+        . "ORDER BY r.fechaEntrada DESC, r.codHabitacion LIMIT " . $inicio . "," . $TAMANO_PAGINA);
     ?>
   
     <div class="container">
@@ -68,8 +75,8 @@
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
               <li><a href="indexAdmin.php">Clientes</a></li>
-              <li class="active"><a href="adminHabitaciones.php">Habitaciones</a></li>
-              <li><a href="reservas.php">Reservas</a></li>
+              <li><a href="adminHabitaciones.php">Habitaciones</a></li>
+              <li class="active"><a href="reservas.php">Reservas</a></li>
              <!-- <li><a href="#">Page 3</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -85,10 +92,12 @@
             <thead>
               <tr class="bg-primary">
                 <th>codHabitacion</th>
-                <th>tipo</th>
-                <th>capacidad</th>
-                <th>Planta</th>
-                <th>Tarifa</th>
+                <th>Nombre</th>
+                <th>Apellido1</th>
+                <th>Apellido2</th>
+                <th>DNI</th>
+                <th>Fecha Entrada</th>
+                <th>Fecha Salida</th>
                 <th>Edición</th>
                 <th>Borrado</th>
               </tr>
@@ -99,40 +108,43 @@
               ?>
               <tr>
                 <td><?= $habitacion->codHabitacion ?></td>
-                <td><?= $habitacion->tipo ?></td>
-                <td><?= $habitacion->capacidad ?></td>
-                <td><?= $habitacion->planta ?></td>
-                <td><?= $habitacion->tarifa ?>€</td>
+                <td><?= $habitacion->nombre ?></td>
+                <td><?= $habitacion->apellido1 ?></td>
+                <td><?= $habitacion->apellido2 ?></td>
+                <td><?= $habitacion->DNI ?></td>
+                <td><?= $habitacion->fechaEntrada ?></td>
+                <td><?= $habitacion->fechaSalida ?></td>
                 <td>
-                  <form name="modificarHabitacion" action="modificarHabitacion.php" method="POST">
+                  <form name="modificarReserva" action="modificarReserva.php" method="POST">
                     <input type="hidden"  name="codHabitacion" value="<?= $habitacion->codHabitacion ?>">
+                    <input type="hidden"  name="codCliente" value="<?= $habitacion->codCliente ?>">
+                    <input type="hidden"  name="fechaEntrada" value="<?= $habitacion->fechaEntrada ?>">
                     <input type="submit" class="btn btn-info" value="Editar" />
                   </form>
                 </td>
                 <td>
-                  <form name="eliminarHabitacion" action="eliminarHabitacion.php" method="POST">
+                  <form name="eliminarReserva" action="eliminarReservaphp" method="POST">
                     <input type="hidden"  name="codHabitacion" value="<?= $habitacion->codHabitacion ?>">
+                    <input type="hidden"  name="codCliente" value="<?= $habitacion->codCliente ?>">
+                    <input type="hidden"  name="fechaEntrada" value="<?= $habitacion->fechaEntrada ?>">
                     <input type="submit" class="btn btn-danger" value="Eliminar" />
                   </form>
                 </td>
               </tr>
               <?php } ?>
-            <form name="altaCliente" action="altaHabitacion.php" method="POST"> 
+            <form name="altaReserva" action="altaReserva.php" method="POST"> 
                 <tr class="info">
                     <td>
                       <input type="text" maxlength="3" size="2" name="codHabitacion" autofocus placeholder="Cod" value="<?= $habitacion->codHabitacion ?>">
                     </td>
                     <td>
-                      <input type="text" maxlength="10" size="9" name="tipo" placeholder="tipo" value="<?= $habitacion->tipo ?>">
+                      <input type="text" maxlength="10" size="9" name="codCliente" placeholder="tipo" value="<?= $habitacion->codCliente ?>">
                     </td>
                     <td>
-                      <input type="text" maxlength="30" size="10" name="capacidad" placeholder="capacidad" value="<?= $habitacion->capacidad ?>">
+                      <input type="text" maxlength="30" size="10" name="fechaEntrada" placeholder="capacidad" value="<?= $habitacion->fechaEntrada ?>">
                     </td>
                     <td>
-                      <input type="txt" maxlength="30" size="10" name="planta" placeholder="planta"value="<?= $habitacion->planta ?>">
-                    </td>
-                    <td>
-                      <input type="txt" maxlength="30" size="10" name="planta" placeholder="planta"value="<?= $habitacion->tarifa ?>">
+                      <input type="txt" maxlength="30" size="10" name="fechaSalida" placeholder="planta"value="<?= $habitacion->fechaSalida ?>">
                     </td>
                     <td colspan="2">
                       <input type="submit" class="btn btn-info" value="Añadir" />
@@ -141,7 +153,7 @@
               </form>
               <tr>
               <?php
-              $url = "adminHabitaciones.php";
+              $url = "reservas.php";
               if ($totalPaginas > 1) {
                 if ($pagina != 1){
                   echo '<a href="'.$url.'?pagina='.($pagina-1).'">Anterior</a>';

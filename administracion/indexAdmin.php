@@ -31,8 +31,17 @@
         echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
         die ("Error: " . $e->getMessage());
       }
-      $consulta = $conexion->query("SELECT * FROM cliente JOIN habitacion ON "
-        . "cliente.codHabitacion=habitacion.codHabitacion ORDER BY fechaInicial ASC");
+      
+      $dni = null;
+      if(isset($_GET['dni'])){
+        $dni=$_GET['dni'];
+      }
+      
+      if(isset($dni)){
+        $consulta = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "' ORDER BY apellido1, apellido2, nombre");
+      }else{
+        $consulta = $conexion->query("SELECT * FROM cliente ORDER BY apellido1, apellido2, nombre");
+      }
     ?>
     <div class="container">
       <nav class="navbar navbar-inverse">
@@ -59,6 +68,12 @@
           </div>
         </div>
       </nav>
+        <div>
+          <form name="filtrar" action="indexAdmin.php" method="GET">
+            DNI: <input type="text" name="dni" value=""><br>
+            <input type="submit" class="btn btn-info" value="Filtrar" />
+          </form>
+        </div>
       <div class="table-responsive">
         <table class="table table-striped table-hover">
             <thead>
@@ -68,10 +83,6 @@
                 <th>Nombre</th>
                 <th>Apellido 1</th>
                 <th>Apellido 2</th>
-                <th>Fecha Inicial</th>
-                <th>Fecha Final</th>
-                <th>Tarifa</th>
-                <th>Habitación</th>
                 <th>Edición</th>
                 <th>Borrado</th>
               </tr>
@@ -86,10 +97,6 @@
                 <td><?= $cliente->nombre ?></td>
                 <td><?= $cliente->apellido1 ?></td>
                 <td><?= $cliente->apellido2 ?></td>
-                <td><?= $cliente->fechaInicial ?></td>
-                <td><?= $cliente->fechaFinal ?></td>
-                <td><?= $cliente->tarifa ?></td>
-                <td><?= $cliente->codHabitacion?></td>
                 <td>
                   <form name="modificarCliente" action="modificarCliente.php" method="POST">
                     <input type="hidden"  name="codCliente" value="<?= $cliente->codCliente ?>">
@@ -103,10 +110,6 @@
                     <input type="hidden"  name="nombre" value="<?= $cliente->nombre ?>">
                     <input type="hidden"  name="apellido1" value="<?= $cliente->apellido1 ?>">
                     <input type="hidden"  name="apellido2" value="<?= $cliente->apellido2 ?>">
-                    <input type="hidden"  name="fechaInicial" value="<?= $cliente->fechaInicial ?>">
-                    <input type="hidden"  name="fechaFinal" value="<?= $cliente->fechaFinal ?>">
-                    <input type="hidden"  name="tarifa" value="<?= $cliente->tarifa ?>">
-                    <input type="hidden"  name="codHabitacion" value="<?= $cliente->codHabitacion?>">
                     <input type="submit" class="btn btn-danger" value="Eliminar" />
                   </form>
                 </td>
@@ -129,17 +132,6 @@
                     <td>
                       <input type="text" maxlength="30" size="10" name="apellido2" placeholder="Apellido2" value="<?= $cliente->apellido2 ?>">
                     </td>
-                    <td>
-                      <input type="date" maxlength="10" size="10" name="fechaInicial" placeholder="dd/mm/aaaa" value="<?= $cliente->fechaInicial ?>">
-                    </td>
-                    <td>
-                      <input type="date" maxlength="10" size="10" name="fechaFinal" placeholder="dd/mm/aaaa" value="<?= $cliente->fechaFinal ?>">
-                    </td>
-                    <td>
-                      <input type="number" step=0.01 min=0 name="tarifa" placeholder="Tarifa" value="<?= $cliente->tarifa ?>">
-                    </td>
-                    <td>
-                      <input type="text" maxlength="4" size="2" name="codHabitacion" placeholder="Hab" value="<?= $cliente->codHabitacion?>">
                     </td>
                     <td colspan="2">
                       <input type="submit" class="btn btn-info" value="Añadir" />
