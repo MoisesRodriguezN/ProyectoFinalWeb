@@ -111,10 +111,6 @@
                 <td>
                   <form name="eliminarCliente" action="eliminarCliente.php" method="POST">
                     <input type="hidden"  name="codCliente" value="<?= $cliente->codCliente ?>">
-                    <input type="hidden"  name="DNI" value="<?= $cliente->DNI ?>">
-                    <input type="hidden"  name="nombre" value="<?= $cliente->nombre ?>">
-                    <input type="hidden"  name="apellido1" value="<?= $cliente->apellido1 ?>">
-                    <input type="hidden"  name="apellido2" value="<?= $cliente->apellido2 ?>">
                     <input type="submit" class="btn btn-danger" value="Eliminar" />
                   </form>
                 </td>

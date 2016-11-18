@@ -19,8 +19,7 @@
         
         //Comprueba que no hay ningún campo vacio
         if(empty($_POST[codCliente] && $_POST[DNI] && $_POST[nombre] && $_POST[apellido1]
-          && $_POST[apellido2] && $_POST[fechaInicial] && $_POST[fechaFinal] && $_POST[tarifa]
-          && $_POST[codHabitacion])){
+          && $_POST[apellido2])){
           echo "Debes rellenar todos los campos";
           header( "refresh:3;url=indexAdmin.php" ); //Redirecciona  a la página principal.
         }else{
@@ -34,10 +33,9 @@
           <?php
           }else{
             $insercion = "INSERT INTO cliente (codCliente, DNI, nombre, apellido1, "
-              . "apellido2, fechaInicial, fechaFinal, tarifa, codHabitacion) VALUES ('$_POST[codCliente]',"
+              . "apellido2) VALUES ('$_POST[codCliente]',"
               . "'$_POST[DNI]','$_POST[nombre]' ,'$_POST[apellido1]' ,"
-              . "'$_POST[apellido2]' ,'$_POST[fechaInicial]','$_POST[fechaFinal]', "
-              . "'$_POST[tarifa]' ,'$_POST[codHabitacion]')";
+              . "'$_POST[apellido2]')";
             $conexion->exec($insercion);
             echo "Cliente dado de alta correctamente.";
             header( "refresh:3;url=indexAdmin.php" );

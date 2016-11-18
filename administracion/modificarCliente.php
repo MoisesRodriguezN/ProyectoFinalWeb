@@ -17,15 +17,14 @@
             die ("Error: " . $e->getMessage());
         }
         
-        $consulta = $conexion->query("SELECT * FROM cliente JOIN habitacion ON "
-        . "cliente.codHabitacion=habitacion.codHabitacion WHERE codCliente=\"$_POST[codCliente]\" ");
+        $consulta = $conexion->query("SELECT * FROM cliente WHERE codCliente=\"$_POST[codCliente]\" ");
         $cliente = $consulta->fetchObject();
         $accion = $_POST['accion'];
         
         if ($accion == "actualizar"){
           $modificacion = "UPDATE cliente SET  DNI=\"$_POST[DNI]\", "
             . "nombre=\"$_POST[nombre]\", apellido1=\"$_POST[apellido1]\", "
-            . "apellido2=\"$_POST[apellido2]\", fechaInicial=\"$_POST[fechaInicial]\", fechaFinal=\"$_POST[fechaFinal]\", tarifa=\"$_POST[tarifa]\", codHabitacion=\"$_POST[codHabitacion]\""
+            . "apellido2=\"$_POST[apellido2]\""
             . " WHERE codCliente=\"$_POST[codCliente]\"";
           $conexion->exec($modificacion);
           echo "Cliente actualizado correctamente.";
@@ -39,11 +38,7 @@
             DNI: <input type="text" name="DNI" value="<?= $cliente->DNI ?>"><br>
             nombre: <input type="text" name="nombre" value="<?= $cliente->nombre ?>"><br>
             apellido1: <input type="text" name="apellido1" value="<?= $cliente->apellido1 ?>"><br>
-            apellido2: <input type="text" name="apellido2" value="<?= $cliente->apellido2 ?>"><br>
-            fechaInicio: <input type="date" name="fechaInicial" value="<?= $cliente->fechaInicial ?>"><br>
-            fechaFinal: <input type="date" name="fechaFinal" value="<?= $cliente->fechaFinal ?>"><br>
-            tarifa: <input type="text" name="tarifa" value="<?= $cliente->tarifa ?>"><br>
-            codHabitacion: <input type="text" name="codHabitacion" value="<?= $cliente->codHabitacion?>"><br>
+            apellido2: <input type="text" name="apellido2" value="<?= $cliente->apellido2 ?>"><br> 
             <input type="submit" value="Modificar">
           </form>
       <?php
