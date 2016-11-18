@@ -144,7 +144,7 @@
               $url = "adminHabitaciones.php";
               if ($totalPaginas > 1) {
                 if ($pagina != 1){
-                  echo '<a href="'.$url.'?pagina='.($pagina-1).'">Anterior</a>';
+                  echo '<a href="'.$url.'?pagina='.($pagina-1).'">Anterior </a>';
                 }
                 for ($i=1;$i<=$totalPaginas;$i++) {
                   if ($pagina == $i){
@@ -153,11 +153,11 @@
                   }else{
                     //si el índice no corresponde con la página mostrada actualmente,
                     //coloco el enlace para ir a esa página
-                    echo '  <a href="'.$url.'?pagina='.$i.'">'.$i.'</a>  ';
+                    echo '  <a href="'.$url.'?pagina='.$i.'">'.$i.' </a>  ';
                   }
                 }
                 if ($pagina != $totalPaginas){
-                  echo '<a href="'.$url.'?pagina='.($pagina+1).'">Siguiente</a>';
+                  echo '<a href="'.$url.'?pagina='.($pagina+1).'"> Siguiente</a>';
                 }
               }
               ?>

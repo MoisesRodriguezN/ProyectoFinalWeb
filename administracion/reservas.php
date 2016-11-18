@@ -41,6 +41,8 @@
         echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
         die ("Error: " . $e->getMessage());
       }
+      
+      //Cálculos paginación
       $consultaTotal = $conexion->query("SELECT * FROM reserva");
       $totalFilas = $consultaTotal->rowCount();
       
@@ -55,6 +57,7 @@
       }
       //calculo el total de páginas
       $totalPaginas = ceil($totalFilas / $TAMANO_PAGINA);
+      //Fin cálculos paginación
       $consulta = $conexion->query("SELECT * FROM reserva r "
         . "JOIN habitacion h ON (r.codHabitacion = h.codHabitacion) "
         . "JOIN cliente c ON (c.codCliente = r.codCliente) "
@@ -153,10 +156,11 @@
               </form>
               <tr>
               <?php
+              //Paginación
               $url = "reservas.php";
               if ($totalPaginas > 1) {
                 if ($pagina != 1){
-                  echo '<a href="'.$url.'?pagina='.($pagina-1).'">Anterior</a>';
+                  echo '<a href="'.$url.'?pagina='.($pagina-1).'">Anterior </a>';
                 }
                 for ($i=1;$i<=$totalPaginas;$i++) {
                   if ($pagina == $i){
@@ -165,11 +169,11 @@
                   }else{
                     //si el índice no corresponde con la página mostrada actualmente,
                     //coloco el enlace para ir a esa página
-                    echo '  <a href="'.$url.'?pagina='.$i.'">'.$i.'</a>  ';
+                    echo '  <a href="'.$url.'?pagina='.$i.'">'.$i.' </a>  ';
                   }
                 }
                 if ($pagina != $totalPaginas){
-                  echo '<a href="'.$url.'?pagina='.($pagina+1).'">Siguiente</a>';
+                  echo '<a href="'.$url.'?pagina='.($pagina+1).'"> Siguiente</a>';
                 }
               }
               ?>
