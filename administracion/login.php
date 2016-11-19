@@ -130,7 +130,7 @@
           if($datos -> rol == "administrador"){
             $_SESSION['logueadoAdmin'] = true;
             $_SESSION['nombreAdmin'] = $usuario;
-            header("location:indexAdmin.php");
+            header("location:index.php");
           }
 
           if($datos -> rol == "usuario"){

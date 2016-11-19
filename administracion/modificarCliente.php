@@ -105,7 +105,7 @@
             . " WHERE codCliente=\"$_POST[codCliente]\"";
           $conexion->exec($modificacion);
           echo "Cliente actualizado correctamente.";
-          header( "refresh:3;url=indexAdmin.php" );
+          header( "refresh:3;url=index.php" );
           $conexion->close();
         }else{
       ?>

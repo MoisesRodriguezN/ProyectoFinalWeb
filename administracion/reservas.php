@@ -5,7 +5,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Administración Hotel - Habitaciones</title>
+    <title>Administración Hotel - Reservas</title>
       <link href="http://meyerweb.com/eric/tools/css/reset/reset.css" rel="stylesheet">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
@@ -73,17 +73,17 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Administración Hotel</a>
+            <a class="navbar-brand" href="index.php">Administración Hotel</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li><a href="indexAdmin.php">Clientes</a></li>
+              <li><a href="index.php">Clientes</a></li>
               <li><a href="adminHabitaciones.php">Habitaciones</a></li>
               <li class="active"><a href="reservas.php">Reservas</a></li>
              <!-- <li><a href="#">Page 3</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="indexAdmin.php"><span class="glyphicon glyphicon-user"></span> <?= ucfirst($_SESSION['nombreAdmin'])?></a></li>
+              <li><a href="index.php"><span class="glyphicon glyphicon-user"></span> <?= ucfirst($_SESSION['nombreAdmin'])?></a></li>
               <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
             </ul>
           </div>

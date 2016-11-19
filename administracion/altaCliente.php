@@ -21,15 +21,15 @@
         if(empty($_POST[codCliente] && $_POST[DNI] && $_POST[nombre] && $_POST[apellido1]
           && $_POST[apellido2])){
           echo "Debes rellenar todos los campos";
-          header( "refresh:3;url=indexAdmin.php" ); //Redirecciona  a la página principal.
+          header( "refresh:3;url=index.php" ); //Redirecciona  a la página principal.
         }else{
           $consulta = $conexion->query("SELECT codCliente FROM cliente WHERE codCliente=".$_POST['codCliente']);
 
           if ($consulta->rowCount() > 0) {
-            header( "refresh:3;url=indexAdmin.php" );
+            header( "refresh:3;url=index.php" );
           ?>
             Ya existe un cliente con DNI <?= $_POST['dni'] ?><br>
-            Por favor, vuelva al <a href="indexAdmin.php">panel de Administración del hotel</a>.
+            Por favor, vuelva al <a href="index.php">panel de Administración del hotel</a>.
           <?php
           }else{
             $insercion = "INSERT INTO cliente (codCliente, DNI, nombre, apellido1, "
@@ -38,7 +38,7 @@
               . "'$_POST[apellido2]')";
             $conexion->exec($insercion);
             echo "Cliente dado de alta correctamente.";
-            header( "refresh:3;url=indexAdmin.php" );
+            header( "refresh:3;url=index.php" );
             $conexion->close();
             }
         }
