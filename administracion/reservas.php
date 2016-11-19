@@ -61,7 +61,7 @@
       $consulta = $conexion->query("SELECT * FROM reserva r "
         . "JOIN habitacion h ON (r.codHabitacion = h.codHabitacion) "
         . "JOIN cliente c ON (c.codCliente = r.codCliente) "
-        . "ORDER BY r.fechaEntrada DESC, r.codHabitacion LIMIT " . $inicio . "," . $TAMANO_PAGINA);
+        . "ORDER BY r.fechaEntrada ASC, r.codHabitacion LIMIT " . $inicio . "," . $TAMANO_PAGINA);
     ?>
   
     <div class="container">
@@ -107,29 +107,29 @@
             </thead>
             <tbody>
               <?php
-                while ($habitacion = $consulta->fetchObject()) {
+                while ($reserva = $consulta->fetchObject()) {
               ?>
               <tr>
-                <td><?= $habitacion->codHabitacion ?></td>
-                <td><?= $habitacion->nombre ?></td>
-                <td><?= $habitacion->apellido1 ?></td>
-                <td><?= $habitacion->apellido2 ?></td>
-                <td><?= $habitacion->DNI ?></td>
-                <td><?= $habitacion->fechaEntrada ?></td>
-                <td><?= $habitacion->fechaSalida ?></td>
+                <td><?= $reserva->codHabitacion ?></td>
+                <td><?= $reserva->nombre ?></td>
+                <td><?= $reserva->apellido1 ?></td>
+                <td><?= $reserva->apellido2 ?></td>
+                <td><?= $reserva->DNI ?></td>
+                <td><?= $reserva->fechaEntrada ?></td>
+                <td><?= $reserva->fechaSalida ?></td>
                 <td>
                   <form name="modificarReserva" action="modificarReserva.php" method="POST">
-                    <input type="hidden"  name="codHabitacion" value="<?= $habitacion->codHabitacion ?>">
-                    <input type="hidden"  name="codCliente" value="<?= $habitacion->codCliente ?>">
-                    <input type="hidden"  name="fechaEntrada" value="<?= $habitacion->fechaEntrada ?>">
+                    <input type="hidden"  name="codHabitacion" value="<?= $reserva->codHabitacion ?>">
+                    <input type="hidden"  name="codCliente" value="<?= $reserva->codCliente ?>">
+                    <input type="hidden"  name="fechaEntrada" value="<?= $reserva->fechaEntrada ?>">
                     <input type="submit" class="btn btn-info" value="Editar" />
                   </form>
                 </td>
                 <td>
-                  <form name="eliminarReserva" action="eliminarReservaphp" method="POST">
-                    <input type="hidden"  name="codHabitacion" value="<?= $habitacion->codHabitacion ?>">
-                    <input type="hidden"  name="codCliente" value="<?= $habitacion->codCliente ?>">
-                    <input type="hidden"  name="fechaEntrada" value="<?= $habitacion->fechaEntrada ?>">
+                  <form name="eliminarReserva" action="eliminarReserva.php" method="POST">
+                    <input type="hidden"  name="codHabitacion" value="<?= $reserva->codHabitacion ?>">
+                    <input type="hidden"  name="codCliente" value="<?= $reserva->codCliente ?>">
+                    <input type="hidden"  name="fechaEntrada" value="<?= $reserva->fechaEntrada ?>">
                     <input type="submit" class="btn btn-danger" value="Eliminar" />
                   </form>
                 </td>
@@ -138,16 +138,16 @@
             <form name="altaReserva" action="altaReserva.php" method="POST"> 
                 <tr class="info">
                     <td>
-                      <input type="text" maxlength="3" size="2" name="codHabitacion" autofocus placeholder="Cod" value="<?= $habitacion->codHabitacion ?>">
+                      <input type="text" maxlength="3" size="2" name="codHabitacion" autofocus placeholder="Cod" value="<?= $reserva->codHabitacion ?>">
                     </td>
                     <td>
-                      <input type="text" maxlength="10" size="9" name="codCliente" placeholder="tipo" value="<?= $habitacion->codCliente ?>">
+                      <input type="text" maxlength="10" size="9" name="codCliente" placeholder="tipo" value="<?= $reserva->codCliente ?>">
                     </td>
                     <td>
-                      <input type="text" maxlength="30" size="10" name="fechaEntrada" placeholder="capacidad" value="<?= $habitacion->fechaEntrada ?>">
+                      <input type="text" maxlength="30" size="10" name="fechaEntrada" placeholder="capacidad" value="<?= $reserva->fechaEntrada ?>">
                     </td>
                     <td>
-                      <input type="txt" maxlength="30" size="10" name="fechaSalida" placeholder="planta"value="<?= $habitacion->fechaSalida ?>">
+                      <input type="txt" maxlength="30" size="10" name="fechaSalida" placeholder="planta"value="<?= $reserva->fechaSalida ?>">
                     </td>
                     <td colspan="2">
                       <input type="submit" class="btn btn-info" value="Añadir" />
