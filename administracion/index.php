@@ -88,6 +88,7 @@
                 <th>Apellido 1</th>
                 <th>Apellido 2</th>
                 <th>Edición</th>
+                <th>Reserva</th>
                 <th>Borrado</th>
               </tr>
             </thead>
@@ -105,6 +106,12 @@
                   <form name="modificarCliente" action="modificarCliente.php" method="POST">
                     <input type="hidden"  name="codCliente" value="<?= $cliente->codCliente ?>">
                     <input type="submit" class="btn btn-info" value="Editar" />
+                  </form>
+                </td>
+                <td>
+                  <form name="reservar" action="reservar.php" method="POST">
+                    <input type="hidden"  name="codCliente" value="<?= $cliente->codCliente ?>">
+                    <input type="submit" class="btn btn-success" value="Reservar" />
                   </form>
                 </td>
                 <td>

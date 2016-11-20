@@ -100,7 +100,7 @@
         
         if ($accion == "actualizar"){
           $modificacion = "UPDATE habitacion SET  tipo=\"$_POST[tipo]\", "
-            . "capacidad=\"$_POST[capacidad]\", planta=\"$_POST[planta]\" "        
+            . "capacidad=\"$_POST[capacidad]\", planta=\"$_POST[planta]\", tarifa=\"$_POST[tarifa]\" "        
             . " WHERE codHabitacion=\"$_POST[codHabitacion]\"";
           $conexion->exec($modificacion);
           echo "Habitación actualizada correctamente.";
@@ -132,7 +132,12 @@
 
               <div class="form-group">
                 <label for="inputPlanta">Planta:</label>
-                <input type="text" name="nombre" id="inputPlanta" class="form-control" value="<?= $habitacion->planta ?>">
+                <input type="text" name="planta" id="inputPlanta" class="form-control" value="<?= $habitacion->planta ?>">
+              </div>
+                
+              <div class="form-group">
+                <label for="inputTarifa">Tarifa:</label>
+                <input type="text" name="tarifa" id="inputTarifa" class="form-control" value="<?= $habitacion->tarifa ?>">
               </div>
               <button type="submit" class="btn btn-default">Actualizar</button>
             </form>

@@ -105,11 +105,10 @@
         if ($accion == "actualizar"){
           $modificacion = "UPDATE reserva SET  fechaEntrada=\"$_POST[fechaEntrada]\", "
             . "fechaSalida=\"$_POST[fechaSalida]\" WHERE codHabitacion=\"$_POST[codHabitacion]\" "
-            . "AND codCliente=\"$_POST[codCliente]\" AND fechaEntrada=\"$_POST[fechaEntrada]\"";
+            . "AND codCliente=\"$_POST[codCliente]\" AND fechaEntrada=\"$_POST[fechaEntradaHidden]\"";
           $conexion->exec($modificacion);
-          echo $modificacion;
-          echo "Cliente actualizado correctamente.";
-          header( "refresh:300;url=reservas.php" );
+          echo "Cliente actualizado correctamente";
+          header( "refresh:3;url=reservas.php" );
           $conexion->close();
         }else{
       ?>
@@ -151,13 +150,14 @@
                   </div>
                     
                   <div class="form-group">
-                    <label for="inputFechaInicio">FechaEntrada:</label>
-                    <input type="date" name="fechaEntrada" id="inputApellido2" class="form-control" value="<?= $reserva->fechaEntrada ?>">
+                    <label for="inputfechaEntrada">FechaEntrada:</label>
+                    <input type="hidden" name="fechaEntradaHidden" class="form-control" value="<?= $reserva->fechaEntrada ?>">
+                    <input type="date" name="fechaEntrada" id="inputfechaEntrada" class="form-control" value="<?= $reserva->fechaEntrada ?>">
                   </div>
                     
                   <div class="form-group">
                     <label for="inputFechaSalida">FechaSalida:</label>
-                    <input type="date" name="fechaSalida" id="inputApellido2" class="form-control" value="<?= $reserva->fechaSalida ?>">
+                    <input type="date" name="fechaSalida" id="inputFechaSalida2" class="form-control" value="<?= $reserva->fechaSalida ?>">
                   </div>
                   <button type="submit" class="btn btn-default">Enviar</button>
                 </form>
