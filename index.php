@@ -94,10 +94,10 @@
             </div>
             <div class="flex-container space-between">
               <a href="index.php" class="flex-item seleccionado"><p>INICIO <br>Bienvenidos</p></a>
-              <div class="flex-item"><p>EL HOTEL <br>¿Quienes somos?</p></div>
               <div class="flex-item"><p>SERVICIOS <br>¿Que ofrecemos?</p></div>
               <div class="flex-item"><p>HABITACIONES <br>Tu comodidad</p></div>
               <div class="flex-item"><p>RESERVAS <br>Reserva Ahora!</p></div>
+              <div class="flex-item"><p>MI CUENTA <br>Tus reservas</p></div>
               <div class="flex-item"><p>CONTACTO <br>Escribenos!</p></div>
             </div>
         </div>
