@@ -23,10 +23,10 @@
       }
 
       .logo {
-          width: 213px;
+          width: 322px;
           height: 36px;
-          background: url('http://i.imgur.com/fd8Lcso.png') no-repeat;
           margin: 30px auto;
+          padding-bottom: 10px;
       }
 
       .login-block {
@@ -143,7 +143,7 @@
         }
 
       ?>
-    <div class="logo"></div>
+      <div class="logo"><img class="logo" src="../img/logoLogin.png"></div>
     <div class="login-block">
         <h1>Login</h1>
         <?=$error?>

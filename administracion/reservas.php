@@ -135,25 +135,6 @@
                 </td>
               </tr>
               <?php } ?>
-            <form name="altaReserva" action="altaReserva.php" method="POST"> 
-                <tr class="info">
-                    <td>
-                      <input type="text" maxlength="3" size="2" name="codHabitacion" autofocus placeholder="Cod" value="<?= $reserva->codHabitacion ?>">
-                    </td>
-                    <td>
-                      <input type="text" maxlength="10" size="9" name="codCliente" placeholder="tipo" value="<?= $reserva->codCliente ?>">
-                    </td>
-                    <td>
-                      <input type="text" maxlength="30" size="10" name="fechaEntrada" placeholder="capacidad" value="<?= $reserva->fechaEntrada ?>">
-                    </td>
-                    <td>
-                      <input type="txt" maxlength="30" size="10" name="fechaSalida" placeholder="planta"value="<?= $reserva->fechaSalida ?>">
-                    </td>
-                    <td colspan="2">
-                      <input type="submit" class="btn btn-info" value="Añadir" />
-                    </td>
-                </tr>
-              </form>
               <tr>
               <?php
               //Paginación

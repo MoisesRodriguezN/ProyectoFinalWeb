@@ -5,7 +5,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Modificacioń de reservas</title>
+    <title>Reserva de habitacion</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,35 +94,26 @@
             die ("Error: " . $e->getMessage());
         }
         
-        $consulta = $conexion->query("SELECT * FROM reserva r "
-        . "JOIN habitacion h ON (r.codHabitacion = h.codHabitacion) "
-        . "JOIN cliente c ON (c.codCliente = r.codCliente)"
-        . "WHERE r.codHabitacion=\"$_POST[codHabitacion]\" AND r.codCliente=\"$_POST[codCliente]\" "
-        . "AND r.fechaEntrada=\"$_POST[fechaEntrada]\"");
+        $consulta = $conexion->query("SELECT * FROM cliente c "
+        . "WHERE c.codCliente=\"$_POST[codCliente]\"");
         $reserva = $consulta->fetchObject();
         $accion = $_POST['accion'];
-        
+         
         if ($accion == "actualizar"){
-          $modificacion = "UPDATE reserva SET  fechaEntrada=\"$_POST[fechaEntrada]\", "
-            . "fechaSalida=\"$_POST[fechaSalida]\" WHERE codHabitacion=\"$_POST[codHabitacion]\" "
-            . "AND codCliente=\"$_POST[codCliente]\" AND fechaEntrada=\"$_POST[fechaEntradaHidden]\"";
-          $conexion->exec($modificacion);
-          echo "Reserva actualizada correctamente";
+          $insercion = "INSERT INTO RESERVA (codCliente, codHabitacion,	fechaEntrada,	fechaSalida) VALUES ('$_POST[codCliente]',"
+              . "'$_POST[codHabitacion]','$_POST[fechaEntrada]' ,'$_POST[fechaSalida]')";
+          $conexion->exec($insercion);
+          echo "Reserva realizada Correctamente";
           header( "refresh:3;url=reservas.php" );
           $conexion->close();
         }else{
       ?>
         <div class="contenedorForm">
           <div class="panel panel-primary">
-              <div class="panel-heading cabeceraDivForm">Modificación de clientes</div>
+              <div class="panel-heading cabeceraDivForm">Reserva de habitacion</div>
               <div class="cuadroForm">
-                  <form action="modificarReserva.php" class="formCentrado" method="post">
-                      
-                  <div class="form-group">
-                    <label for="inputCodHabitacion">codHabitacion:</label>
-                    <input type="text" name="codHabitacion" id="inputCodHabitacion" class="form-control" value="<?= $reserva->codHabitacion ?>" readonly="readonly">
-                  </div>
-                      
+                  <form action="reservar.php" class="formCentrado" method="post">
+                                       
                   <div class="form-group">
                     <label for="inputCodCliente">codCliente:</label>
                     <input type="hidden" name="accion" value="actualizar">
@@ -148,16 +139,20 @@
                     <label for="inputApellido2">Apellido2:</label>
                     <input type="text" name="apellido2" id="inputApellido2" class="form-control" value="<?= $reserva->apellido2 ?>" readonly="readonly">
                   </div>
-                    
+                        
+                  <div class="form-group">
+                    <label for="inputCodHabitacion">codHabitacion:</label>
+                    <input type="text" name="codHabitacion" id="inputCodHabitacion" class="form-control" value="">
+                  </div>
+                      
                   <div class="form-group">
                     <label for="inputfechaEntrada">FechaEntrada:</label>
-                    <input type="hidden" name="fechaEntradaHidden" class="form-control" value="<?= $reserva->fechaEntrada ?>">
-                    <input type="date" name="fechaEntrada" id="inputfechaEntrada" class="form-control" value="<?= $reserva->fechaEntrada ?>">
+                    <input type="date" name="fechaEntrada" id="inputfechaEntrada" class="form-control" value="">
                   </div>
                     
                   <div class="form-group">
                     <label for="inputFechaSalida">FechaSalida:</label>
-                    <input type="date" name="fechaSalida" id="inputFechaSalida2" class="form-control" value="<?= $reserva->fechaSalida ?>">
+                    <input type="date" name="fechaSalida" id="inputFechaSalida2" class="form-control" value="">
                   </div>
                   <button type="submit" class="btn btn-default">Enviar</button>
                 </form>
