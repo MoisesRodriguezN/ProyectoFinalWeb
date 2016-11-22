@@ -155,7 +155,7 @@
               color:white;
             }
             
-            #galeria > img { 
+            #galeriaAnimada > img { 
               width: 100%;
               height: 100%;
               position: absolute;
@@ -164,35 +164,37 @@
               color: transparent;
               opacity: 0;
               z-index: 0;
-              -webkit-animation: animacionFotos 30s linear infinite 0s;
-              -moz-animation: animacionFotos 30s linear infinite 0s;
-              -o-animation: animacionFotos 30s linear infinite 0s;
-              -ms-animation: animacionFotos 30s linear infinite 0s;
-              animation: animacionFotos 30s linear infinite 0s; 
+              -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+              backface-visibility: hidden;
+              -webkit-animation: animacionGaleria 30s linear infinite 0s;
+              -moz-animation: animacionGaleria 30s linear infinite 0s;
+              -o-animation: animacionGaleria 30s linear infinite 0s;
+              -ms-animation: animacionGaleria 30s linear infinite 0s;
+              animation: animacionGaleria 30s linear infinite 0s; 
            }
 
-           #galeria > img:nth-child(2)  { 
+           #galeriaAnimada > img:nth-child(2)  { 
               -webkit-animation-delay: 6s;
               -moz-animation-delay: 6s;
               -o-animation-delay: 6s;
               -ms-animation-delay: 6s;
               animation-delay: 6s; 
            }
-           #galeria > img:nth-child(3) { 
+           #galeriaAnimada > img:nth-child(3) { 
               -webkit-animation-delay: 12s;
               -moz-animation-delay: 12s;
               -o-animation-delay: 12s;
               -ms-animation-delay: 12s;
               animation-delay: 12s; 
            }
-           #galeria > img:nth-child(4) { 
+           #galeriaAnimada > img:nth-child(4) { 
               -webkit-animation-delay: 18s;
               -moz-animation-delay: 18s;
               -o-animation-delay: 18s;
               -ms-animation-delay: 18s;
               animation-delay: 18s; 
            }
-           #galeria > img:nth-child(5) { 
+           #galeriaAnimada > img:nth-child(5) { 
               -webkit-animation-delay: 24s;
               -moz-animation-delay: 24s;
               -o-animation-delay: 24s;
@@ -200,12 +202,12 @@
               animation-delay: 24s; 
            }
 
-          @-webkit-keyframes animacionFotos { 
+          @-webkit-keyframes animacionGaleria { 
               0% { opacity: 0;}
               8% { opacity: 1;}
-              17% { opacity: 1 }
-              25% { opacity: 1 }
-              100% { opacity: 0 }
+              22% { opacity: 1; }
+              35% { opacity: 0; }
+              100% { opacity: 0; }
           }
 
         </style>
@@ -230,12 +232,12 @@
                 <span class="texto3D">Hotel Fuente Alegre</span>
             </div>
             <div class="contenedorCarusel">
-                <div id="galeria">
-                  <img class = "cone" src = "img/hotel1.jpg" alt = "png">
-                  <img class = "ctwo" src = "img/hotel2.jpg" alt = "png">
-                  <img class = "cthree" src = "img/hotel3.jpg" alt = "png">
-                  <img class = "cfour" src = "img/hotel4.jpg" alt = "png">
-                  <img class = "cfive" src = "img/hotel5.jpg" alt = "png">
+                <div id="galeriaAnimada">
+                  <img src = "img/hotel1.jpg" alt = "Imagen hotel habitacion">
+                  <img src = "img/hotel2.jpg" alt = "Piscina">
+                  <img src = "img/hotel3.jpg" alt = "Habitacion superior">
+                  <img src = "img/hotel4.jpg" alt = "Pasillos">
+                  <img src = "img/hotel5.jpg" alt = "Salon">
                 </div>
                 <div class="footerCarousel">
                   <div class="bienvenidacarouselDiv">
