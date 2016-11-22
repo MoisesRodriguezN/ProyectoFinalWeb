@@ -155,7 +155,7 @@
               color:white;
             }
             
-            #crossfade > img { 
+            #galeria > img { 
               width: 100%;
               height: 100%;
               position: absolute;
@@ -164,35 +164,35 @@
               color: transparent;
               opacity: 0;
               z-index: 0;
-              -webkit-animation: imageAnimation 30s linear infinite 0s;
-              -moz-animation: imageAnimation 30s linear infinite 0s;
-              -o-animation: imageAnimation 30s linear infinite 0s;
-              -ms-animation: imageAnimation 30s linear infinite 0s;
-              animation: imageAnimation 30s linear infinite 0s; 
+              -webkit-animation: animacionFotos 30s linear infinite 0s;
+              -moz-animation: animacionFotos 30s linear infinite 0s;
+              -o-animation: animacionFotos 30s linear infinite 0s;
+              -ms-animation: animacionFotos 30s linear infinite 0s;
+              animation: animacionFotos 30s linear infinite 0s; 
            }
 
-           #crossfade > img:nth-child(2)  { 
+           #galeria > img:nth-child(2)  { 
               -webkit-animation-delay: 6s;
               -moz-animation-delay: 6s;
               -o-animation-delay: 6s;
               -ms-animation-delay: 6s;
               animation-delay: 6s; 
            }
-           #crossfade > img:nth-child(3) { 
+           #galeria > img:nth-child(3) { 
               -webkit-animation-delay: 12s;
               -moz-animation-delay: 12s;
               -o-animation-delay: 12s;
               -ms-animation-delay: 12s;
               animation-delay: 12s; 
            }
-           #crossfade > img:nth-child(4) { 
+           #galeria > img:nth-child(4) { 
               -webkit-animation-delay: 18s;
               -moz-animation-delay: 18s;
               -o-animation-delay: 18s;
               -ms-animation-delay: 18s;
               animation-delay: 18s; 
            }
-           #crossfade > img:nth-child(5) { 
+           #galeria > img:nth-child(5) { 
               -webkit-animation-delay: 24s;
               -moz-animation-delay: 24s;
               -o-animation-delay: 24s;
@@ -200,7 +200,7 @@
               animation-delay: 24s; 
            }
 
-          @-webkit-keyframes imageAnimation { 
+          @-webkit-keyframes animacionFotos { 
               0% { opacity: 0;}
               8% { opacity: 1;}
               17% { opacity: 1 }
@@ -230,7 +230,7 @@
                 <span class="texto3D">Hotel Fuente Alegre</span>
             </div>
             <div class="contenedorCarusel">
-                <div id="crossfade">
+                <div id="galeria">
                   <img class = "cone" src = "img/hotel1.jpg" alt = "png">
                   <img class = "ctwo" src = "img/hotel2.jpg" alt = "png">
                   <img class = "cthree" src = "img/hotel3.jpg" alt = "png">
