@@ -98,7 +98,7 @@
             
             .contenedorTexto{
               text-align: center;
-              margin-left: 14%;
+              margin-right: 4%;
               margin-bottom: 1%;
             }
             
@@ -212,7 +212,7 @@
               100% { opacity: 0; }
           }
           
-          .testing{
+          .formularioReserva{
               width: 19%;
               height: 100px;
               background: linear-gradient(to bottom right, rgb(216, 164, 38) , rgb(222, 184,	135));
@@ -236,6 +236,7 @@
           }
           
           .btnEnvio1 {
+              width: 71%;
               font-weight: bold;
               cursor: pointer;
               padding: 5px;
@@ -248,6 +249,52 @@
           .btnEnvio1:hover {
               background: #ddd;
           }
+          
+          .redesSociales{
+              width: 51px;
+              float: right;
+              left: 91%;
+              position: fixed;
+          }
+          
+          #elemento1, #elemento2,#elemento3,#elemento4{
+              background-image: url("img/spriteSocial.png");
+              background-position: 0px 0px;
+              background-repeat: no-repeat;
+              width: 72px;
+              height: 96px;
+              display: inline-block;
+              vertical-align: middle;
+              background-size: 100%;
+
+          }
+
+          #elemento1{
+              background-position: 2px 27px;
+              height: 104px;
+          }
+
+          #elemento2{
+              background-position: 7px -210px;
+              height: 71px;
+          }
+
+
+          #elemento3{
+              background-position: 7px -72px;
+              height: 71px;
+          }
+
+
+          #elemento4{
+              background-position: 7px -142px;
+              height: 71px;
+          }
+
+          ul{
+            list-style:none;
+          }
+			
         </style>
     </head>
     <body>
@@ -269,8 +316,15 @@
             <div class="contenedorTexto">
                 <span class="texto3D">Hotel Fuente Alegre</span>
             </div>
-            
-            <div class="testing">
+            <div class="redesSociales">
+              <ul>
+                <li><span id="elemento1"></span></li>
+                <li><span id="elemento2"></span></li>
+                <li><span id="elemento3"></span></li>
+                <li><span id="elemento4"></span></li>
+              </ul>
+            </div> 
+            <div class="formularioReserva">
                 <div class="cabeceraReservar">
                   <span class="tituloReservar">Reservar Ahora!</span>
                   <form action="action_page.php" method="get">
@@ -316,7 +370,7 @@
                     <input type="submit" class="btnEnvio1" value="Ver Tarifas y Reservar">
                   </form> 
                 </div>
-            </div>
+            </div>       
             <div class="contenedorCarusel">
                 <div id="galeriaAnimada">
                   <img src = "img/hotel1.jpg" alt = "Imagen hotel habitacion">
