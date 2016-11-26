@@ -8,6 +8,22 @@
   if(!isset($_SESSION['logueadoUser'])) {
     $_SESSION['logueadoUser'] = false;
   } //Sesión Usuarios
+  
+  if($_SESSION['logueadoAdmin']==TRUE) {
+    header("location:index.php");
+  } //Sesión Administradores
+  
+  if($_SESSION['logueadoUser'] == TRUE) {
+    header("location:../usuario/index.php");
+  } 
+  
+   $codHabitacion= $_GET['codHabitacion'];     
+  $fechaEntrada = $_GET['fechaEntrada'];
+  $fechaSalida = $_GET['fechaSalida']; 
+  
+  if(isset($codHabitacion)){
+    echo "existe";
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -127,14 +143,16 @@
 
         if($consulta->rowCount() == 1){
           $datos = $consulta->fetchObject();
-          if($datos -> rol == "administrador"){
+          if($datos->rol == "administrador"){
             $_SESSION['logueadoAdmin'] = true;
             $_SESSION['nombreAdmin'] = $usuario;
             header("location:index.php");
           }
 
-          if($datos -> rol == "usuario"){
+          if($datos->rol == "usuario"){
             $_SESSION['logueadoUser'] = true;
+            $_SESSION['nombreUser'] = $usuario;
+            $_SESSION['codCliente'] = $datos->codCliente;
             header("location:../usuario/index.php");
           }
 

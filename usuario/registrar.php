@@ -1,15 +1,22 @@
 <?php
   session_start(); // Inicio de sesión
+  
+  if(!isset($_SESSION['logueadoUser'])) {
+    $_SESSION['logueadoUser'] = false;
+  } //Sesión Usuarios
+  
+  if($_SESSION['logueadoUser'] == TRUE) {
+    header("location:../usuario/index.php");
+  } 
 ?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Alta de clientes</title>
+    <title>Registro de clientes</title>
   </head>
   <body>
       <?php
-        if ( $_SESSION['logueadoAdmin'] == true){
         try {
           $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");
         } catch (PDOException $e) {
@@ -17,37 +24,33 @@
             die ("Error: " . $e->getMessage());
         }
         
+        $numMaximoCliente = $conexion->query("SELECT max(codCliente) AS codCliente FROM cliente");
+        
+        $codAux = $numMaximoCliente->fetchObject();
+        $codClienteRegistro = $codAux->codCliente+1;
         //Comprueba que no hay ningún campo vacio
-        if(empty($_POST[codCliente] && $_POST[DNI] && $_POST[nombre] && $_POST[apellido1]
+        if(empty($_POST[usuario] && $_POST[clave] && $_POST[dni] && $_POST[nombre] && $_POST[apellido1]
           && $_POST[apellido2])){
           echo "Debes rellenar todos los campos";
-          header( "refresh:3;url=index.php" ); //Redirecciona  a la página principal.
+          header( "refresh:30;url=registro.php" ); //Redirecciona  a la página principal.
         }else{
-          $consulta = $conexion->query("SELECT codCliente FROM cliente WHERE codCliente=".$_POST['codCliente']);
-
-          if ($consulta->rowCount() > 0) {
-            header( "refresh:3;url=index.php" );
-          ?>
-            Ya existe un cliente con DNI <?= $_POST['dni'] ?><br>
-            Por favor, vuelva al <a href="index.php">panel de Administración del hotel</a>.
-          <?php
-          }else{
-            $insercion = "INSERT INTO cliente (codCliente, DNI, nombre, apellido1, "
-              . "apellido2) VALUES ('$_POST[codCliente]',"
-              . "'$_POST[DNI]','$_POST[nombre]' ,'$_POST[apellido1]' ,"
-              . "'$_POST[apellido2]')";
-            $conexion->exec($insercion);
-            echo "Cliente dado de alta correctamente.";
-            header( "refresh:3;url=index.php" );
-            $conexion->close();
-            }
+          echo $codClienteRegistro;
+          $insercion = "INSERT INTO cliente (codCliente, DNI, nombre, apellido1, "
+            . "apellido2) VALUES ('$codClienteRegistro',"
+            . "'$_POST[dni]','$_POST[nombre]' ,'$_POST[apellido1]' ,"
+            . "'$_POST[apellido2]')";
+          $conexion->exec($insercion);
+          echo $insercion;
+          
+          $insercion2 = "INSERT INTO login (usuario, clave, rol, codCliente)"
+            . "  VALUES ('$_POST[usuario]',"
+            . "'$_POST[clave]','usuario' ,'$codClienteRegistro')";
+          $conexion->exec($insercion2);
+          echo "Cliente dado de alta correctamente.";
+          header( "refresh:300;url=login.php" );
+          $conexion->close();
+            
         }
           ?> 
-          <?php
-            }else{
-              echo "Debes iniciar sesión para poder entrar en esta zona";
-              header("location:login.php");
-            }
-          ?>
   </body>
 </html>

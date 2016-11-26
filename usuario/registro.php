@@ -1,13 +1,17 @@
 <?php
   session_start(); // Inicio de sesión
-  if(!isset($_SESSION['logueadoAdmin'])) {
-    $_SESSION['logueadoAdmin'] = false;
-    $_SESSION['nombreAdmin'] = "";
-  } //Sesión Administradores
-  
+
   if(!isset($_SESSION['logueadoUser'])) {
     $_SESSION['logueadoUser'] = false;
   } //Sesión Usuarios
+  
+  if($_SESSION['logueadoUser'] == TRUE) {
+    header("location:../usuario/index.php");
+  }  
+  
+  if(isset($codHabitacion)){
+    echo "existe";
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -99,6 +103,11 @@
           outline: none;
           cursor: pointer;
       }
+      
+      .btnRegistro{
+          background: #aa656c;
+          color: #faf;
+      }
 
       .login-block button:hover {
           background: #ff7b81;
@@ -107,6 +116,7 @@
       #error{
           color: #f8363f;
       }
+      
     </style>
   </head>
 
@@ -122,36 +132,37 @@
 
         $usuario = $_POST['usuario'];
         $clave = $_POST['clave'];
-        $consulta = $conexion->query("SELECT * FROM login WHERE usuario='$usuario' and clave='$clave'");
+        $consulta = $conexion->query("SELECT * FROM login WHERE usuario='$usuario' and clave='$clave' and rol='usuario'");
         $error = "";
 
         if($consulta->rowCount() == 1){
           $datos = $consulta->fetchObject();
-          if($datos -> rol == "administrador"){
-            $_SESSION['logueadoAdmin'] = true;
-            $_SESSION['nombreAdmin'] = $usuario;
+          if($datos->rol == "usuario"){
+            $_SESSION['logueadoUser'] = true;
+            $_SESSION['nombreUser'] = $usuario;
+            $_SESSION['codCliente'] = $datos->codCliente;
             header("location:index.php");
           }
 
-          if($datos -> rol == "usuario"){
-            $_SESSION['logueadoUser'] = true;
-            header("location:../usuario/index.php");
+          }else if(($consulta->rowCount() == 0) && isset ($_POST['usuario']) && isset ($_POST['clave'])){
+            $error = "<h1 id='error'>Usuario o Clave incorrectos</h1>";
           }
-
-        }else if(($consulta->rowCount() == 0) && isset ($_POST['usuario']) && isset ($_POST['clave'])){
-          $error = "<h1 id='error'>Usuario o Clave incorrectos</h1>";
-        }
 
       ?>
       <div class="logo"><img class="logo" src="../img/logoLogin.png"></div>
     <div class="login-block">
         <h1>Login</h1>
         <?=$error?>
-        <form action="login.php" method="post">
-          <input type="text" name="usuario" required placeholder="Username" id="username" />
-          <input type="password" name="clave" required placeholder="Password" id="password" />
-          <button type="submit">Submit</button>
+        <form action="registrar.php" method="post">
+          <input type="text" name="dni" required placeholder="DNI" maxlength="9"/>
+          <input type="text" name="nombre" required placeholder="Nombre"/>
+          <input type="text" name="apellido1" required placeholder="Apellido 1"/>
+          <input type="text" name="apellido2" required placeholder="Apellido 2"/>
+          <input type="text" name="usuario" required placeholder="Usuario"/>
+          <input type="password" name="clave" required placeholder="Contraseña"/>
+          <button type="submit">Registrarme</button>
         </form>
+        <br>
     </div>
   </body>
 </html>
