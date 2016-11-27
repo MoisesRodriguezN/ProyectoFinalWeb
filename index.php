@@ -327,7 +327,7 @@
             <div class="formularioReserva">
                 <div class="cabeceraReservar">
                   <span class="tituloReservar">Reservar Ahora!</span>
-                  <form action="usuario/pruebaReserva.php" method="get">
+                  <form action="usuario/habitaciones.php" method="get">
                     Fecha Entrada:<br>
                     <input type="date" name="fechaEntrada">
                     <br>

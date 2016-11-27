@@ -29,7 +29,7 @@
       .logo {
           width: 322px;
           height: 36px;
-          margin: 30px auto;
+          margin: 10px auto;
           padding-bottom: 10px;
       }
 
@@ -163,6 +163,7 @@
           <button type="submit">Registrarme</button>
         </form>
         <br>
+        <a href="login.php"><button type="submit">Volver Atras</button></a>
     </div>
   </body>
 </html>

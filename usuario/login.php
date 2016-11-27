@@ -150,12 +150,11 @@
             $_SESSION['logueadoUser'] = true;
             $_SESSION['nombreUser'] = $usuario;
             $_SESSION['codCliente'] = $datos->codCliente;
-            echo $reservar;
+
             if($reservar){
               header("location:confirmarReserva.php?codHabitacion=$codHabitacion&fechaEntrada=$fechaEntrada&fechaSalida=$fechaSalida");
             }else{
-            //  header("location:index.php");
-              echo "not enter";
+              header("location:index.php");
             }
           }
 

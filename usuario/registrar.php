@@ -32,7 +32,7 @@
         if(empty($_POST[usuario] && $_POST[clave] && $_POST[dni] && $_POST[nombre] && $_POST[apellido1]
           && $_POST[apellido2])){
           echo "Debes rellenar todos los campos";
-          header( "refresh:30;url=registro.php" ); //Redirecciona  a la página principal.
+          header( "refresh:3;url=registro.php" ); //Redirecciona  a la página principal.
         }else{
           echo $codClienteRegistro;
           $insercion = "INSERT INTO cliente (codCliente, DNI, nombre, apellido1, "
@@ -47,7 +47,7 @@
             . "'$_POST[clave]','usuario' ,'$codClienteRegistro')";
           $conexion->exec($insercion2);
           echo "Cliente dado de alta correctamente.";
-          header( "refresh:300;url=login.php" );
+          header( "refresh:3;url=login.php" );
           $conexion->close();
             
         }
