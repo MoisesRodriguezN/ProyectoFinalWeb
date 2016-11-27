@@ -164,8 +164,7 @@
       ?> 
       <?php
         }else{
-         echo "Debes iniciar sesión para poder entrar en esta zona";
-         header("location:login.php");
+          header("location:/administracion/login.php");
         }
       ?>
   </body>
