@@ -120,7 +120,7 @@
     </style>
   </head>
 
-  <body>
+  <body class="registroLogin">
     <?php
       // Conexión a la base de datos
         try {
@@ -149,7 +149,7 @@
           }
 
       ?>
-      <div class="logo"><img class="logo" src="../img/logoLogin.png"></div>
+    <div class="logo"><img class="logo" src="../img/logoLogin.png"></div>
     <div class="login-block">
         <h1>Login</h1>
         <?=$error?>

@@ -15,7 +15,7 @@
               <div class="flex-item"><p>SERVICIOS <br>¿Que ofrecemos?</p></div>
               <div class="flex-item"><p>HABITACIONES <br>Tu comodidad</p></div>
               <div class="flex-item"><p>RESERVAS <br>Reserva Ahora!</p></div>
-              <div class="flex-item"><p>MI CUENTA <br>Tus reservas</p></div>
+              <a href="usuario/login.php" class="flex-item"><p>MI CUENTA <br>Tus reservas</p></a>
               <div class="flex-item"><p>CONTACTO <br>Escribenos!</p></div>
             </div>
         </div>

@@ -5,17 +5,16 @@
     $_SESSION['logueadoUser'] = false;
   } //Sesión Usuarios
   
-  if($_SESSION['logueadoUser'] == TRUE) {
-    header("location:../usuario/index.php");
+  if(!isset($_SESSION['reservar2'])) {
+    $_SESSION['reservar2'] = $_GET['reserva'];
   } 
   
   $codHabitacion= $_GET['codHabitacion'];     
   $fechaEntrada = $_GET['fechaEntrada'];
   $fechaSalida = $_GET['fechaSalida']; 
-  
   $reservar = false;
   
-  if(empty($codHabitacion && $fechaEntrada && $fechaSalida)){
+  if(empty($codHabitacion && $fechaEntrada && $fechaSalida) && $_SESSION['reservar2'] == 1){
     $reservar = true;
     $codHabitacion= $_POST['codHabitacion'];     
     $fechaEntrada = $_POST['fechaEntrada'];
@@ -151,7 +150,7 @@
             $_SESSION['nombreUser'] = $usuario;
             $_SESSION['codCliente'] = $datos->codCliente;
 
-            if($reservar){
+            if($reservar == 2){
               header("location:confirmarReserva.php?codHabitacion=$codHabitacion&fechaEntrada=$fechaEntrada&fechaSalida=$fechaSalida");
             }else{
               header("location:index.php");

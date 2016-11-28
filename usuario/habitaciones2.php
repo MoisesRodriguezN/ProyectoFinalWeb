@@ -33,7 +33,7 @@
         . "AND h.capacidad=$personas ";
       
       $habsDisponibles = $conexion->query($sql2);
-       
+
       ?>
         <div class="cabecera">
             <div class="logoCabecera">
@@ -109,7 +109,11 @@
             </table>
             <?php
             }else{
-              echo "No hay habitaciones";
+              ?>
+              <div class="mensaje1">
+                  <span>No hay habitaciones disponibles para la fecha seleccionada</span>
+              </div>
+              <?php
             }
             ?>
         </div>
