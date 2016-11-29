@@ -8,7 +8,7 @@
         <title>Habitaciones y tarifas</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
-    <body>
+    <body class="fondoCuerpo">
       <?php
       try {
           $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");

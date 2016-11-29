@@ -9,8 +9,11 @@
         }
 
         body{
-          margin: 0;
-          background-color: #ecce86;
+          margin: 0; 
+        }
+        
+        .fondoCuerpo{
+            background-color: #ecce86;
         }
         .cabecera{
           width: 100%;
@@ -209,7 +212,7 @@
        .formularioReserva{
            width: 19%;
            height: 100px;
-           background: linear-gradient(to bottom right, rgb(216, 164, 38) , rgb(222, 184,	135));
+           background: linear-gradient(to bottom right, rgb(216, 164, 38) , rgb(222, 184,135));
            float:left;
            text-align: center;
            margin-left: 1%;
@@ -396,15 +399,6 @@
           border-top: 5px solid #ff656c;
           margin: 0 auto;
       }
-      
-       .login-block {
-          width: 320px;
-          padding: 20px;
-          background: #fff;
-          border-radius: 5px;
-          border-top: 5px solid #ff656c;
-          margin-left: 41%;
-      }
 
       .login-block h1 {
           text-align: center;
@@ -427,7 +421,7 @@
           padding: 0 20px 0 50px;
           outline: none;
       }
-
+      
       .login-block input#username {
           background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px top no-repeat;
           background-size: 16px 80px;
@@ -496,4 +490,90 @@
       
       .limpiarFloat{
           clear: both;
+      }
+      
+      .marginLogin{
+          margin-left: 41%;
+      }
+      
+       .contenedorForm{
+          width:35%;  
+          margin: 2% auto 0 auto;
+      }
+      .formCentrado{
+          width:90%;
+          margin: 0 auto;
+      }
+      
+      .cuadroForm{
+          margin: 3% auto;
+          padding-bottom: 5%;
+          padding-top: 5%;
+          width:95%;
+          background-color: lightblue;
+          border-radius: 10px;
+      }
+      
+      @media screen and (max-width: 1000px){ /*Móviles*/
+          
+          
+          .contenedorForm{
+            width:60%;  
+            margin: 2% auto 0 auto;
+          } 
+          input[type=text]{
+            height: 3rem;
+            font-size: 2rem;
+          }
+
+          button[type=submit]{
+            font-size: 2rem;
+          }
+
+          label{
+            font-size: 2rem;
+          }
+
+          .cabeceraDivForm{
+              text-align: center;
+              font-size: 2rem; 
+          }
+      }
+      
+      @media screen and (max-width: 640px){ /*Móviles*/
+          
+          
+          .contenedorForm{
+            width:100%;  
+            margin: 2% auto 0 auto;
+          } 
+          input[type=text]{
+            height: 4rem;
+            font-size: 2rem;
+          }
+
+          button[type=submit]{
+            font-size: 2rem;
+          }
+
+          label{
+            font-size: 2rem;
+          }
+
+          .cabeceraDivForm{
+              text-align: center;
+              font-size: 4rem; 
+          }
+        input[type="number"]{
+          width:80px;
+        }
+
+        .container{
+          width: 95%;
+        }
+
+        .centrado{
+          margin: 1em 5%;
+        }
+
       }

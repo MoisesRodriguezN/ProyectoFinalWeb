@@ -9,28 +9,11 @@
       <link href="http://meyerweb.com/eric/tools/css/reset/reset.css" rel="stylesheet">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="../css/style.css">
      
       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-      input[type="number"]{
-        width:80px;
-      }
-      
-      .container{
-        width: 95%;
-      }
-      
-      .centrado{
-        margin: 1em 1%;
-      }
-      
-      @media (min-width: 768px) {
-          .centrado{
-          margin: 1em 5%;
-        } 
-      }
-    </style> 
+    
   </head>
   <body>
     <?php

@@ -5,7 +5,7 @@
         <title>Zona de usuario</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
-    <body>
+    <body class="fondoCuerpo">
       <?php
         if($_POST[accion]==enviar){
           $para      = "moises_rodiguez@hotmail.com";
@@ -51,7 +51,7 @@
               </ul>
             </div> 
            
-            <div class="login-block">
+            <div class="login-block marginLogin">
               <h1>Contacto</h1>
               <h2> <?=$estado?></h2>
               <form action="contacto.php" method="post">
@@ -60,7 +60,7 @@
                 <input type="text" name="apellido1" required placeholder="Apellido 1"/>
                 <input type="text" name="apellido2" required placeholder="Apellido 2"/>
                 <input type="email" name="email" required placeholder="Email"/>
-                <textarea rows="4" cols="42" name="comentario" placeholder="Comentario" ></textarea>
+                <textarea rows="4" cols="37" name="comentario" placeholder="Comentario" ></textarea>
                 <button type="submit">Enviar</button>
               </form>
            </div>

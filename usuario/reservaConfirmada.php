@@ -9,83 +9,14 @@
     <title>Reserva de habitacion - Usuario </title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      body{
-          background-color: aliceblue;
-      }
-      .contenedorForm{
-          width:35%;  
-          margin: 2% auto 0 auto;
-      }
-      .formCentrado{
-          width:90%;
-          margin: 0 auto;
-      }
-      
-      .cuadroForm{
-          margin: 3% auto;
-          padding-bottom: 5%;
-          padding-top: 5%;
-          width:95%;
-          background-color: lightblue;
-          border-radius: 10px;
-      }
-      
-      @media screen and (max-width: 1000px){ /*Móviles*/
-          
-          
-          .contenedorForm{
-            width:60%;  
-            margin: 2% auto 0 auto;
-          } 
-          input[type=text]{
-            height: 3rem;
-            font-size: 2rem;
-          }
-
-          button[type=submit]{
-            font-size: 2rem;
-          }
-
-          label{
-            font-size: 2rem;
-          }
-
-          .cabeceraDivForm{
-              text-align: center;
-              font-size: 2rem; 
-          }
-      }
-      
-      @media screen and (max-width: 640px){ /*Móviles*/
-          
-          
-          .contenedorForm{
-            width:100%;  
-            margin: 2% auto 0 auto;
-          } 
-          input[type=text]{
-            height: 4rem;
-            font-size: 2rem;
-          }
-
-          button[type=submit]{
-            font-size: 2rem;
-          }
-
-          label{
-            font-size: 2rem;
-          }
-
-          .cabeceraDivForm{
-              text-align: center;
-              font-size: 4rem; 
-          }
-      }
+   
+     
     </style>
   </head>
-  <body>
+  <body class="fondoCuerpo">
       <?php
         if ( $_SESSION['logueadoUser'] == true){
           try {

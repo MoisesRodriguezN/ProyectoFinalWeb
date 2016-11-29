@@ -9,7 +9,7 @@
         <title>Confirmar Reserva</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
-    <body>
+    <body class="fondoCuerpo">
         <?php
         
         $codHabitacion = $_GET['codHabitacion'];     
@@ -33,7 +33,7 @@
         
         <div class="logo"><img class="logo" src="../img/logoLogin.png"></div>
         <div class="login-block">
-          <h1>Login</h1>
+          <h1>Confirmar reserva</h1>
           <?=$error?>
           <form action="reservaConfirmada.php" name="confirmarReserva" method="POST">
             <input type="hidden"  name="codHabitacion" value="<?= $codHabitacion ?>">

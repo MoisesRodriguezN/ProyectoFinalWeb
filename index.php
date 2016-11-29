@@ -8,7 +8,7 @@
         <title>Inicio - Hotel Fuente Alegre</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
-    <body>
+    <body class="fondoCuerpo">
         <div class="cabecera">
             <div class="logoCabecera">
                 <img src="img/logoHotelHeader.png" class="imgLogoResponsive"> 
@@ -39,7 +39,7 @@
                   <span class="tituloReservar">Reservar Ahora!</span>
                   <form action="usuario/habitaciones.php" method="get">
                     Fecha Entrada:<br>
-                    <input type="date" name="fechaEntrada">
+                    <input type="date" name="fechaEntrada" autofocus="">
                     <br>
                     Fecha Salida:<br>
                     <input type="date" name="fechaSalida">

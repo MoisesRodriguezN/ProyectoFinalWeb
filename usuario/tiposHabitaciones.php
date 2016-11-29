@@ -8,7 +8,7 @@
         <title>Tipos de habitaciones</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
-    <body>
+    <body class="fondoCuerpo">
         <div class="cabecera">
             <div class="logoCabecera">
                 <img src="../img/logoHotelHeader.png" class="imgLogoResponsive"> 

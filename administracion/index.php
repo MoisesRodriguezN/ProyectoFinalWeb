@@ -8,17 +8,10 @@
     <title>Administración Hotel - Clientes</title>
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
-     
+      <link rel="stylesheet" type="text/css" href="../css/style.css">
       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-      input[type="number"]{
-        width:80px;
-      }
-      
-      .container{
-        width: 95%;
-      }
     </style> 
   </head>
   <body>
@@ -31,17 +24,36 @@
         die ("Error: " . $e->getMessage());
       }
       
+      
       //Buscador por DNI
       $dni = null;
       if(isset($_GET['dni'])){
         $dni=$_GET['dni'];
       }
       
-      if(isset($dni)){  //Consulta para buscador DNI
-        $consulta = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "' ORDER BY apellido1, apellido2, nombre");
-      }else{ //Consulta sin realizar búsqueda
-        $consulta = $conexion->query("SELECT * FROM cliente ORDER BY apellido1, apellido2, nombre");
+      $consultaTotal = $conexion->query("SELECT * FROM habitacion");
+      
+      $totalFilas = $consultaTotal->rowCount();
+      
+      
+      $TAMANO_PAGINA = 10;
+      $pagina = $_GET["pagina"];
+      if (!isset($pagina)) {
+         $inicio = 0;
+         $pagina = 1;
       }
+      else {
+         $inicio = ($pagina - 1) * $TAMANO_PAGINA;
+      }
+      //calculo el total de páginas
+      $totalPaginas = ceil($totalFilas / $TAMANO_PAGINA);
+      
+      if(isset($dni)){  //Consulta para buscador DNI
+        $consulta = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "' ORDER BY apellido1, apellido2, nombre LIMIT " . $inicio . "," . $TAMANO_PAGINA);
+      }else{ //Consulta sin realizar búsqueda
+        $consulta = $conexion->query("SELECT * FROM cliente ORDER BY apellido1, apellido2, nombre LIMIT " . $inicio . "," . $TAMANO_PAGINA);
+      }
+      
     ?>
     <div class="container">
       <nav class="navbar navbar-inverse">
@@ -145,6 +157,28 @@
                     </td>
                 </tr>
               </form>
+            <tr>
+              <?php
+              $url = "adminHabitaciones.php";
+              if ($totalPaginas > 1) {
+                if ($pagina != 1){
+                  echo '<a href="'.$url.'?pagina='.($pagina-1).'">Anterior </a>';
+                }
+                for ($i=1;$i<=$totalPaginas;$i++) {
+                  if ($pagina == $i){
+                     //si muestro el índice de la página actual, no coloco enlace
+                     echo $pagina;
+                  }else{
+                    //si el índice no corresponde con la página mostrada actualmente,
+                    //coloco el enlace para ir a esa página
+                    echo '  <a href="'.$url.'?pagina='.$i.'">'.$i.' </a>  ';
+                  }
+                }
+                if ($pagina != $totalPaginas){
+                  echo '<a href="'.$url.'?pagina='.($pagina+1).'"> Siguiente</a>';
+                }
+              }
+              ?>
             </tbody>
         </table>
       </div>

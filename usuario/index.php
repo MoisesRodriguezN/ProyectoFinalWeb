@@ -8,7 +8,7 @@
         <title>Zona de usuario</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
-    <body>
+    <body class="fondoCuerpo">
       <?php
       try {
           $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");
@@ -34,7 +34,7 @@
             </div>
             <div class="flex-container space-between">
               <a href="../index.php" class="flex-item"><p>INICIO <br>Bienvenidos</p></a>
-              <a href="servicios.php" class="flex-item seleccionado"><p>SERVICIOS <br>¿Que ofrecemos?</p></a>
+              <a href="servicios.php" class="flex-item"><p>SERVICIOS <br>¿Que ofrecemos?</p></a>
               <a href="tiposHabitaciones.php" class="flex-item"><p>HABITACIONES <br>Tu comodidad</p></a>
               <a href="login.php" class="flex-item seleccionado"><p>MI CUENTA <br>Tus reservas</p></a>
               <a href="contacto.php" class="flex-item"><p>CONTACTO <br>Escribenos!</p></a>

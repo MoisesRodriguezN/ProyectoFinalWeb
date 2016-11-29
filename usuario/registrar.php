@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <title>Registro de clientes</title>
   </head>
-  <body>
+  <body class="fondoCuerpo">
       <?php
         try {
           $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");
