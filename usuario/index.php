@@ -109,6 +109,7 @@
               ?>
               <div class="mensaje1">
                   <span>No hay habitaciones reservadas</span>
+                  <a class="spanTituloTabla2" href="logout.php">Cerrar sesión</a>
               </div>
               <?php
             }
