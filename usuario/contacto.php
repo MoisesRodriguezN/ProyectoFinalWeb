@@ -31,7 +31,7 @@
             </div>
             <div class="flex-container space-between">
               <a href="../index.php" class="flex-item"><p>INICIO <br>Bienvenidos</p></a>
-              <a href="servicios.php" class="flex-item seleccionado"><p>SERVICIOS <br>¿Que ofrecemos?</p></a>
+              <a href="servicios.php" class="flex-item"><p>SERVICIOS <br>¿Que ofrecemos?</p></a>
               <a href="tiposHabitaciones.php" class="flex-item"><p>HABITACIONES <br>Tu comodidad</p></a>
               <a href="login.php" class="flex-item"><p>MI CUENTA <br>Tus reservas</p></a>
               <a href="contacto.php" class="flex-item seleccionado"><p>CONTACTO <br>Escribenos!</p></a>

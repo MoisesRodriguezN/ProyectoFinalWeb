@@ -30,13 +30,11 @@
           echo "hay campos vacios";
           header( "refresh:1;url=registro.php" ); //Redirecciona  a la página principal.
         }else{
-          echo $codClienteRegistro;
           $insercion = "INSERT INTO cliente (codCliente, DNI, nombre, apellido1, "
             . "apellido2) VALUES ('$codClienteRegistro',"
             . "'$_POST[dni]','$_POST[nombre]' ,'$_POST[apellido1]' ,"
             . "'$_POST[apellido2]')";
           $conexion->exec($insercion);
-          echo $insercion;
           
           $insercion2 = "INSERT INTO login (usuario, clave, rol, codCliente)"
             . "  VALUES ('$_POST[usuario]',"

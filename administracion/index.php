@@ -159,7 +159,7 @@
               </form>
             <tr>
               <?php
-              $url = "adminHabitaciones.php";
+              $url = "index.php";
               if ($totalPaginas > 1) {
                 if ($pagina != 1){
                   echo '<a href="'.$url.'?pagina='.($pagina-1).'">Anterior </a>';

@@ -106,7 +106,7 @@
             . " WHERE codCliente=\"$_POST[codCliente]\"";
           $conexion->exec($modificacion);
           echo "Cliente actualizado correctamente.";
-          header( "refresh:3;url=index.php" );
+          header( "refresh:1;url=index.php" );
           $conexion->close();
         }else{
       ?>
@@ -133,12 +133,12 @@
 
                   <div class="form-group">
                     <label for="inputApellido">Apellido1:</label>
-                    <input type="text" name="nombre" id="inputApellido" class="form-control" value="<?= $cliente->apellido1 ?>">
+                    <input type="text" name="apellido1" id="inputApellido" class="form-control" value="<?= $cliente->apellido1 ?>">
                   </div>
 
                   <div class="form-group">
                     <label for="inputApellido2">Apellido2:</label>
-                    <input type="text" name="nombre" id="inputApellido2" class="form-control" value="<?= $cliente->apellido2 ?>">
+                    <input type="text" name="apellido2" id="inputApellido2" class="form-control" value="<?= $cliente->apellido2 ?>">
                   </div>
                   <button type="submit" class="btn btn-default">Enviar</button>
                 </form>

@@ -105,7 +105,7 @@
             . " WHERE codHabitacion=\"$_POST[codHabitacion]\"";
           $conexion->exec($modificacion);
           echo "Habitación actualizada correctamente.";
-          header( "refresh:3;url=adminHabitaciones.php" );
+          header( "refresh:1;url=adminHabitaciones.php" );
           $conexion->close();
         }else{
       ?>

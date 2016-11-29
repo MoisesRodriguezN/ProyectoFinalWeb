@@ -104,8 +104,9 @@
           $insercion = "INSERT INTO RESERVA (codCliente, codHabitacion,	fechaEntrada,	fechaSalida) VALUES ('$_POST[codCliente]',"
               . "'$_POST[codHabitacion]','$_POST[fechaEntrada]' ,'$_POST[fechaSalida]')";
           $conexion->exec($insercion);
+
           echo "Reserva realizada Correctamente";
-          header( "refresh:3;url=reservas.php" );
+          header( "refresh:1;url=reservas.php" );
           $conexion->close();
         }else{
       ?>
