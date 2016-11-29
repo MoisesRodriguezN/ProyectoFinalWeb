@@ -1,12 +1,8 @@
 <?php
   session_start(); // Inicio de sesión
-  
-  if(!isset($_SESSION['logueadoUser'])) {
-    $_SESSION['logueadoUser'] = false;
-  } //Sesión Usuarios
-  
+
   if($_SESSION['logueadoUser'] == TRUE) {
-    header("location:../usuario/index.php");
+    header("location:index.php");
   } 
 ?>
 <!DOCTYPE html>
@@ -31,8 +27,8 @@
         //Comprueba que no hay ningún campo vacio
         if(empty($_POST[usuario] && $_POST[clave] && $_POST[dni] && $_POST[nombre] && $_POST[apellido1]
           && $_POST[apellido2])){
-          echo "Debes rellenar todos los campos";
-          header( "refresh:3;url=registro.php" ); //Redirecciona  a la página principal.
+          echo "hay campos vacios";
+          header( "refresh:1;url=registro.php" ); //Redirecciona  a la página principal.
         }else{
           echo $codClienteRegistro;
           $insercion = "INSERT INTO cliente (codCliente, DNI, nombre, apellido1, "

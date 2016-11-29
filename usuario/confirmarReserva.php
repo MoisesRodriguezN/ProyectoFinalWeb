@@ -16,7 +16,7 @@
         $fechaEntrada = $_GET['fechaEntrada'];
         $fechaSalida = $_GET['fechaSalida'];
         
-        if(isset($_SESSION['logueadoUser'])) {
+        if($_SESSION['logueadoUser']==true) {
           try {
           $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");
           } catch (PDOException $e) {
@@ -37,13 +37,14 @@
           <?=$error?>
           <form action="reservaConfirmada.php" name="confirmarReserva" method="POST">
             <input type="hidden"  name="codHabitacion" value="<?= $codHabitacion ?>">
-            <input type="hidden"  name="codCliente" value="<?= $codCliente ?>">
-            <input type="date"  name="dni" value="<?= $datos->DNI?>" disabled>
-            <input type="date"  name="nombre" value="<?= $datos->nombre?>" disabled>
-            <input type="date"  name="apellido1" value="<?= $datos->apellido1?>" disabled>
-            <input type="date"  name="apellido2" value="<?= $datos->apellido2?>" disabled>
-            <input type="date"  name="fechaEntrada" value="<?= $fechaEntrada?>" disabled>
-            <input type="date"  name="fechaSalida" value="<?= $fechaSalida ?>" disabled>
+            <input type="hidden"  name="codCliente" value="<?= $datos -> codCliente ?>">
+            <input type="hidden"  name="probando2" value="test2">
+            <input type="text"  name="dni" value="<?= $datos->DNI?>" disabled>
+            <input type="text"  name="nombre" value="<?= $datos->nombre?>" disabled>
+            <input type="text"  name="apellido1" value="<?= $datos->apellido1?>" disabled>
+            <input type="text"  name="apellido2" value="<?= $datos->apellido2?>" disabled>
+            <input type="date"  name="fechaEntrada" value="<?=$fechaEntrada?>">
+            <input type="date"  name="fechaSalida" value="<?=$fechaSalida?>">
             <button type="submit">Confirmar</button>
           </form>
         

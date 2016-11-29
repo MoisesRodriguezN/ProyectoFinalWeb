@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -12,11 +15,10 @@
             </div>
             <div class="flex-container space-between">
               <a href="index.php" class="flex-item seleccionado"><p>INICIO <br>Bienvenidos</p></a>
-              <div class="flex-item"><p>SERVICIOS <br>¿Que ofrecemos?</p></div>
-              <div class="flex-item"><p>HABITACIONES <br>Tu comodidad</p></div>
-              <div class="flex-item"><p>RESERVAS <br>Reserva Ahora!</p></div>
+              <a href="usuario/servicios.php" class="flex-item"><p>SERVICIOS <br>¿Que ofrecemos?</p></a>
+              <a href="usuario/tiposHabitaciones.php" class="flex-item"><p>HABITACIONES <br>Tu comodidad</p></a>
               <a href="usuario/login.php" class="flex-item"><p>MI CUENTA <br>Tus reservas</p></a>
-              <div class="flex-item"><p>CONTACTO <br>Escribenos!</p></div>
+              <a href="usuario/contacto.php" class="flex-item"><p>CONTACTO <br>Escribenos!</p></a>
             </div>
         </div>
         
@@ -35,7 +37,7 @@
             <div class="formularioReserva">
                 <div class="cabeceraReservar">
                   <span class="tituloReservar">Reservar Ahora!</span>
-                  <form action="usuario/habitaciones2.php" method="get">
+                  <form action="usuario/habitaciones.php" method="get">
                     Fecha Entrada:<br>
                     <input type="date" name="fechaEntrada">
                     <br>

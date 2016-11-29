@@ -1,5 +1,6 @@
 <?php
   session_start(); // Inicio de sesión
+  $_SESSION['reservar2'] = 0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -93,12 +94,11 @@
               echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
               die ("Error: " . $e->getMessage());
           }
-          
           $insercion = "INSERT INTO RESERVA (codCliente, codHabitacion,	fechaEntrada,	fechaSalida) VALUES ('$_POST[codCliente]',"
               . "'$_POST[codHabitacion]','$_POST[fechaEntrada]' ,'$_POST[fechaSalida]')";
           $conexion->exec($insercion);
           echo "Reserva realizada Correctamente";
-          header( "refresh:3;url=/usuario/index.php" );
+          header( "refresh:1;url=/usuario/index.php" );
           $conexion->close();
         }else{
           header("location:/usuario/login.php");

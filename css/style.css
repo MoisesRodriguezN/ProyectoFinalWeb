@@ -310,11 +310,22 @@
            border-radius: 6px;
         }
         
+        .spanTituloTabla2 {
+           color: #fafafa;
+           font-size: 1.3rem;
+           text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+           text-transform:uppercase;
+           margin: 0;
+        }
+        
         .tablaHabitaciones{
-            margin-left: 20%;
+            margin-left: 14%;
             border-collapse: collapse;
-            width: 70%;
+            width: 80%;
             margin-bottom: 4%;    
+        }
+        textarea{
+            resize:none;
         }
         
         .tablahabitacionesTh{
@@ -384,6 +395,15 @@
           border-radius: 5px;
           border-top: 5px solid #ff656c;
           margin: 0 auto;
+      }
+      
+       .login-block {
+          width: 320px;
+          padding: 20px;
+          background: #fff;
+          border-radius: 5px;
+          border-top: 5px solid #ff656c;
+          margin-left: 41%;
       }
 
       .login-block h1 {
@@ -459,4 +479,21 @@
 
       #error{
           color: #f8363f;
+      }
+      
+      .imgHab{
+          width: 20%;
+          margin-left: 4%;
+          margin-bottom: 4%;
+          float: left;
+      }
+      .textoDescripciones{
+          font-family: 'Francois One', sans-serif;
+          font-size: 1.3rem;
+          display: block;
+          margin-left: 26%;
+      }
+      
+      .limpiarFloat{
+          clear: both;
       }

@@ -3,7 +3,11 @@
 
   if(!isset($_SESSION['logueadoUser'])) {
     $_SESSION['logueadoUser'] = false;
-  } //Sesión Usuarios
+  } 
+  
+  if($_SESSION['logueadoUser'] == true && $_SESSION['reservar2'] != 1) {
+    header("location:index.php");
+  } 
   
   if(!isset($_SESSION['reservar2'])) {
     $_SESSION['reservar2'] = $_GET['reserva'];
@@ -176,6 +180,9 @@
         </form>
         <br>
         <a href="registro.php"><button type="submit">Registrarse</button></a>
+        <br>
+        <br>
+        <a href="../index.php"><button type="submit">Volver al inicio</button></a>
     </div>
   </body>
 </html>
