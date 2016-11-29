@@ -5,7 +5,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Mis reservas</title>
+        <title>Mi cuenta</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <style>
           .menu1{
@@ -48,7 +48,6 @@
                   rgba(81,194,236,1) 27%, rgba(27,165,208,1) 52%,
                   rgba(149,206,228,1) 100%);
                
-              border-radius: 10px 0 0;
               margin-left: -12px;
               padding-left: 21px;
               margin-right: 1px;
@@ -60,7 +59,6 @@
                   rgba(81,194,236,1) 27%, rgba(27,165,208,1) 52%,
                   rgba(149,206,228,1) 100%);
                
-              border-radius: 10px;
               padding-right: 20px;
           }
           
@@ -81,16 +79,14 @@
           die ("Error: " . $e->getMessage());
       }
 
-      $fechaEntrada = $_GET['fechaEntrada'];
-      $fechaSalida = $_GET['fechaSalida'];
-      $personas = $_GET['personas'];
-
       $usuario = $_SESSION[nombreUser];
-      $sql = "SELECT * FROM reserva r , login l , habitacion h WHERE R.codCliente = l.codCliente "
-        . "AND l.usuario = '$usuario' AND h.codHabitacion = r.codHabitacion";
+      $sql = "SELECT * FROM login l , cliente c WHERE c.codCliente=l.codCliente AND "
+        . "l.usuario = '$usuario' ";
       $consulta = $conexion->query($sql);
 
-
+      $mensaje = "<div class='mensaje1'>
+                  <span>Clave Actualizada. Vuelva a iniciar sesión.</span>
+                  </div>";
       ?>
         <div class="cabecera">
             <div class="logoCabecera">
@@ -120,46 +116,61 @@
            
             <ul class="menu1">
               <li class="menu2 esquinaI"><a href="miCuenta.php">Bienvenid@ <?=$usuario?></a></li>
-              <li class="menu2 seleccionadoMenuUsuario"><a href="index.php">Mis reservas</a></li>
-              <li class="menu2"><a href="miCuenta.php">Mi cuenta</a></li>
+              <li class="menu2"><a href="index.php">Mis reservas</a></li>
+              <li class="menu2 seleccionadoMenuUsuario"><a href="miCuenta.php">Mi cuenta</a></li>
               <li class="menu2 esquinaD"><a href="logout.php">Cerrar sesión</a></li>
             </ul>
 
             <?php
+            if($_GET[estado]=="logOut"){
+              echo $mensaje;
+              session_destroy();
+            }
             if($consulta ->rowCount() > 0){
             ?>
             <table class="tablaHabitaciones">
-              <th class="tablahabitacionesTh">Habitación</th>
-              <th class="tablahabitacionesTh">Capacidad</th>
-              <th class="tablahabitacionesTh">Tipo</th>
-              <th class="tablahabitacionesTh">Planta</th>
-              <th class="tablahabitacionesTh">Precio/Noche</th>
-              <th class="tablahabitacionesTh">Fecha Entrada</th>
-              <th class="tablahabitacionesTh">Fecha Salida</th>
+              <th class="tablahabitacionesTh">Nombre</th>
+              <th class="tablahabitacionesTh">Apellido1</th>
+              <th class="tablahabitacionesTh">Apellido2</th>
+              <th class="tablahabitacionesTh">DNI</th>
+              <th class="tablahabitacionesTh">Usuario</th>
+              <th class="tablahabitacionesTh">Modificar Datos</th>
+              <th class="tablahabitacionesTh">Cambiar Clave</th>
               <?php
                 while ($hab = $consulta->fetchObject()) {
               ?>
               <tr>
                 <td>
-                  Habitación Nº <?= $hab->codHabitacion?>
+                  <?= $hab->nombre?>
                 </td>
                 <td>
-                  Habitacion <?= $hab->tipo?>
+                  <?= $hab->apellido1?>
                 </td>
                 <td>
-                  Capacidad <?= $hab->capacidad?>
+                  <?= $hab->apellido2?>
                 </td>
                 <td>
-                  Planta <?= $hab->planta?>
+                  <?= $hab->DNI?>
                 </td>
                 <td>
-                  Precio <?= $hab->tarifa?>€
+                  <?= $hab->usuario?>
                 </td>
                 <td>
-                  <?= $hab->fechaEntrada?>
+                  <form name="actualizarDatosUsuario" action="actualizarDatosUsuario.php" method="POST">
+                    <input type="hidden"  name="nombre" value="<?= $hab->nombre?>">
+                    <input type="hidden"  name="apellido1" value="<?= $hab->apellido1?>">
+                    <input type="hidden"  name="apellido2" value="<?= $hab->apellido2?>">
+                    <input type="hidden"  name="DNI" value="<?= $hab->DNI?>">
+                    <input type="hidden"  name="usuario" value="<?= $hab->usuario?>">
+                    <input type="submit" class="btnEnvio2NoMargin" value="Modificar" />
+                  </form>
                 </td>
                 <td>
-                  <?= $hab->fechaSalida?>
+                  <form name="actualizarClaveUsuario" action="actualizarDatosUsuario.php" method="POST">
+                    <input type="hidden"  name="usuario" value="<?= $hab->usuario?>">
+                    <input type="hidden"  name="accion" value="actClave">
+                    <input type="submit" class="btnEnvio2NoMargin" value="Cambiar" />
+                  </form>
                 </td>
               </tr>
               <?php
@@ -170,8 +181,8 @@
             }else{
               ?>
               <div class="mensaje1">
-                  <span>No hay habitaciones reservadas</span>
-                  <a class="spanTituloTabla2" href="logout.php">Cerrar sesión</a>
+                  <span>No hay sesión iniciada</span>
+                  <a class="spanTituloTabla2" href="logout.php">Iniciar sesión</a>
               </div>
               <?php
             }
