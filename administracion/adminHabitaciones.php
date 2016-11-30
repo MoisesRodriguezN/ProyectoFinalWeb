@@ -2,7 +2,7 @@
   session_start(); // Inicio de sesión
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <title>Administración Hotel - Habitaciones</title>
