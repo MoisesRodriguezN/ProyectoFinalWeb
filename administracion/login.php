@@ -74,8 +74,8 @@
         <h1>Login</h1>
         <?=$error?>
         <form action="login.php" method="post">
-          <input type="text" name="usuario" required placeholder="Username" id="usuario" autofocus=""/>
-          <input type="password" name="clave" required placeholder="Password" id="clave" />
+          <input type="text" name="usuario" required placeholder="Usuario" id="usuario" autofocus=""/>
+          <input type="password" name="clave" required placeholder="Contraseña" id="clave" />
           <button type="submit">Entrar</button>
         </form>
     </div>
