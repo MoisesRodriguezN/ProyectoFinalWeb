@@ -5,7 +5,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
-    <title>Modificacioń de clientes</title>
+    <title>Modificación de clientes</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
