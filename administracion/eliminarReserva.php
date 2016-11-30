@@ -6,6 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Eliminar reserva</title>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
     </head>
     <body>
         <?php
@@ -25,18 +26,29 @@
           . " AND codCliente=".$_POST['codCliente'] . " AND " . $fecha;
           $conexion->exec($borrar);
           echo "Reserva eliminada correctamente.";
-          header( "refresh:3;url=reservas.php" );
+          header( "location:reservas.php" );
           $conexion->close();  
         }else{
           ?> 
-          ¿Estás seguro que deseas borrar la reserva?
-          <form action="eliminarReserva.php" method="post">
-            <input type="hidden" name="accion" value="eliminar">
-            <input type="hidden" name="codHabitacion" value="<?=$_POST['codHabitacion']?>">
-            <input type="hidden" name="codCliente" value="<?=$_POST['codCliente']?>">
-            <input type="hidden" name="fechaEntrada" value="<?=$_POST['fechaEntrada']?>">
-            <input type="submit" value="Eliminar">
-          </form>
+          <div class="contenedorConfirmar">
+            <div class="cabeceraConfirmar">
+                <span>BORRAR</span>
+            </div>
+            <div class="cuerpoConfirmar">
+              <span>¿Estás seguro que deseas borrar la reserva?</span>
+            </div>
+            <div class="botonesConfirmar">
+                <form action="eliminarReserva.php" method="post">
+                <input type="hidden" name="accion" value="eliminar">
+                <input type="hidden" name="codHabitacion" value="<?=$_POST['codHabitacion']?>">
+                <input type="hidden" name="codCliente" value="<?=$_POST['codCliente']?>">
+                <input type="hidden" name="fechaEntrada" value="<?=$_POST['fechaEntrada']?>">
+                <input type="submit" class="btnEnvio2NoMargin btnEnvio3NoMargin" value="Eliminar">
+              </form>
+
+              <a href="reservas.php"><button type="button" class="btnEnvio2NoMargin btnEnvio3NoMargin">Volver</button></a>
+            </div>
+          </div>
         <?php
         }
         ?>

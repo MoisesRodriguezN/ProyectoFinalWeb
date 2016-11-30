@@ -6,6 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Eliminar cliente</title>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
     </head>
     <body>
         <?php
@@ -22,23 +23,35 @@
         if ($accion == "eliminar"){
           $borrar = "DELETE FROM cliente WHERE codCliente=".$_POST['codCliente'];
           $conexion->exec($borrar);
+          echo $borrar;
           echo "Cliente borrado correctamente.";
-          header( "refresh:3;url=index.php" );
+          header("location:index.php");
           $conexion->close();  
         }else{
           ?> 
-          ¿Estás seguro que deseas borrar el cliente?
-          <form action="eliminarCliente.php" method="post">
-            <input type="hidden" name="accion" value="eliminar">
-            <input type="hidden" name="codCliente" value="<?=$_POST['codCliente']?>">
-            <input type="submit" value="Eliminar">
-          </form>
+        <div class="contenedorConfirmar">
+          <div class="cabeceraConfirmar">
+              <span>BORRAR</span>
+          </div>
+          <div class="cuerpoConfirmar">
+            <span>¿Estás seguro que deseas borrar el cliente?</span>
+          </div>
+          <div class="botonesConfirmar">
+            <form action="eliminarCliente.php" method="post">
+              <input type="hidden" name="accion" value="eliminar">
+              <input type="hidden" name="codCliente" value="<?=$_POST['codCliente']?>">
+              <input type="submit" class="btnEnvio2NoMargin btnEnvio3NoMargin" value="Eliminar">
+            </form>
+              
+            <a href="index.php"><button type="button" class="btnEnvio2NoMargin btnEnvio3NoMargin">Volver</button></a>
+          </div>
+        </div>
+         
         <?php
         }
         ?>
         <?php
          }else{
-          echo "Debes iniciar sesión para poder entrar en esta zona";
           header("location:login.php");
          }
         ?>

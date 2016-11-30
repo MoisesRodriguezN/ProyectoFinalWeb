@@ -105,8 +105,7 @@
             . "apellido2=\"$_POST[apellido2]\""
             . " WHERE codCliente=\"$_POST[codCliente]\"";
           $conexion->exec($modificacion);
-          echo "Cliente actualizado correctamente.";
-          header( "refresh:1;url=index.php" );
+          header( "location:index.php" );
           $conexion->close();
         }else{
       ?>

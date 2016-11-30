@@ -104,8 +104,7 @@
             . "capacidad=\"$_POST[capacidad]\", planta=\"$_POST[planta]\", tarifa=\"$_POST[tarifa]\" "        
             . " WHERE codHabitacion=\"$_POST[codHabitacion]\"";
           $conexion->exec($modificacion);
-          echo "Habitación actualizada correctamente.";
-          header( "refresh:1;url=adminHabitaciones.php" );
+          header( "location:adminHabitaciones.php" );
           $conexion->close();
         }else{
       ?>

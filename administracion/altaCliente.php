@@ -38,7 +38,7 @@
               . "'$_POST[apellido2]')";
             $conexion->exec($insercion);
             echo "Cliente dado de alta correctamente.";
-            header( "refresh:1;url=index.php" );
+            header( "location:index.php" );
             $conexion->close();
             }
         }

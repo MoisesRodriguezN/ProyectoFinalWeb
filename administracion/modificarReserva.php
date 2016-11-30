@@ -108,8 +108,7 @@
             . "fechaSalida=\"$_POST[fechaSalida]\" WHERE codHabitacion=\"$_POST[codHabitacion]\" "
             . "AND codCliente=\"$_POST[codCliente]\" AND fechaEntrada=\"$_POST[fechaEntradaHidden]\"";
           $conexion->exec($modificacion);
-          echo "Reserva actualizada correctamente";
-          header( "refresh:3;url=reservas.php" );
+          header( "location:reservas.php" );
           $conexion->close();
         }else{
       ?>

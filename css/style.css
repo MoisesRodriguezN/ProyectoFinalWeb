@@ -577,3 +577,53 @@
         }
 
       }
+      
+      .contenedorConfirmar{
+             margin-top: 20%;
+         }
+         .cabeceraConfirmar{
+          margin:0 auto;
+          width: 40%;
+          height: 40px;
+          background-color: #d7d7d7;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .cabeceraConfirmar > span{
+          font-family: 'Francois One', sans-serif;
+          font-weight: bold; 
+        }
+        
+        .cuerpoConfirmar{
+            width: 40%;
+            margin: 0 auto;
+            width: 40%;
+            height: 78px;
+            background-color: #f6f6f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cuerpoConfirmar > span{
+          font-family: 'Francois One', sans-serif;
+        }
+        
+        .botonesConfirmar{
+            width: 40%;
+            margin: 0 auto;
+            height: 35px;
+            background-color: #f6f6f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btnEnvio3NoMargin{
+            width: 100%;
+        }
+
+
+     

@@ -31,7 +31,7 @@
         $dni=$_GET['dni'];
       }
       
-      $consultaTotal = $conexion->query("SELECT * FROM habitacion");
+      $consultaTotal = $conexion->query("SELECT * FROM cliente");
       
       $totalFilas = $consultaTotal->rowCount();
       

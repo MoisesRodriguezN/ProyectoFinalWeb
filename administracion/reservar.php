@@ -106,7 +106,7 @@
           $conexion->exec($insercion);
 
           echo "Reserva realizada Correctamente";
-          header( "refresh:1;url=reservas.php" );
+          header( "location:reservas.php" );
           $conexion->close();
         }else{
       ?>

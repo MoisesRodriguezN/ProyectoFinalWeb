@@ -6,6 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Eliminar habitación</title>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
     </head>
     <body>
         <?php
@@ -23,16 +24,27 @@
           $borrar = "DELETE FROM habitacion WHERE codHabitacion=".$_POST['codHabitacion'];
           $conexion->exec($borrar);
           echo "Habitacion borrada correctamente.";
-          header( "refresh:3;url=adminHabitaciones.php" );
+          header( "location:adminHabitaciones.php" );
           $conexion->close();  
         }else{
           ?> 
-          ¿Estás seguro que deseas borrar la habitación?
-          <form action="eliminarHabitacion.php" method="post">
-            <input type="hidden" name="accion" value="eliminar">
-            <input type="hidden" name="codHabitacion" value="<?=$_POST['codHabitacion']?>">
-            <input type="submit" value="Eliminar">
-          </form>
+          <div class="contenedorConfirmar">
+          <div class="cabeceraConfirmar">
+              <span>BORRAR</span>
+          </div>
+          <div class="cuerpoConfirmar">
+            <span>¿Estás seguro que deseas borrar la habitación?</span>
+          </div>
+          <div class="botonesConfirmar">
+              <form action="eliminarHabitacion.php" method="post">
+              <input type="hidden" name="accion" value="eliminar">
+              <input type="hidden" name="codHabitacion" value="<?=$_POST['codHabitacion']?>">
+              <input type="submit" class="btnEnvio2NoMargin btnEnvio3NoMargin" value="Eliminar">
+            </form>
+              
+            <a href="adminHabitaciones.php"><button type="button" class="btnEnvio2NoMargin btnEnvio3NoMargin">Volver</button></a>
+          </div>
+        </div>
         <?php
         }
         ?>

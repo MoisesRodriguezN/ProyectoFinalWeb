@@ -35,8 +35,7 @@
             $insercion = "INSERT INTO habitacion (codHabitacion, tipo, capacidad, planta) VALUES ('$_POST[codHabitacion]',"
               . "'$_POST[tipo]','$_POST[capacidad]' ,'$_POST[planta]')";
             $conexion->exec($insercion);
-            echo "Habitación dada de alta correctamente.";
-            header( "refresh:3;url=adminHabitaciones.php" );
+            header( "location:adminHabitaciones.php" );
             $conexion->close();
             }
         }
