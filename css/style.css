@@ -624,6 +624,77 @@
         .btnEnvio3NoMargin{
             width: 100%;
         }
+        
+        .fondoAzul{
+            background-color: aliceblue;
+        }
 
+        .contenedorForm{
+          width:35%;  
+          margin: 2% auto 0 auto;
+        }
+        .formCentrado{
+          width:90%;
+          margin: 0 auto;
+        }
+      
+        .cuadroForm{
+          margin: 3% auto;
+          padding-bottom: 5%;
+          padding-top: 5%;
+          width:95%;
+          background-color: lightblue;
+          border-radius: 10px;
+        }
+      
+        @media screen and (max-width: 1000px){ /*Móviles*/
+          
+          
+          .contenedorForm{
+            width:60%;  
+            margin: 2% auto 0 auto;
+          } 
+          div .form-group > input[type=text]{
+            height: 3rem;
+            font-size: 2rem;
+          }
 
-     
+          form .formCentrado > button[type=submit]{
+            font-size: 2rem;
+          }
+
+          div .form-group > label{
+            font-size: 2rem;
+          }
+
+          .cabeceraDivForm{
+              text-align: center;
+              font-size: 2rem; 
+          }
+        }
+      
+         @media screen and (max-width: 640px){ /*Móviles*/
+          
+          
+          .contenedorForm{
+            width:100%;  
+            margin: 2% auto 0 auto;
+          } 
+           div .form-group > input[type=text]{
+            height: 4rem;
+            font-size: 2rem;
+          }
+
+         form .formCentrado > button[type=submit]{
+            font-size: 2rem;
+          }
+
+         div .form-group > label{
+            font-size: 2rem;
+          }
+
+          .cabeceraDivForm{
+              text-align: center;
+              font-size: 4rem; 
+          }
+        }
