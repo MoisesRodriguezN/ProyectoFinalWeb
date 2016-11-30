@@ -74,6 +74,7 @@
     </head>
     <body class="fondoCuerpo">
       <?php
+      if ( $_SESSION['logueadoUser'] == true){
       try {
           $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");
       } catch (PDOException $e) {
@@ -175,6 +176,9 @@
               </div>
               <?php
             }
+      }else{
+        header("location:login.php");
+      }
             ?>
         </div>
     </body>
