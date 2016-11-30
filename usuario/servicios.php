@@ -5,7 +5,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Servicios</title>
+        <title>Hotel Fuente Alegre - Servicios</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
     <body class="fondoCuerpo">

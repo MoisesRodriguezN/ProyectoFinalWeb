@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Zona de usuario</title>
+        <title>Hotel Fuentealegre - Contacto</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
     <body class="fondoCuerpo">

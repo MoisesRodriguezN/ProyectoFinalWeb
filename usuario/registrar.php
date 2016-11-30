@@ -6,7 +6,7 @@
   } 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <title>Registro de clientes</title>
@@ -40,8 +40,7 @@
             . "  VALUES ('$_POST[usuario]',"
             . "'$_POST[clave]','usuario' ,'$codClienteRegistro')";
           $conexion->exec($insercion2);
-          echo "Cliente dado de alta correctamente.";
-          header( "refresh:3;url=login.php" );
+          header("location:login.php");
           $conexion->close();
             
         }

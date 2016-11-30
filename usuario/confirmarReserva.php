@@ -3,7 +3,7 @@
 ?>
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <title>Confirmar Reserva</title>

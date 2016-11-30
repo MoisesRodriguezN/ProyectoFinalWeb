@@ -3,7 +3,7 @@
   $_SESSION['reservar2'] = 0;
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <title>Reserva de habitacion - Usuario </title>
@@ -28,8 +28,7 @@
           $insercion = "INSERT INTO RESERVA (codCliente, codHabitacion,	fechaEntrada,	fechaSalida) VALUES ('$_POST[codCliente]',"
               . "'$_POST[codHabitacion]','$_POST[fechaEntrada]' ,'$_POST[fechaSalida]')";
           $conexion->exec($insercion);
-          echo "Reserva realizada Correctamente";
-          header( "refresh:1;url=/usuario/index.php" );
+          header( "location:/usuario/index.php" );
           $conexion->close();
         }else{
           header("location:/usuario/login.php");

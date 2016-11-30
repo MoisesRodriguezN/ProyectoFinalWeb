@@ -5,70 +5,8 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Mi cuenta - Modificación de datos</title>
+        <title>Mi cuenta - Actualización de datos</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
-        <style>
-          .menu1{
-              list-style-type: none;
-              margin: 0;
-              padding: 0;
-              overflow: hidden;
-              background: linear-gradient(to bottom, rgba(50,157,200,1) 0%, 
-                  rgba(21,144,188,1) 27%,
-                  rgba(18,112,140,1) 52%, rgba(50,157,200,1) 100%);
-              font-family: 'Francois One', sans-serif;
-              font-size: 1.2rem;
-              width: 56%;
-              border-radius: 10px;
-              padding-left: 13%;
-              margin: 2% 0 2% 20%;
-          }
-
-          .menu2{
-              float: left;
-          }
-
-          .menu2 a {
-              display: block;
-              color: white;
-              text-align: center;
-              padding: 10px;
-              text-decoration: none;
-          }
-
-          .menu2 a:hover {
-              background: linear-gradient(to bottom, rgba(149,206,228,1) 0%,
-                  rgba(81,194,236,1) 27%, rgba(27,165,208,1) 52%,
-                  rgba(149,206,228,1) 100%);
-          }
-          
-          .esquinaI a:hover {
-              
-              background: linear-gradient(to bottom, rgba(149,206,228,1) 0%,
-                  rgba(81,194,236,1) 27%, rgba(27,165,208,1) 52%,
-                  rgba(149,206,228,1) 100%);
-               
-              margin-left: -12px;
-              padding-left: 21px;
-              margin-right: 1px;
-          }
-          
-          .esquinaD a:hover {
-              
-              background: linear-gradient(to bottom, rgba(149,206,228,1) 0%,
-                  rgba(81,194,236,1) 27%, rgba(27,165,208,1) 52%,
-                  rgba(149,206,228,1) 100%);
-               
-              padding-right: 20px;
-          }
-          
-          .seleccionadoMenuUsuario{
-            background: linear-gradient(to bottom, rgba(149,206,228,1) 0%,
-                  rgba(81,194,236,1) 27%, rgba(27,165,208,1) 52%,
-                  rgba(149,206,228,1) 100%);
-          }
-          
-        </style>
     </head>
     <body class="fondoCuerpo">
       <?php
