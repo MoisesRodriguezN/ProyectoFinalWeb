@@ -74,8 +74,8 @@
         <h1>Login</h1>
         <?=$error?>
         <form action="login.php" method="post">
-          <input type="text" name="usuario" required placeholder="Username" id="username" autofocus="" />
-          <input type="password" name="clave" required placeholder="Password" id="password" />
+          <input type="text" name="usuario" required placeholder="Usuario" id="username" autofocus="" />
+          <input type="password" name="clave" required placeholder="Contraseña" id="password" />
           <input type="hidden" name="codHabitacion"  value="<?=$codHabitacion?>"/>
           <input type="hidden" name="fechaEntrada" value="<?=$fechaEntrada?>" />
           <input type="hidden" name="fechaSalida" value="<?=$fechaSalida?>" />
