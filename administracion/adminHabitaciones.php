@@ -119,10 +119,10 @@
                       <input type="text" maxlength="30" size="10" name="capacidad" placeholder="capacidad" value="<?= $habitacion->capacidad ?>">
                     </td>
                     <td>
-                      <input type="txt" maxlength="30" size="10" name="planta" placeholder="planta"value="<?= $habitacion->planta ?>">
+                      <input type="text" maxlength="30" size="10" name="planta" placeholder="planta"value="<?= $habitacion->planta ?>">
                     </td>
                     <td>
-                      <input type="txt" maxlength="30" size="10" name="planta" placeholder="planta"value="<?= $habitacion->tarifa ?>">
+                      <input type="text" maxlength="30" size="10" name="tarifa" placeholder="tarifa"value="<?= $habitacion->tarifa ?>">
                     </td>
                     <td colspan="2">
                       <input type="submit" class="btn btn-info" value="Añadir" />

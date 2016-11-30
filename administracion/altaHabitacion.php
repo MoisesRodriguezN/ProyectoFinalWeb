@@ -32,8 +32,8 @@
             Por favor, vuelva al <a href="adminHabitaciones.php">panel de Administración del hotel</a>.
           <?php
           }else{
-            $insercion = "INSERT INTO habitacion (codHabitacion, tipo, capacidad, planta) VALUES ('$_POST[codHabitacion]',"
-              . "'$_POST[tipo]','$_POST[capacidad]' ,'$_POST[planta]')";
+            $insercion = "INSERT INTO habitacion (codHabitacion, tipo, capacidad, planta, tarifa) VALUES ('$_POST[codHabitacion]',"
+              . "'$_POST[tipo]','$_POST[capacidad]' ,'$_POST[planta]' ,'$_POST[tarifa]')";
             $conexion->exec($insercion);
             header( "location:adminHabitaciones.php" );
             $conexion->close();
