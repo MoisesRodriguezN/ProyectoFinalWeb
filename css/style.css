@@ -758,3 +758,13 @@
                   rgba(81,194,236,1) 27%, rgba(27,165,208,1) 52%,
                   rgba(149,206,228,1) 100%);
           }
+          
+          a:hover{
+              text-decoration:none;
+              outline:0;
+          }
+          
+          a{
+              text-decoration:none;
+              outline:0;
+          }

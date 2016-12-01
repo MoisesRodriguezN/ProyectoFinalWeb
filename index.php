@@ -28,10 +28,10 @@
             </div>
             <div class="redesSociales">
               <ul class="listaSocial">
-                <li><span id="elemento1"></span></li>
-                <li><span id="elemento2"></span></li>
-                <li><span id="elemento3"></span></li>
-                <li><span id="elemento4"></span></li>
+                <a href="https://www.facebook.com/" target="_blank"><li><span id="elemento1"></span></li></a>
+                <a href="https://plus.google.com/?hl=es" target="_blank"><li><span id="elemento2"></span></li></a>
+                <a href="https://www.instagram.com/" target="_blank"><li><span id="elemento3"></span></li></a>
+                <a href="https://twitter.com/?lang=es" target="_blank"><li><span id="elemento4"></span></li></a>
               </ul>
             </div> 
             <div class="formularioReserva">
