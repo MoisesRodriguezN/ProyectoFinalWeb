@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2016 a las 01:01:34
+-- Tiempo de generación: 01-12-2016 a las 10:29:55
 -- Versión del servidor: 10.1.10-MariaDB
 -- Versión de PHP: 7.0.4
 
@@ -48,9 +48,7 @@ INSERT INTO `cliente` (`codCliente`, `DNI`, `nombre`, `apellido1`, `apellido2`) 
 (11, '32478907t', 'grabiel', 'calle', 'machuca'),
 (13, '14346657R', 'Susana', 'Cortijo', 'Marquez'),
 (14, '94567854J', 'moises', 'rodriguez', 'naranjo'),
-(21, '43654746E', 'test4', 'test3', 'test2'),
-(22, '43654735E', 'test8', 'test', 'testoide'),
-(23, '24354365p', 'alberto', 'rodriguez', 'Bosque');
+(21, '43654746E', 'test4', 'test3', 'test2');
 
 -- --------------------------------------------------------
 
@@ -112,7 +110,6 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`usuario`, `clave`, `rol`, `codCliente`) VALUES
 ('admin', 'admin', 'administrador', NULL),
-('albertobos', 'alberto', 'usuario', 23),
 ('alicia', 'ali', 'usuario', NULL),
 ('emilia', 'simon', 'usuario', NULL),
 ('fernando', 'fernando', 'usuario', NULL),
@@ -150,7 +147,7 @@ INSERT INTO `reserva` (`codHabitacion`, `codCliente`, `fechaEntrada`, `fechaSali
 (2, 13, '2016-03-06', '2016-03-10'),
 (2, 14, '2016-01-01', '2016-01-07'),
 (2, 14, '2016-02-02', '2016-02-05'),
-(2, 23, '2016-01-08', '2016-01-12'),
+(3, 13, '2016-01-01', '2016-01-02'),
 (4, 14, '2016-01-10', '2016-01-10'),
 (4, 14, '2016-02-07', '2016-02-16'),
 (5, 13, '2016-12-08', '2016-12-09'),
@@ -209,7 +206,7 @@ ALTER TABLE `reserva`
 -- Filtros para la tabla `login`
 --
 ALTER TABLE `login`
-  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`codCliente`) REFERENCES `cliente` (`codCliente`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`codCliente`) REFERENCES `cliente` (`codCliente`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `reserva`
