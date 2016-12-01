@@ -26,6 +26,6 @@ e instalaciones del hotel,además de poder buscar una habitación disponible par
 
 ![Con titulo](https://github.com/MoisesRodriguezN/ProyectoFinalWeb/blob/master/imagenes%20proyecto/img11.PNG "Ventana de Confirmación de borrado")
 
-![Con titulo](https://github.com/MoisesRodriguezN/ProyectoFinalWeb/blob/master/imagenes%20proyecto/img12.PNG Administración del hotel - Reservas")
+![Con titulo](https://github.com/MoisesRodriguezN/ProyectoFinalWeb/blob/master/imagenes%20proyecto/img12.PNG "Administración del hotel - Reservas")
 
 ![Con titulo](https://github.com/MoisesRodriguezN/ProyectoFinalWeb/blob/master/imagenes%20proyecto/img13.PNG "Formularo de confirmacion de reserva")
