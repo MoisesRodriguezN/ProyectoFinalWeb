@@ -21,7 +21,7 @@
       $mensaje = "<div class='mensaje1'>
                   <span>Clave Actualizada. Vuelva a iniciar sesión.</span>
                   </div>";
-      if($_POST[accion]=="actualizar"){
+      if($_POST[accion]=="actualizar"){ //Actualiza los datos del cliente
         $modificacion = "UPDATE cliente SET DNI=\"$_POST[DNI]\", "
             . "nombre=\"$_POST[nombre]\", apellido1=\"$_POST[apellido1]\", "
             . "apellido2=\"$_POST[apellido2]\""
@@ -30,7 +30,7 @@
         header('Location: miCuenta.php');
       }
       
-      if($_POST[accion]=="actConfirmado"){
+      if($_POST[accion]=="actConfirmado"){ //Actualiza la clave del usuario
         $modificacionClave = "UPDATE login SET clave=\"$_POST[clave]\" "
             . " WHERE usuario=\"$usuario\"";
         $conexion->exec($modificacionClave);
