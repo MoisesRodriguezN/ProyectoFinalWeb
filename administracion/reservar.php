@@ -38,7 +38,7 @@
       ?>
         <div class="contenedorForm">
           <div class="panel panel-primary">
-              <div class="panel-heading cabeceraDivForm">Reserva de habitacion</div>
+              <div class="panel-heading cabeceraDivForm">Reserva de habitación</div>
               <div class="cuadroForm">
                   <form action="reservar.php" class="formCentrado" method="post">
                                        
