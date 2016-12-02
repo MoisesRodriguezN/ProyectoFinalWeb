@@ -7,6 +7,8 @@
         <meta charset="UTF-8">
         <title>Inicio - Hotel Fuente Alegre</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/Cabecera.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body class="fondoCuerpo">
         <div class="cabecera">
@@ -47,7 +49,7 @@
                      personas:<br>
                     <select name="personas">
                         <option value="1">1</option>
-                        <option value="2">2</option>
+                        <option value="2" selected="">2</option>
                     </select><br>
                     <input type="submit" class="btnEnvio1" value="Ver Tarifas y Reservar">
                   </form> 
