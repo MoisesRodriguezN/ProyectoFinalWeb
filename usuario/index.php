@@ -63,7 +63,7 @@
             </ul>
 
             <?php
-            if($consulta ->rowCount() > 0){
+            if($consulta->rowCount() > 0){
             ?>
             <table class="tablaHabitaciones">
               <th class="tablahabitacionesTh">Habitación</th>
