@@ -75,8 +75,8 @@
             ?>
             <table class="tablaHabitaciones">
               <th class="tablahabitacionesTh">Habitación</th>
-              <th class="tablahabitacionesTh">Capacidad</th>
               <th class="tablahabitacionesTh">Tipo</th>
+              <th class="tablahabitacionesTh">Capacidad</th>
               <th class="tablahabitacionesTh">Planta</th>
               <th class="tablahabitacionesTh">Precio/Noche</th>
               <th class="tablahabitacionesTh">Reservar</th>
