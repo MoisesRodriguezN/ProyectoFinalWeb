@@ -1,0 +1,253 @@
+.cabecera {
+  width: 100%;
+  height: 115px;
+  background: url('../img/marronHeader.jpg') no-repeat;
+  background-size: 100% auto;
+}
+
+.logoCabecera {
+  width: 10%;
+  height: auto;
+  margin-left: 4%;
+  margin-top: 0.4%;
+  background: linear-gradient(to bottom right, Chocolate, BurlyWood);
+  box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.75);
+  float: left;
+}
+
+.imgLogoResponsive {
+  width: 100%;
+  height: auto;
+}
+
+.flex-container {
+  height: 70px;
+  padding: 5px;
+  margin: auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: flex-end;
+}
+
+.flex-item {
+  display: inherit;
+  width: 14%;
+  height: auto;
+  margin: 5px;
+  margin-top: 4%;
+  margin-bottom: -20px;
+  border-radius: 4px;
+
+  &:hover {
+    background: linear-gradient(Chocolate, Peru);
+    box-shadow: -8px -8px 6px 0px rgba(0, 0, 0, 0.68);
+  }
+}
+
+.seleccionado {
+  background: linear-gradient(Chocolate, Peru);
+  box-shadow: -8px -8px 6px 0px rgba(0, 0, 0, 0.68);
+}
+
+.flex-item p {
+  width: 100%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-left: 6px;
+  font-size: 1rem;
+  font-family: 'Francois One', sans-serif;
+  color: antiquewhite;
+
+  &::first-line {
+    font-size: 1rem;
+  }
+}
+
+.flex-container.space-between {
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: center;
+}
+
+.contenedorTexto2 {
+  text-align: center;
+  margin-right: 4%;
+  margin-bottom: 1%;
+  display: none;
+}
+
+.texto3D2 {
+  text-shadow: 1px 1px 0px rgb(230, 230, 230), 2px 2px 0px rgb(200, 200, 200), 3px 3px 0px rgb(180, 180, 180), 4px 4px 0px rgb(160, 160, 160), 5px 5px 0px rgb(0, 0, 0), 8px 8px 20px rgb(0, 0, 0);
+  font-size: 46px;
+}
+
+.topnav {
+  display: none;
+}
+
+@media screen and (max-width: 1010px) {
+  .flex-item {
+    width: 16%;
+  }
+
+  .logoCabecera {
+    margin-top: 1.4%;
+  }
+
+  .contenedorTexto {
+    margin-right: -10%;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .flex-item {
+    width: 18%;
+  }
+
+  .logoCabecera {
+    margin-top: 2.4%;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .flex-container, .flex-item {
+    display: none;
+  }
+
+  .logoCabecera {
+    margin-top: 1.5%;
+    margin-left: 1%;
+  }
+
+  .imgLogoResponsive, .logoCabecera {
+    width: 100px;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: block;
+
+    li {
+      float: left;
+
+      a {
+        display: inline-block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 17px;
+
+        &:hover {
+          background-color: #555;
+        }
+      }
+
+      &.icon {
+        display: none;
+      }
+    }
+  }
+
+  .contenedorTexto2 {
+    display: block;
+    padding-top: 26px;
+  }
+
+  .contenedorTexto {
+    display: none;
+  }
+
+  @media screen and (max-width: 680px) {
+    ul.topnav li {
+      &:not(:first-child) {
+        display: none;
+      }
+
+      &.icon {
+        float: right;
+        display: inline-block;
+      }
+    }
+
+    .barrasMenu {
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 680px) {
+    ul.topnav.responsive {
+      position: relative;
+
+      li {
+        &.icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        float: none;
+        display: inline;
+
+        a {
+          display: block;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 525px) {
+    .texto3D2 {
+      font-size: 1.9rem;
+    }
+
+    .contenedorTexto2 {
+      padding-top: 30px;
+    }
+
+    .formularioReserva {
+      width: 96%;
+      margin-left: 2%;
+    }
+
+    .tituloReservar {
+      font-size: 2.6rem;
+    }
+
+    .inputFecha {
+      width: 200px;
+      font-size: 1.4rem;
+    }
+
+    .labelFecha {
+      font-size: 1.2rem;
+    }
+
+    .inputPersonas {
+      font-size: 1.4rem;
+    }
+
+    .btnEnvio1 {
+      font-size: 1.4rem;
+      margin-top: 20px;
+    }
+  }
+
+  @media screen and (max-width: 383px) {
+    .contenedorTexto2 {
+      padding-top: 16px;
+    }
+  }
+}

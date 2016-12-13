@@ -6,8 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Mis reservas</title>
-        <link rel="stylesheet" type="text/css" href="../css/Cuerpo.css">
-        <link rel="stylesheet" type="text/css" href="../css/Cabecera.css">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body class="fondoCuerpo">
@@ -69,8 +68,8 @@
             ?>
             <table class="tablaHabitaciones">
               <th class="tablahabitacionesTh">Habitación</th>
-              <th class="tablahabitacionesTh">Capacidad</th>
               <th class="tablahabitacionesTh">Tipo</th>
+              <th class="tablahabitacionesTh">Capacidad</th>
               <th class="tablahabitacionesTh">Planta</th>
               <th class="tablahabitacionesTh">Precio/Noche</th>
               <th class="tablahabitacionesTh">Fecha Entrada</th>
