@@ -11,48 +11,136 @@
       <link rel="stylesheet" type="text/css" href="../css/main.css">
       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script>
+        $(document).ready(function(){
+          var codCliente;
+          //Crea el diálogo con dos botones, Borrar y Cancelar. 
+          //-----------Borrado--------------
+          $( "#dialogoborrar" ).dialog({
+            autoOpen: false,
+            resizable: false,
+            modal: true,
+            buttons: {
+              //BOTON DE BORRAR
+              "Borrar": function() {			
+                //Ajax con get
+                $.post("eliminarCliente.php", {"codCliente":codCliente},function(data,status){
+                  alert("Funciona!"); //Manda codCliente y recibe un resultado y estado.
+                  $("#cliente_" + codCliente).fadeOut(500);
+                });//get			
+                //Cerrar la ventana de dialogo				
+                $(this).dialog("close");												
+              },
+              "Cancelar": function() {
+                  //Cerrar la ventana de dialogo
+                  $(this).dialog("close");
+              }
+            }//buttons
+          });
+          $(document).on("click",".btn-eliminar",function(){	
+              codCliente = $(this).parents("tr").attr("data-codCliente");
+              $( "#dialogoborrar" ).dialog("open");	
+          });
+          //-------------FIN Borrado---------------
+          //-------------Modificación--------------
+          $( "#dialogomodificar" ).dialog({
+            autoOpen: false,
+            resizable: false,
+            modal: true,
+            buttons: {
+            "Guardar": function() {			
+              $.post("modificarCliente.php", {
+                codCliente : codCliente,
+                dni : $("#inputDni").val() ,
+                nombre: $("#inputNombre").val() ,
+                apellido: $("#inputApellido").val() ,
+                apellido2 : $("#inputApellido2").val()
+              },function(data,status){				
+                $("#listaClientes").html(data);
+              });//get			
+
+              $(this).dialog( "close" );												
+                  },
+            "Cancelar": function() {
+                $(this).dialog( "close" );
+            }
+            }//buttons
+          });
+
+            //Boton Modificar	
+          $(document).on("click",".btn-modificar",function(){
+            codCliente = $(this).parents("tr").attr("data-codCliente");
+            $("#inputCodCliente").val(codCliente);
+            //Para que ponga el campo direccion con su valor
+            $("#inputDni").val($.trim($(this).parent().siblings("td.dni").text()));
+
+            $("#inputNombre").val($.trim($(this).parent().siblings("td.nombre").text()));
+            
+            $("#inputApellido").val($.trim($(this).parent().siblings("td.apellido").text()));
+            
+            $("#inputApellido2").val($.trim($(this).parent().siblings("td.apellido2").text()));
+
+            $( "#dialogomodificar").dialog("open");
+
+          });
+          //------------FIN Modificación---------
+          
+          //---- NUEVO --------------
+          //Boton de nuevo inmueble 
+          //Crea nueva fila al final de la tabla
+          //Con dos nuevos botones (guardarnuevo y cancelarnuevo)
+          $("#nuevo").on("click",function(){	
+              $.post("formNuevoCliente.php",function(data){
+              //Añade a la tabla de datos una nueva fila
+                $("#tabladatos").append(data);
+                //Ocultamos boton de nuevo inmueble
+                //Para evitar añadir mas de uno 
+                //a la vez
+                $("#nuevo").hide();			
+            });//get	
+          });			
+
+          //Boton de cancelar nuevo
+          $(document).on("click","#cancelarnuevo",function(){		
+              //Elimina la nueva fila creada
+              $("#filanueva").remove();
+              //vuelve a mostrar el botón de nuevo (+)
+              $("#nuevo").show();
+
+          });			
+
+          //Boton de guardar nuevo
+         $(document).on("click","#guardarnuevo",function(){	
+            $.post("altaCliente.php", {
+                  codCliente : $("#codClienteNuevo").val(),
+                  dni : $("#dniNuevo").val() ,
+                  nombre: $("#nombreNuevo").val() ,
+                  apellido1: $("#apellido1Nuevo").val() ,
+                  apellido2 : $("#apellido2Nuevo").val()
+                },function(data){
+                  //Pinta de nuevo la tabla
+                  $("#listaClientes").html(data);
+                  //Vuelve a mostrar el boton de nuevo
+                  $("#nuevo").show();		
+                });//post	
+          });
+        });
+      </script>
     <style>
+        #dialogoborrar{
+          display: none;
+        }
+        
+         #dialogomodificar{
+          display: none;
+        }
     </style> 
   </head>
   <body>
     <?php
     if ($_SESSION['logueadoAdmin']){
-      try {
-        $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");
-      } catch (PDOException $e) {
-        echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
-        die ("Error: " . $e->getMessage());
-      }
-      
-      
-      //Buscador por DNI
-      $dni = null;
-      if(isset($_GET['dni'])){
-        $dni=$_GET['dni'];
-      }
-      
-      $consultaTotal = $conexion->query("SELECT * FROM cliente");
-      
-      $totalFilas = $consultaTotal->rowCount();
-      
-      
-      $TAMANO_PAGINA = 10;
-      $pagina = $_GET["pagina"];
-      if (!isset($pagina)) {
-         $inicio = 0;
-         $pagina = 1;
-      }
-      else {
-         $inicio = ($pagina - 1) * $TAMANO_PAGINA;
-      }
-      //calculo el total de páginas
-      $totalPaginas = ceil($totalFilas / $TAMANO_PAGINA);
-      
-      if(isset($dni)){  //Consulta para buscador DNI
-        $consulta = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "' ORDER BY apellido1, apellido2, nombre LIMIT " . $inicio . "," . $TAMANO_PAGINA);
-      }else{ //Consulta sin realizar búsqueda
-        $consulta = $conexion->query("SELECT * FROM cliente ORDER BY apellido1, apellido2, nombre LIMIT " . $inicio . "," . $TAMANO_PAGINA);
-      }
       
     ?>
     <div class="container">
@@ -81,7 +169,7 @@
         </div>
       </nav>
         <div class="form-group">
-          <form class="form-inline" name="filtrar" action="index.php" method="GET">
+          <form class="form-inline formularioFloatLeft" name="filtrar" action="index.php" method="GET">
             <div class="form-group">
               <label for="buscadorDni">DNI: </label>
               <input type="text" class="form-control" id="buscadorDni" name="dni" 
@@ -89,106 +177,31 @@
             </div>
             <button type="submit" class="btn btn-default">Filtrar</button>
           </form>
+            <button id="nuevo" class="btn btn-default">Nuevo</button>
         </div>
-      <div class="table-responsive">
-        <table class="table table-striped table-hover">
-            <thead>
-              <tr class="bg-primary">
-                <th>CodCliente</th>
-                <th>DNI</th>
-                <th>Nombre</th>
-                <th>Apellido 1</th>
-                <th>Apellido 2</th>
-                <th>Edición</th>
-                <th>Reserva</th>
-                <th>Borrado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-                while ($cliente = $consulta->fetchObject()) {
-              ?>
-              <tr>
-                <td><?= $cliente->codCliente ?></td>
-                <td><?= $cliente->DNI ?></td>
-                <td><?= $cliente->nombre ?></td>
-                <td><?= $cliente->apellido1 ?></td>
-                <td><?= $cliente->apellido2 ?></td>
-                <td>
-                  <form name="modificarCliente" action="modificarCliente.php" method="POST">
-                    <input type="hidden"  name="codCliente" value="<?= $cliente->codCliente ?>">
-                    <input type="submit" class="btn btn-info" value="Editar" />
-                  </form>
-                </td>
-                <td>
-                  <form name="reservar" action="reservar.php" method="POST">
-                    <input type="hidden"  name="codCliente" value="<?= $cliente->codCliente ?>">
-                    <input type="submit" class="btn btn-success" value="Reservar" />
-                  </form>
-                </td>
-                <td>
-                  <form name="eliminarCliente" action="eliminarCliente.php" method="POST">
-                    <input type="hidden"  name="codCliente" value="<?= $cliente->codCliente ?>">
-                    <input type="submit" class="btn btn-danger" value="Eliminar" />
-                  </form>
-                </td>
-              </tr>
-              <?php } ?>
-            <form name="altaCliente" action="altaCliente.php" method="POST"> 
-                <tr class="info">
-                    <td>
-                      <input type="text" maxlength="3" size="2" name="codCliente" autofocus placeholder="Cod" value="<?= $cliente->codCliente ?>">
-                    </td>
-                    <td>
-                      <input type="text" maxlength="9" size="9" name="DNI" placeholder="DNI" value="<?= $cliente->DNI ?>">
-                    </td>
-                    <td>
-                      <input type="text" maxlength="30" size="10" name="nombre" placeholder="Nombre" value="<?= $cliente->nombre ?>">
-                    </td>
-                    <td>
-                      <input type="txt" maxlength="30" size="10" name="apellido1" placeholder="Apellido 1"value="<?= $cliente->apellido1 ?>">
-                    </td>
-                    <td>
-                      <input type="text" maxlength="30" size="10" name="apellido2" placeholder="Apellido2" value="<?= $cliente->apellido2 ?>">
-                    </td>
-                    </td>
-                    <td colspan="2">
-                      <input type="submit" class="btn btn-info" value="Añadir" />
-                    </td>
-                </tr>
-              </form>
-            <tr>
-              <?php
-              $url = "index.php";
-              if ($totalPaginas > 1) {
-                if ($pagina != 1){
-                  echo '<a href="'.$url.'?pagina='.($pagina-1).'">Anterior </a>';
-                }
-                for ($i=1;$i<=$totalPaginas;$i++) {
-                  if ($pagina == $i){
-                     //si muestro el índice de la página actual, no coloco enlace
-                     echo $pagina;
-                  }else{
-                    //si el índice no corresponde con la página mostrada actualmente,
-                    //coloco el enlace para ir a esa página
-                    echo '  <a href="'.$url.'?pagina='.$i.'">'.$i.' </a>  ';
-                  }
-                }
-                if ($pagina != $totalPaginas){
-                  echo '<a href="'.$url.'?pagina='.($pagina+1).'"> Siguiente</a>';
-                }
-              }
-              ?>
-            </tbody>
-        </table>
+      <div id="listaClientes" class="table-responsive">
+         <?php include "./listaClientes.php"?>
       </div>
       </div>
     </div>
     <?php
-     }else{
-      echo "Debes iniciar sesión para poder entrar en esta zona";
-      header("location:/administracion/login.php");
-     }
+      }else{
     ?>
+      <script>
+        window.location.href = "/administracion/login.php";
+      </script>
+    <?php
+      }
+    ?>
+    <div id="dialogoborrar" title="Eliminar Cliente">
+      <p>¿Esta seguro que desea eliminar el cliente?</p>
+    </div>
+    
+     <div id="dialogomodificar" title="Modificar CLiente">
+         <?php include "./formModificarCliente.php"?>
+    </div>
+    
+     
+   
   </body>
 </html>

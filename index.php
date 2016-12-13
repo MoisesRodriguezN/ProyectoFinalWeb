@@ -8,6 +8,9 @@
         <title>Inicio - Hotel Fuente Alegre</title>
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
            function myFunction() {
@@ -18,6 +21,12 @@
                   x.className = "topnav";
               }
           }
+          
+          $(document).ready(function(){
+            $( ".inputFecha" ).datepicker({
+              dateFormat: "mm-dd-yy"
+            });
+          });
         </script>    
     </head>
     <body class="fondoCuerpo">
@@ -72,7 +81,7 @@
                   <span class="tituloReservar">Reservar Ahora!</span>
                   <form action="usuario/habitaciones.php" method="get">
                       <span class="labelFecha">Fecha Entrada:</span><br>
-                    <input type="date" class="inputFecha" name="fechaEntrada" autofocus="">
+                    <input type="date" class="inputFecha" name="fechaEntrada">
                     <br>
                       <span>Fecha Salida:</span><br>
                     <input type="date" class="inputFecha" name="fechaSalida">
