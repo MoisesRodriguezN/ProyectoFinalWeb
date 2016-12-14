@@ -1,8 +1,5 @@
  <tr id="filanueva" class="info">
     <td>
-      <input type="text" maxlength="3" size="2" id="codClienteNuevo" autofocus placeholder="Cod" value="">
-    </td>
-    <td>
       <input type="text" maxlength="9" size="9" id="dniNuevo" placeholder="DNI" value="">
     </td>
     <td>
@@ -15,10 +12,10 @@
       <input type="text" maxlength="30" size="10" id="apellido2Nuevo" placeholder="Apellido2" value="">
     </td>
     <td>
-      <input type="text" maxlength="30" size="10" id="usuario" placeholder="Usuario" value="">
+      <input type="text" maxlength="30" size="10" id="usuarioNuevo" placeholder="Usuario" value="">
     </td>
     <td>
-      <input type="password" maxlength="30" size="10" id="clave" placeholder="Clave" value="">
+      <input type="password" maxlength="30" size="10" id="claveNueva" placeholder="Clave" value="">
     </td>
     </td>
     <td>

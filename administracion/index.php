@@ -27,7 +27,7 @@
               "Borrar": function() {			
                 //Ajax con get
                 $.post("eliminarCliente.php", {"codCliente":codCliente},function(data,status){
-                  alert("Funciona!"); //Manda codCliente y recibe un resultado y estado.
+                  //alert("Funciona!"); //Manda codCliente y recibe un resultado y estado.
                   $("#cliente_" + codCliente).fadeOut(500);
                 });//get			
                 //Cerrar la ventana de dialogo				
@@ -114,11 +114,12 @@
           //Boton de guardar nuevo
          $(document).on("click","#guardarnuevo",function(){	
             $.post("altaCliente.php", {
-                  codCliente : $("#codClienteNuevo").val(),
                   dni : $("#dniNuevo").val() ,
                   nombre: $("#nombreNuevo").val() ,
                   apellido1: $("#apellido1Nuevo").val() ,
-                  apellido2 : $("#apellido2Nuevo").val()
+                  apellido2 : $("#apellido2Nuevo").val() ,
+                  usuario : $("#usuarioNuevo").val() ,
+                  clave : $("#claveNueva").val() 
                 },function(data){
                   //Pinta de nuevo la tabla
                   $("#listaClientes").html(data);
