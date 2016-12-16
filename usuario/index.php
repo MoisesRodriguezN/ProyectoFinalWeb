@@ -24,7 +24,7 @@
       $personas = $_GET['personas'];
 
       $usuario = $_SESSION[nombreUser];
-      $sql = "SELECT * FROM reserva r , login l , habitacion h WHERE R.codCliente = l.codCliente "
+      $sql = "SELECT h.codHabitacion, h.tipo, h.capacidad, h.planta,h.tarifa,DATE_FORMAT(r.fechaEntrada, '%d/%m/%Y') as fechaEntrada,DATE_FORMAT(r.fechaSalida, '%d/%m/%Y') as fechaSalida FROM reserva r , login l , habitacion h WHERE R.codCliente = l.codCliente "
         . "AND l.usuario = '$usuario' AND h.codHabitacion = r.codHabitacion";
       $consulta = $conexion->query($sql);
 

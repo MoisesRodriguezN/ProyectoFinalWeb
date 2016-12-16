@@ -24,7 +24,7 @@
           
           $(document).ready(function(){
             $( ".inputFecha" ).datepicker({
-              dateFormat: "mm-dd-yy"
+              dateFormat: "dd-mm-yy"
             });
           });
         </script>    

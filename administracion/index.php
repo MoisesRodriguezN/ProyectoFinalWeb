@@ -127,6 +127,76 @@
                   $("#nuevo").show();		
                 });//post	
           });
+          
+           //-------------Reservar--------------
+          $( "#dialogoreservar" ).dialog({
+            autoOpen: false,
+            resizable: false,
+            modal: true,
+            buttons: {
+            "Guardar": function() {			
+              $.post("reservarHabitacion.php", {
+                codCliente : codCliente,
+                codHabitacion : $("#inputCodHabitacionReservar").val() ,
+                fechaEntrada: $("#inputfechaEntradaReservar").val() ,
+                fechaSalida: $("#inputFechaSalidaReservar").val() 
+              },function(data,status){				
+                //$("#listaClientes").html(data);
+              });//get			
+
+              $(this).dialog( "close" );												
+                  },
+            "Cancelar": function() {
+                $(this).dialog( "close" );
+            }
+            }//buttons
+          });
+
+            //Boton Reservar	
+          $(document).on("click",".btn-reservar",function(){
+            codCliente = $(this).parents("tr").attr("data-codCliente");
+            $("#inputCodClienteReservar").val(codCliente);
+            //Para que ponga el campo direccion con su valor
+            $("#inputDniReservar").val($.trim($(this).parent().siblings("td.dni").text()));
+
+            $("#inputNombreReservar").val($.trim($(this).parent().siblings("td.nombre").text()));
+            
+            $("#inputApellidoReservar").val($.trim($(this).parent().siblings("td.apellido").text()));
+            
+            $("#inputApellido2Reservar").val($.trim($(this).parent().siblings("td.apellido2").text()));
+
+            $("#dialogoreservar").dialog("open");
+
+          });
+          //------------FIN Reserva---------
+          
+          $(document).on("click",".paginacion a",function(event){
+            event.preventDefault();
+            var numeroPagina = $(this).data("pagina");
+            var orden = $("#tabladatos").data("orden");
+            var tipoOrden = $("#tabladatos").data("tipo-orden");
+            $.get("listaClientes.php", {
+                  pagina : numeroPagina,
+                  orden : orden,
+                  tipoOrden: tipoOrden
+                },function(data){
+                  //Pinta de nuevo la tabla
+                  $("#listaClientes").html(data);	
+              });//post	
+          });
+          
+        $(document).on("click",".btn-ordenar",function(){
+          var orden = $('select[name=orden]').val();
+          var tipoOrden = $('select[name=tipoOrden]').val();
+          $.get("listaClientes.php", {
+                  orden : orden,
+                  tipoOrden: tipoOrden
+                },function(data){
+                  //Pinta de nuevo la tabla
+                  $("#listaClientes").html(data);	
+              });//post	
+        });
+          
         });
       </script>
     <style>
@@ -134,7 +204,11 @@
           display: none;
         }
         
-         #dialogomodificar{
+        #dialogomodificar{
+          display: none;
+        }
+        
+        #dialogoreservar{
           display: none;
         }
     </style> 
@@ -198,11 +272,13 @@
       <p>¿Esta seguro que desea eliminar el cliente?</p>
     </div>
     
-     <div id="dialogomodificar" title="Modificar CLiente">
+    <div id="dialogomodificar" title="Modificar Cliente">
          <?php include "./formModificarCliente.php"?>
     </div>
     
-     
+    <div id="dialogoreservar" title="Reservar Habitacion">
+         <?php include "./formReservarHabitacion.php"?>
+    </div> 
    
   </body>
 </html>
