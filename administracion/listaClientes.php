@@ -25,7 +25,7 @@
       $totalFilas = $consultaTotal->rowCount();
       
       
-      $TAMANO_PAGINA = 2;
+      $TAMANO_PAGINA = 10;
       $pagina = $_GET["pagina"];
       if (!isset($pagina)) {
          $inicio = 0;
