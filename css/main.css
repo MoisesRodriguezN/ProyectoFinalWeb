@@ -195,6 +195,9 @@ a:link {
 .listaSocial {
   list-style: none; }
 
+.form-group{
+    display: inline-block;
+}
 div.tituloTabla {
   display: block;
   width: 37%;
@@ -364,7 +367,8 @@ textarea {
 
 .formCentrado {
   width: 90%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  text-align: center;}
 
 .cuadroForm {
   margin: 3% auto;

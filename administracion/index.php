@@ -12,6 +12,7 @@
       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
       <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
       <script>
         $(document).ready(function(){
@@ -45,24 +46,51 @@
           });
           //-------------FIN Borrado---------------
           //-------------Modificación--------------
+          $("#formModificar").validate({
+            rules: {
+               codCliente: { required: true, number: true},
+               DNI: { required: true, minlength: 9, maxlength:9},
+               nombre: { required:true},
+               apellido1: { required: true},
+               apellido2: { required: true}
+            },
+            messages: {
+                codCliente: "Debe introducir el código numérico del cleinte.",
+                DNI: "Debe introducir un dni Válido.",
+                nombre : "Debe introducir un Nombre.",
+                apellido1 : "Debe introducir un apellido.",
+                apellido2 : "Debe introducir un apellido.",
+            }
+          });
+          
           $( "#dialogomodificar" ).dialog({
             autoOpen: false,
             resizable: false,
             modal: true,
             buttons: {
-            "Guardar": function() {			
-              $.post("modificarCliente.php", {
-                codCliente : codCliente,
-                dni : $("#inputDni").val() ,
-                nombre: $("#inputNombre").val() ,
-                apellido: $("#inputApellido").val() ,
-                apellido2 : $("#inputApellido2").val()
-              },function(data,status){				
-                $("#listaClientes").html(data);
-              });//get			
-
-              $(this).dialog( "close" );												
-                  },
+            "Guardar": function() {	
+              var orden2 = $('select[name=orden]').val();
+              var tipoOrden2 = $('select[name=tipoOrden]').val();
+              alert(orden2);
+              alert(tipoOrden2);
+              if ($('#formModificar').valid()){
+                $.post("modificarCliente.php", {
+                  codCliente : codCliente,
+                  dni : $("#inputDni").val() ,
+                  nombre: $("#inputNombre").val() ,
+                  apellido: $("#inputApellido").val() ,
+                  apellido2 : $("#inputApellido2").val(),
+                  pagina : $("#inputPag").val(),
+                  orden : orden2,
+                  tipoOrden: tipoOrden2
+                },function(data,status){				
+                  $("#listaClientes").html(data);
+                });//get	
+                
+                $(this).dialog( "close" );
+              }
+              												
+            },
             "Cancelar": function() {
                 $(this).dialog( "close" );
             }
@@ -71,6 +99,7 @@
 
             //Boton Modificar	
           $(document).on("click",".btn-modificar",function(){
+            var numeroPagina2 =  $("spam.pagActual").text();
             codCliente = $(this).parents("tr").attr("data-codCliente");
             $("#inputCodCliente").val(codCliente);
             //Para que ponga el campo direccion con su valor
@@ -81,7 +110,9 @@
             $("#inputApellido").val($.trim($(this).parent().siblings("td.apellido").text()));
             
             $("#inputApellido2").val($.trim($(this).parent().siblings("td.apellido2").text()));
-
+            
+            $("#inputPag").val(numeroPagina2);
+            
             $( "#dialogomodificar").dialog("open");
 
           });
@@ -132,6 +163,7 @@
           $( "#dialogoreservar" ).dialog({
             autoOpen: false,
             resizable: false,
+            minWidth: 450,
             modal: true,
             buttons: {
             "Guardar": function() {			
@@ -169,7 +201,6 @@
 
           });
           //------------FIN Reserva---------
-          
           $(document).on("click",".paginacion a",function(event){
             event.preventDefault();
             var numeroPagina = $(this).data("pagina");

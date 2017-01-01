@@ -29,20 +29,21 @@
             <input type="text" name="apellido2" id="inputApellido2Reservar" class="form-control" value="" readonly="readonly">
           </div>
 
-          <div class="form-group">
+          <div class="form-group formReservaInline">
             <label for="inputCodHabitacion">codHabitacion:</label>
             <input type="text" name="codHabitacion" id="inputCodHabitacionReservar" class="form-control" value="">
           </div>
 
-          <div class="form-group">
+          <div class="form-group formReservaInline">
             <label for="inputfechaEntrada">FechaEntrada:</label>
             <input type="date" name="fechaEntrada" id="inputfechaEntradaReservar" class="form-control" value="">
           </div>
 
-          <div class="form-group">
+          <div class="form-group formReservaInline">
             <label for="inputFechaSalida">FechaSalida:</label>
             <input type="date" name="fechaSalida" id="inputFechaSalidaReservar" class="form-control" value="">
           </div>
+          
         </form>
       </div>
     </div>

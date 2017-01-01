@@ -26,7 +26,11 @@
       
       
       $TAMANO_PAGINA = 10;
-      $pagina = $_GET["pagina"];
+      $pagina = $_REQUEST["pagina"];
+      
+      if(empty($pagina)){
+        $pagina = 1;
+      }
       if (!isset($pagina)) {
          $inicio = 0;
          $pagina = 1;
@@ -38,13 +42,18 @@
       $totalPaginas = ceil($totalFilas / $TAMANO_PAGINA);
       
       $orderBy = "ORDER BY apellido1, apellido2, nombre";
-      $orden = $_GET["orden"];
+      $orden = $_REQUEST["orden"];
       if (!empty($orden)) {
          $orderBy = "ORDER BY ". $orden;
+      }else{
+        $orderBy = "ORDER BY codCliente"; //Orden por defecto
       }
-      $tipoOrden = $_GET["tipoOrden"];
+      
+      $tipoOrden = $_REQUEST["tipoOrden"];
       if (!empty($tipoOrden)) {
-         $orderBy .= " " . $tipoOrden;
+        $orderBy .= " " . $tipoOrden;
+      }else{
+        $orderBy .= " ASC"; //Orden por defecto
       }
       if(isset($dni)){  //Consulta para buscador DNI
         $consulta = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "' " . $orderBy . " LIMIT " . $inicio . "," . $TAMANO_PAGINA);
@@ -142,7 +151,7 @@
           for ($i=1;$i<=$totalPaginas;$i++) {
             if ($pagina == $i){
                //si muestro el índice de la página actual, no coloco enlace
-               echo $pagina;
+               echo "<spam class='pagActual'>" ,$pagina , "</spam>";
             }else{
               //si el índice no corresponde con la página mostrada actualmente,
               //coloco el enlace para ir a esa página
