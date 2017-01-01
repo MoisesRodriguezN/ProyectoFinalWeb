@@ -82,7 +82,7 @@
                   apellido2 : $("#inputApellido2").val(),
                   pagina : $("#inputPag").val(),
                   orden : orden2,
-                  tipoOrden: tipoOrden2
+                  tipoOrden: tipoOrden2 //ASC DESC
                 },function(data,status){				
                   $("#listaClientes").html(data);
                 });//get	
@@ -99,7 +99,7 @@
 
             //Boton Modificar	
           $(document).on("click",".btn-modificar",function(){
-            var numeroPagina2 =  $("spam.pagActual").text();
+            var numeroPagina2 = $("spam.pagActual").text();
             codCliente = $(this).parents("tr").attr("data-codCliente");
             $("#inputCodCliente").val(codCliente);
             //Para que ponga el campo direccion con su valor
