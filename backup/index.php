@@ -55,7 +55,7 @@
                apellido2: { required: true}
             },
             messages: {
-                codCliente: "Debe introducir el código numérico del cliente.",
+                codCliente: "Debe introducir el código numérico del cleinte.",
                 DNI: "Debe introducir un dni Válido.",
                 nombre : "Debe introducir un Nombre.",
                 apellido1 : "Debe introducir un apellido.",

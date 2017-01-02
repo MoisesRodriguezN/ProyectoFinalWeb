@@ -1,76 +1,78 @@
 <?php
   session_start(); // Inicio de sesión
 ?>
-  <?php
-  if ($_SESSION['logueadoAdmin']){
-    try {
-      $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");
-    } catch (PDOException $e) {
-      echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
-      die ("Error: " . $e->getMessage());
-    }
-
-    //Buscador por DNI
-    //filtro por DNI
-    $dni = null;
-    if(isset($_GET['dni']) && !empty($_GET['dni'])){
-      $dni=$_GET['dni'];
-    }
-    if(isset($dni)){  //Consulta para buscador DNI
-      $consultaTotal = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "'");
-    }else{ //Consulta sin realizar búsqueda
-      $consultaTotal = $conexion->query("SELECT * FROM cliente");
-    }
-
-    $totalFilas = $consultaTotal->rowCount();
-
-
-    $TAMANO_PAGINA = 10;
-    $pagina = $_REQUEST["pagina"];
-
-    if(empty($pagina)){
-      $pagina = 1;
-    }
-    if (!isset($pagina)) {
-       $inicio = 0;
-       $pagina = 1;
-    }
-    else {
-       $inicio = ($pagina - 1) * $TAMANO_PAGINA;
-    }
-    //calculo el total de páginas
-    $totalPaginas = ceil($totalFilas / $TAMANO_PAGINA);
-
-    $orderBy = "ORDER BY apellido1, apellido2, nombre"; //Orden por defecto
-    $orden = $_REQUEST["orden"];
-    if (!empty($orden)) {
-       $orderBy = "ORDER BY ". $orden;
-    }
-
-    $tipoOrden = $_REQUEST["tipoOrden"];
-    if (!empty($tipoOrden)) {
-      $orderBy .= " " . $tipoOrden;
-    }else{
-      $orderBy .= " ASC"; //Orden por defecto
-    }
-    if(isset($dni)){  //Consulta para buscador DNI
-      $consulta = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "' " . $orderBy . " LIMIT " . $inicio . "," . $TAMANO_PAGINA);
-    }else{ //Consulta sin realizar búsqueda
-      $consulta = $conexion->query("SELECT * FROM cliente " . $orderBy . " LIMIT " . $inicio . "," . $TAMANO_PAGINA);
-    }
-
-    $opcionesOrden = array();
-    $opcionesOrden["codCliente"] = "codCliente";
-    $opcionesOrden["dni"] = "DNI";
-    $opcionesOrden["nombre"] = "Nombre";
-    $opcionesOrden["apellido1"] = "Apellido 1";
-    $opcionesOrden["apellido2"] = "Apellido 2";
-
-    $tiposOrden = array();
-    $tiposOrden["asc"] = "Ascendente";
-    $tiposOrden["desc"] = "Descendente";
-
-  ?>  
+    <?php
+    if ($_SESSION['logueadoAdmin']){
+      try {
+        $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");
+      } catch (PDOException $e) {
+        echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
+        die ("Error: " . $e->getMessage());
+      }
+  
+      //Buscador por DNI
+      // TODO Implementar filtro por DNI
+      $dni = null;
+      if(isset($_GET['dni']) && !empty($_GET['dni'])){
+        $dni=$_GET['dni'];
+      }
+      if(isset($dni)){  //Consulta para buscador DNI
+        $consultaTotal = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "'");
+      }else{ //Consulta sin realizar búsqueda
+        $consultaTotal = $conexion->query("SELECT * FROM cliente");
+      }
+      
+      $totalFilas = $consultaTotal->rowCount();
+      
+      
+      $TAMANO_PAGINA = 10;
+      $pagina = $_REQUEST["pagina"];
+      
+      if(empty($pagina)){
+        $pagina = 1;
+      }
+      if (!isset($pagina)) {
+         $inicio = 0;
+         $pagina = 1;
+      }
+      else {
+         $inicio = ($pagina - 1) * $TAMANO_PAGINA;
+      }
+      //calculo el total de páginas
+      $totalPaginas = ceil($totalFilas / $TAMANO_PAGINA);
+      
+      $orderBy = "ORDER BY apellido1, apellido2, nombre";
+      $orden = $_REQUEST["orden"];
+      if (!empty($orden)) {
+         $orderBy = "ORDER BY ". $orden;
+      }else{
+        $orderBy = "ORDER BY codCliente"; //Orden por defecto
+      }
+      
+      $tipoOrden = $_REQUEST["tipoOrden"];
+      if (!empty($tipoOrden)) {
+        $orderBy .= " " . $tipoOrden;
+      }else{
+        $orderBy .= " ASC"; //Orden por defecto
+      }
+      if(isset($dni)){  //Consulta para buscador DNI
+        $consulta = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "' " . $orderBy . " LIMIT " . $inicio . "," . $TAMANO_PAGINA);
+      }else{ //Consulta sin realizar búsqueda
+        $consulta = $conexion->query("SELECT * FROM cliente " . $orderBy . " LIMIT " . $inicio . "," . $TAMANO_PAGINA);
+      }
+      
+      $opcionesOrden = array();
+      $opcionesOrden["codCliente"] = "codCliente";
+      $opcionesOrden["dni"] = "DNI";
+      $opcionesOrden["nombre"] = "Nombre";
+      $opcionesOrden["apellido1"] = "Apellido 1";
+      $opcionesOrden["apellido2"] = "Apellido 2";
+      
+      $tiposOrden = array();
+      $tiposOrden["asc"] = "Ascendente";
+      $tiposOrden["desc"] = "Descendente";
+      
+    ?>  
 <div class="ordenar">
   <select name="orden">
      <?php
@@ -149,7 +151,7 @@
           for ($i=1;$i<=$totalPaginas;$i++) {
             if ($pagina == $i){
                //si muestro el índice de la página actual, no coloco enlace
-               echo "<spam class='pagActual'> " ,$pagina , " </spam>";
+               echo "<spam class='pagActual'>" ,$pagina , "</spam>";
             }else{
               //si el índice no corresponde con la página mostrada actualmente,
               //coloco el enlace para ir a esa página
