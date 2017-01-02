@@ -1,4 +1,4 @@
-<tr class="info">
+<tr id="filanueva" class="info">
   <td>
     <input type="text" maxlength="3" size="2" name="codHabitacion" id="codHabitacionNuevo" autofocus placeholder="Cod" value="">
   </td>
@@ -9,7 +9,7 @@
     <input type="text" maxlength="30" size="10" name="capacidad" id="capacidadNuevo" placeholder="capacidad" value="">
   </td>
   <td>
-    <input type="text" maxlength="30" size="10" name="planta" id="plantanNuevo" placeholder="planta"value="">
+    <input type="text" maxlength="30" size="10" name="planta" id="plantaNuevo" placeholder="planta"value="">
   </td>
   <td>
     <input type="text" maxlength="30" size="10" name="tarifa" id="tarifaNuevo" placeholder="tarifa"value="">

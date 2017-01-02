@@ -15,7 +15,7 @@
     $totalFilas = $consultaTotal->rowCount();
 
     $TAMANO_PAGINA = 10;
-    $pagina = $_GET["pagina"];
+    $pagina = $_REQUEST["pagina"];
     if (!isset($pagina)) {
        $inicio = 0;
        $pagina = 1;
@@ -79,6 +79,7 @@
       ?>
     </select>
     <button type="button" class="btn btn-info btn-ordenar">Ordenar</button>
+    <button id="nuevo" class="btn btn-default">Nuevo</button>
   </div>
   <table id="tabladatos" class="table table-striped table-hover" data-orden="<?=$orden?>" data-tipo-orden="<?=$tipoOrden?>">
     <thead>

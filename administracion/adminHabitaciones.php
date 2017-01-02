@@ -30,7 +30,6 @@
           "Borrar": function() {			
             //Ajax con post
             $.post("eliminarHabitacion.php", {"codHabitacion":codHabitacion},function(data,status){
-              //alert("Funciona!"); //Manda codCliente y recibe un resultado y estado.
               $("#habitacion_" + codHabitacion).fadeOut(500);
             });//post		
             //Cerrar la ventana de dialogo				
@@ -72,8 +71,8 @@
         modal: true,
         buttons: {
         "Guardar": function() {	
-          //var orden2 = $('select[name=orden]').val();
-          //var tipoOrden2 = $('select[name=tipoOrden]').val();
+          var orden2 = $('select[name=orden]').val();
+          var tipoOrden2 = $('select[name=tipoOrden]').val();
           if ($('#formModificar').valid()){
             $.post("modificarHabitacion.php", {
               codHabitacion : codHabitacion,
@@ -81,9 +80,9 @@
               capacidad: $("#inputCapacidad").val() ,
               planta: $("#inputPlanta").val() ,
               tarifa : $("#inputTarifa").val(),
-             // pagina : $("#inputPag").val(),
-             // orden : orden2,
-             // tipoOrden: tipoOrden2 //ASC DESC
+              pagina : $("#inputPag").val(),
+              orden : orden2,
+              tipoOrden: tipoOrden2 //ASC DESC
             },function(data,status){				
               $("#listaHabitaciones").html(data);
             });//get	
@@ -100,7 +99,7 @@
 
         //Boton Modificar	
       $(document).on("click",".btn-modificar",function(){
-        //var numeroPagina2 = $("spam.pagActual").text();
+        var numeroPagina2 = $("spam.pagActual").text();
         codHabitacion = $(this).parents("tr").attr("data-codHabitacion");
         $("#inputCodHabitacion").val(codHabitacion);
         
@@ -112,14 +111,91 @@
 
         $("#inputTarifa").val($.trim($(this).parent().siblings("td.tarifa").text()));
 
-        //$("#inputPag").val(numeroPagina2);
+        $("#inputPag").val(numeroPagina2);
 
         $( "#dialogomodificar").dialog("open");
 
       });
       //------------FIN Modificación--------------------------------------------
+      
+      //------------------- NUEVO ----------------------------------------------
+      $(document).on("click","#nuevo",function(){		
+        $.post("formNuevaHabitacion.php",function(data){
+        //Añade a la tabla de datos una nueva fila
+          $("#tabladatos").append(data);
+          //Ocultamos boton de nuevo
+          //Para evitar añadir mas de uno 
+          //a la vez
+          $("#nuevo").hide();			
+        });//post	
+      });			
+
+      //Boton de cancelar nuevo
+      $(document).on("click","#cancelarnuevo",function(){		
+        //Elimina la nueva fila creada
+        $("#filanueva").remove();
+        //vuelve a mostrar el botón de nuevo (+)
+        $("#nuevo").show();
+
+      });			
+
+      //Boton de guardar nuevo
+      $(document).on("click","#guardarnuevo",function(){	
+        $.post("altaHabitacion.php", {
+          codHabitacion : $("#codHabitacionNuevo").val() ,
+          tipo: $("#tipoNuevo").val() ,
+          capacidad: $("#capacidadNuevo").val() ,
+          planta : $("#plantaNuevo").val() ,
+          tarifa : $("#tarifaNuevo").val()
+        },function(data){
+          //Pinta de nuevo la tabla
+          $("#listaHabitaciones").html(data);
+          //Vuelve a mostrar el boton de nuevo
+          $("#nuevo").show();		
+        });//post	
+      });
+      //-------------------------FIN Nuevo--------------------------------------
+      
+      //-------------------------Paginación-------------------------------------
+      $(document).on("click",".paginacion a",function(event){
+        event.preventDefault();
+        var numeroPagina = $(this).data("pagina");
+        var orden = $("#tabladatos").data("orden");
+        var tipoOrden = $("#tabladatos").data("tipo-orden");
+        $.get("listaHabitaciones.php", {
+              pagina : numeroPagina,
+              orden : orden,
+              tipoOrden: tipoOrden
+            },function(data){
+              //Pinta de nuevo la tabla
+              $("#listaHabitaciones").html(data);	
+        });//get
+      });
+      //-------------------------FIN Paginación---------------------------------
+      //-------------------------Ordenar----------------------------------------
+      $(document).on("click",".btn-ordenar",function(){
+        var orden = $('select[name=orden]').val();
+        var tipoOrden = $('select[name=tipoOrden]').val();
+        $.get("listaHabitaciones.php", {
+          orden : orden,
+          tipoOrden: tipoOrden
+        },function(data){
+          //Pinta de nuevo la tabla
+          $("#listaHabitaciones").html(data);	
+        });//get
+       });
+      //-------------------------Fin Ordenar------------------------------------
     });
   </script>
+  <style>
+    #dialogoborrar{
+      display: none;
+    }
+
+    #dialogomodificar{
+      display: none;
+    }
+    </style> 
   <body>
     
     <div class="container">
