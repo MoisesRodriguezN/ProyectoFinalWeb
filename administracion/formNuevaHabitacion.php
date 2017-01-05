@@ -1,23 +1,31 @@
-<tr id="filanueva" class="info">
-  <td>
-    <input type="text" maxlength="3" size="2" name="codHabitacion" id="codHabitacionNuevo" autofocus placeholder="Cod" value="">
-  </td>
-  <td>
-    <input type="text" maxlength="10" size="9" name="tipo" id="tipoNuevo" placeholder="tipo" value="">
-  </td>
-  <td>
-    <input type="text" maxlength="30" size="10" name="capacidad" id="capacidadNuevo" placeholder="capacidad" value="">
-  </td>
-  <td>
-    <input type="text" maxlength="30" size="10" name="planta" id="plantaNuevo" placeholder="planta"value="">
-  </td>
-  <td>
-    <input type="text" maxlength="30" size="10" name="tarifa" id="tarifaNuevo" placeholder="tarifa"value="">
-  </td>
-  <td>
-    <button id="guardarnuevo" class="btn btn-info">Guardar</button>
-  </td> 
-  <td colspan="2">
-    <button id="cancelarnuevo" class="btn btn-info">Cancelar</button>
-  </td>
-</tr>
+<div class="panel panel-primary">
+    <div class="panel-heading cabeceraDivForm">Nueva habitación</div>
+    <div class="cuadroForm">
+        <form action="" class="formCentrado" method="post">
+            <div class="form-group">
+                <label for="codHabitacionNuevo">codHabitacion:</label>
+                <input type="text" name="codHabitacion" id="codHabitacionNuevo" class="form-control" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="tipoNuevo">Tipo:</label>
+                <input type="text" name="tipo" id="tipoNuevo" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="capacidadNuevo">Capacidad:</label>
+                <input type="text" name="capacidad" id="capacidadNuevo" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="plantaNuevo">Planta:</label>
+                <input type="text" name="planta" id="plantaNuevo" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="tarifaNuevo">Tarifa:</label>
+                <input type="text" name="tarifa" id="tarifaNuevo" class="form-control">
+            </div>
+        </form>
+    </div>
+</div>

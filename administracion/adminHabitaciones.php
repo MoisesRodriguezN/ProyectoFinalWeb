@@ -119,7 +119,7 @@
       //------------FIN Modificación--------------------------------------------
       
       //------------------- NUEVO ----------------------------------------------
-      $(document).on("click","#nuevo",function(){		
+      /*$(document).on("click","#nuevo",function(){		
         $.post("formNuevaHabitacion.php",function(data){
         //Añade a la tabla de datos una nueva fila
           $("#tabladatos").append(data);
@@ -155,7 +155,42 @@
         });//post	
       });
       //-------------------------FIN Nuevo--------------------------------------
-      
+      */
+     //------------------------- Nuevo Cliente-----------------------------
+      $( "#dialogoNuevaHabitacion" ).dialog({
+        autoOpen: false,
+        resizable: false,
+        minWidth: 450,
+        modal: true,
+        buttons: {
+        "Guardar": function() {			
+          $.post("altaHabitacion.php", {
+            codHabitacion : $("#codHabitacionNuevo").val() ,
+            tipo: $("#tipoNuevo").val() ,
+            capacidad: $("#capacidadNuevo").val() ,
+            planta : $("#plantaNuevo").val() ,
+            tarifa : $("#tarifaNuevo").val()
+          },function(data,status){				
+            $("#listaHabitaciones").html(data);
+          });//get			
+
+          $(this).dialog( "close" );	
+          $("#nuevo").show();
+        },
+        "Cancelar": function() {
+            $(this).dialog( "close" );
+            $("#nuevo").show();
+        }
+        }//buttons
+      });
+
+        //Boton Nueva Habitacion
+      $(document).on("click","#nuevo",function(){	
+        $("#nuevo").hide();
+        $("#dialogoNuevaHabitacion").dialog("open");
+
+      });
+      //-----------------------FIN Nuevo Cliente----------------------------
       //-------------------------Paginación-------------------------------------
       $(document).on("click",".paginacion a",function(event){
         event.preventDefault();
@@ -193,6 +228,10 @@
     }
 
     #dialogomodificar{
+      display: none;
+    }
+    
+    #dialogoNuevaHabitacion{
       display: none;
     }
     </style> 
@@ -237,5 +276,9 @@
     <div id="dialogomodificar" title="Modificar Cliente">
       <?php include "./formModificarHabitacion.php"?>
     </div>
+      
+    <div id="dialogoNuevaHabitacion" title="Nueva Habitación">
+        <?php include "./formNuevaHabitacion.php"?>
+    </div> 
   </body>
 </html>

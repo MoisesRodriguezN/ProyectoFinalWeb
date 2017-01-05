@@ -186,7 +186,7 @@
           });
 
             //Boton Nuevo Cliente	
-          $("#nuevo").on("click",function(){
+          $(document).on("click","#nuevo",function(){	
             $("#nuevo").hide();
             $("#dialogoNuevoCliente").dialog("open");
 
@@ -273,6 +273,10 @@
         }
         
         #dialogoreservar{
+          display: none;
+        }
+        
+        #dialogoNuevoCliente{
           display: none;
         }
     </style> 
