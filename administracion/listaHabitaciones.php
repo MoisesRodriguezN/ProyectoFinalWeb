@@ -79,7 +79,7 @@
       ?>
     </select>
     <button type="button" class="btn btn-info btn-ordenar">Ordenar</button>
-    <button id="nuevo" class="btn btn-default">Nuevo</button>
+    <button id="nuevo" class="btn btn-default">Nueva Habitación</button>
   </div>
   <table id="tabladatos" class="table table-striped table-hover" data-orden="<?=$orden?>" data-tipo-orden="<?=$tipoOrden?>">
     <thead>

@@ -71,8 +71,6 @@
             "Guardar": function() {	
               var orden2 = $('select[name=orden]').val();
               var tipoOrden2 = $('select[name=tipoOrden]').val();
-              alert(orden2);
-              alert(tipoOrden2);
               if ($('#formModificar').valid()){
                 $.post("modificarCliente.php", {
                   codCliente : codCliente,
@@ -122,7 +120,7 @@
           //Boton de nuevo inmueble 
           //Crea nueva fila al final de la tabla
           //Con dos nuevos botones (guardarnuevo y cancelarnuevo)
-          $("#nuevo").on("click",function(){	
+         /* $("#nuevo").on("click",function(){	
               $.post("formNuevoCliente.php",function(data){
               //Añade a la tabla de datos una nueva fila
                 $("#tabladatos").append(data);
@@ -157,9 +155,44 @@
                   //Vuelve a mostrar el boton de nuevo
                   $("#nuevo").show();		
                 });//post	
+          });*/
+          //------------------------- Nuevo Cliente-----------------------------
+          $( "#dialogoNuevoCliente" ).dialog({
+            autoOpen: false,
+            resizable: false,
+            minWidth: 450,
+            modal: true,
+            buttons: {
+            "Guardar": function() {			
+              $.post("altaCliente.php", {
+                dni : $("#dniNuevo").val() ,
+                nombre: $("#nombreNuevo").val() ,
+                apellido1: $("#apellido1Nuevo").val() ,
+                apellido2 : $("#apellido2Nuevo").val() ,
+                usuario : $("#usuarioNuevo").val() ,
+                clave : $("#claveNueva").val() 
+              },function(data,status){				
+                $("#listaClientes").html(data);
+              });//get			
+
+              $(this).dialog( "close" );	
+              $("#nuevo").show();
+            },
+            "Cancelar": function() {
+                $(this).dialog( "close" );
+                $("#nuevo").show();
+            }
+            }//buttons
           });
-          
-           //-------------Reservar--------------
+
+            //Boton Nuevo Cliente	
+          $("#nuevo").on("click",function(){
+            $("#nuevo").hide();
+            $("#dialogoNuevoCliente").dialog("open");
+
+          });
+          //-----------------------FIN Nuevo Cliente----------------------------
+          //-------------Reservar--------------
           $( "#dialogoreservar" ).dialog({
             autoOpen: false,
             resizable: false,
@@ -174,7 +207,7 @@
                 fechaSalida: $("#inputFechaSalidaReservar").val() 
               },function(data,status){				
                 //$("#listaClientes").html(data);
-              });//get			
+              });//post	
 
               $(this).dialog( "close" );												
                   },
@@ -283,7 +316,7 @@
             </div>
             <button type="submit" class="btn btn-default">Filtrar</button>
           </form>
-            <button id="nuevo" class="btn btn-default">Nuevo</button>
+            <button id="nuevo" class="btn btn-default">Nuevo Cliente</button>
         </div>
       <div id="listaClientes" class="table-responsive">
          <?php include "./listaClientes.php"?>
@@ -309,6 +342,10 @@
     
     <div id="dialogoreservar" title="Reservar Habitacion">
          <?php include "./formReservarHabitacion.php"?>
+    </div> 
+      
+    <div id="dialogoNuevoCliente" title="Nuevo Cliente">
+        <?php include "./formNuevoCliente.php"?>
     </div> 
    
   </body>

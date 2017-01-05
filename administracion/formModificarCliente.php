@@ -27,7 +27,7 @@
               <label for="inputApellido2">Apellido2:</label>
               <input type="text" name="apellido2" id="inputApellido2" class="form-control" value="">
             </div>
-            <div class="form-group formReservaInline">
+            <div class="form-group">
               <input type="hidden" name="inputPag" id="inputPag" class="form-control" value="">
             </div>
           </form>

@@ -34,8 +34,7 @@
     if (!isset($pagina)) {
        $inicio = 0;
        $pagina = 1;
-    }
-    else {
+    } else {
        $inicio = ($pagina - 1) * $TAMANO_PAGINA;
     }
     //calculo el total de páginas
@@ -53,6 +52,7 @@
     }else{
       $orderBy .= " ASC"; //Orden por defecto
     }
+    
     if(isset($dni)){  //Consulta para buscador DNI
       $consulta = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "' " . $orderBy . " LIMIT " . $inicio . "," . $TAMANO_PAGINA);
     }else{ //Consulta sin realizar búsqueda
