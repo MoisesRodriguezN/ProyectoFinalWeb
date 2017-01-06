@@ -1,7 +1,7 @@
 <div class="panel panel-primary">
     <div class="panel-heading cabeceraDivForm">Nueva habitación</div>
     <div class="cuadroForm">
-        <form action="" class="formCentrado" method="post">
+        <form action="" class="formCentrado" id="formNuevaHabitacion" method="post">
             <div class="form-group">
                 <label for="codHabitacionNuevo">codHabitacion:</label>
                 <input type="text" name="codHabitacion" id="codHabitacionNuevo" class="form-control" value="">

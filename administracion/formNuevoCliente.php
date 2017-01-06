@@ -2,7 +2,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading cabeceraDivForm">Nuevo Cliente</div>
         <div class="cuadroForm">
-            <form action="" class="formCentrado" method="post">
+            <form action="" class="formCentrado" id="formNuevoCliente" method="post">
 
                 <div class="form-group">
                     <label for="dniNuevo">DNI:</label>

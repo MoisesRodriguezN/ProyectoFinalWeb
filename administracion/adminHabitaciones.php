@@ -153,29 +153,48 @@
           //Vuelve a mostrar el boton de nuevo
           $("#nuevo").show();		
         });//post	
-      });
+      });*/
       //-------------------------FIN Nuevo--------------------------------------
-      */
+     
      //------------------------- Nuevo Cliente-----------------------------
+     $("#formNuevaHabitacion").validate({
+        rules: {
+           codHabitacion: { required: true, number: true},
+           tipo: { required: true},
+           capacidad: { required:true},
+           planta: { required: true},
+           tarifa: { required: true}
+        },
+        messages: {
+            codHabitacion: "Debe introducir el código numérico de la habitacion.",
+            tipo: "Debe introducir un tipo.",
+            capacidad : "Debe introducir una capacidad.",
+            planta : "Debe introducir una planta.",
+            tarifa : "Debe introducir una tarifa.",
+        }
+      });
+      
       $( "#dialogoNuevaHabitacion" ).dialog({
         autoOpen: false,
         resizable: false,
         minWidth: 450,
         modal: true,
         buttons: {
-        "Guardar": function() {			
-          $.post("altaHabitacion.php", {
-            codHabitacion : $("#codHabitacionNuevo").val() ,
-            tipo: $("#tipoNuevo").val() ,
-            capacidad: $("#capacidadNuevo").val() ,
-            planta : $("#plantaNuevo").val() ,
-            tarifa : $("#tarifaNuevo").val()
-          },function(data,status){				
-            $("#listaHabitaciones").html(data);
-          });//get			
+        "Guardar": function() {
+          if ($('#formNuevaHabitacion').valid()){
+            $.post("altaHabitacion.php", {
+              codHabitacion : $("#codHabitacionNuevo").val() ,
+              tipo: $("#tipoNuevo").val() ,
+              capacidad: $("#capacidadNuevo").val() ,
+              planta : $("#plantaNuevo").val() ,
+              tarifa : $("#tarifaNuevo").val()
+            },function(data,status){				
+              $("#listaHabitaciones").html(data);
+            });//get			
 
-          $(this).dialog( "close" );	
-          $("#nuevo").show();
+            $(this).dialog( "close" );	
+            $("#nuevo").show();
+          }
         },
         "Cancelar": function() {
             $(this).dialog( "close" );

@@ -157,26 +157,46 @@
                 });//post	
           });*/
           //------------------------- Nuevo Cliente-----------------------------
+          $("#formNuevoCliente").validate({
+            rules: {
+               DNI: { required: true, minlength: 9, maxlength:9},
+               nombre: { required:true},
+               apellido1: { required: true},
+               apellido2: { required: true},
+               nombreUsuario: { required: true},
+               clave: { required: true}
+            },
+            messages: {
+                DNI: "Debe introducir un dni Válido.",
+                nombre : "Debe introducir un Nombre.",
+                apellido1 : "Debe introducir un apellido.",
+                apellido2 : "Debe introducir un apellido.",
+                nombreUsuario: "Debe introducir el código numérico del cliente.",
+                clave: "Debe introducir el código numérico del cliente."
+            }
+          });
           $( "#dialogoNuevoCliente" ).dialog({
             autoOpen: false,
             resizable: false,
             minWidth: 450,
             modal: true,
             buttons: {
-            "Guardar": function() {			
-              $.post("altaCliente.php", {
-                dni : $("#dniNuevo").val() ,
-                nombre: $("#nombreNuevo").val() ,
-                apellido1: $("#apellido1Nuevo").val() ,
-                apellido2 : $("#apellido2Nuevo").val() ,
-                usuario : $("#usuarioNuevo").val() ,
-                clave : $("#claveNueva").val() 
-              },function(data,status){				
-                $("#listaClientes").html(data);
-              });//get			
+            "Guardar": function() {		
+              if ($('#formNuevoCliente').valid()){
+                $.post("altaCliente.php", {
+                  dni : $("#dniNuevo").val() ,
+                  nombre: $("#nombreNuevo").val() ,
+                  apellido1: $("#apellido1Nuevo").val() ,
+                  apellido2 : $("#apellido2Nuevo").val() ,
+                  usuario : $("#usuarioNuevo").val() ,
+                  clave : $("#claveNueva").val() 
+                },function(data,status){				
+                  $("#listaClientes").html(data);
+                });//get			
 
-              $(this).dialog( "close" );	
-              $("#nuevo").show();
+                $(this).dialog( "close" );	
+                $("#nuevo").show();
+              }
             },
             "Cancelar": function() {
                 $(this).dialog( "close" );
