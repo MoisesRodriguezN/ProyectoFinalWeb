@@ -254,10 +254,23 @@
 
           });
           //------------FIN Reserva---------
+          
+          $("#buscadorDni").keyup(function(e){
+            var  consulta = $("#buscadorDni").val();
+            $.get("listaClientes.php", {
+                 dni : consulta,
+                 //orden : orden,
+                 //tipoOrden: tipoOrden
+               },function(data){
+                 //Pinta de nuevo la tabla
+                 $("#listaClientes").html(data);	
+             });//post	
+          });
+          
           $(document).on("click",".paginacion a",function(event){
             event.preventDefault();
             var numeroPagina = $(this).data("pagina");
-            var orden = $("#tabladatos").data("orden");
+            var orden = $("#tablaordendatos").data("orden");
             var tipoOrden = $("#tabladatos").data("tipo-orden");
             $.get("listaClientes.php", {
                   pagina : numeroPagina,

@@ -16,14 +16,14 @@
     if(isset($_GET['dni']) && !empty($_GET['dni'])){
       $dni=$_GET['dni'];
     }
+    
     if(isset($dni)){  //Consulta para buscador DNI
-      $consultaTotal = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "'");
+      $consultaTotal = $conexion->query("SELECT * FROM cliente WHERE dni LIKE '%" . $dni . "%'");
     }else{ //Consulta sin realizar búsqueda
       $consultaTotal = $conexion->query("SELECT * FROM cliente");
     }
 
     $totalFilas = $consultaTotal->rowCount();
-
 
     $TAMANO_PAGINA = 10;
     $pagina = $_REQUEST["pagina"];
@@ -54,7 +54,7 @@
     }
     
     if(isset($dni)){  //Consulta para buscador DNI
-      $consulta = $conexion->query("SELECT * FROM cliente WHERE dni = '" . $dni . "' " . $orderBy . " LIMIT " . $inicio . "," . $TAMANO_PAGINA);
+      $consulta = $conexion->query("SELECT * FROM cliente WHERE dni LIKE '%" . $dni . "%' " . $orderBy . " LIMIT " . $inicio . "," . $TAMANO_PAGINA);
     }else{ //Consulta sin realizar búsqueda
       $consulta = $conexion->query("SELECT * FROM cliente " . $orderBy . " LIMIT " . $inicio . "," . $TAMANO_PAGINA);
     }
