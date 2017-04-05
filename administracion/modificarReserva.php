@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
   session_start(); // Inicio de sesión
 ?>
 <!DOCTYPE html>
@@ -59,45 +60,23 @@
                     <label for="inputDni">DNI:</label>
                     <input type="text" name="DNI" id="inputDni" class="form-control" value="<?= $reserva->DNI ?>" readonly="readonly">
                   </div>
+=======
+>>>>>>> 6f70f332edfc99d4261ab5fcb77a56f8a678505c
 
-                  <div class="form-group">
-                    <label for="inputNobre">Nombre:</label>
-                    <input type="text" name="nombre" id="inputNombre" class="form-control" value="<?= $reserva->nombre ?>" readonly="readonly">
-                  </div>
+session_start(); // Inicio de sesión
 
-                  <div class="form-group">
-                    <label for="inputApellido">Apellido1:</label>
-                    <input type="text" name="apellido1" id="inputApellido" class="form-control" value="<?= $reserva->apellido1 ?>" readonly="readonly">
-                  </div>
+if ($_SESSION['logueadoAdmin'] == true) {
+  try {
+    $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");
+  } catch (PDOException $e) {
+    echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
+    die("Error: " . $e->getMessage());
+  }
 
-                  <div class="form-group">
-                    <label for="inputApellido2">Apellido2:</label>
-                    <input type="text" name="apellido2" id="inputApellido2" class="form-control" value="<?= $reserva->apellido2 ?>" readonly="readonly">
-                  </div>
-                    
-                  <div class="form-group">
-                    <label for="inputfechaEntrada">FechaEntrada:</label>
-                    <input type="hidden" name="fechaEntradaHidden" class="form-control" value="<?= $reserva->fechaEntrada ?>">
-                    <input type="date" name="fechaEntrada" id="inputfechaEntrada" class="form-control" value="<?= $reserva->fechaEntrada ?>">
-                  </div>
-                    
-                  <div class="form-group">
-                    <label for="inputFechaSalida">FechaSalida:</label>
-                    <input type="date" name="fechaSalida" id="inputFechaSalida2" class="form-control" value="<?= $reserva->fechaSalida ?>">
-                  </div>
-                  <button type="submit" class="btn btn-default">Enviar</button>
-                </form>
-              </div>
-            </div>
-          </div>
-      <?php
-        }
-      ?> 
-      <?php
-        }else{
-         echo "Debes iniciar sesión para poder entrar en esta zona";
-         header("location:login.php");
-        }
-      ?>
-  </body>
-</html>
+  $modificacion = "UPDATE reserva SET  fechaEntrada=\"$_POST[fechaEntrada]\", "
+    . "fechaSalida=\"$_POST[fechaSalida]\" WHERE codHabitacion=\"$_POST[codHabitacion]\" "
+    . "AND codCliente=\"$_POST[codCliente]\" AND fechaEntrada=\"$_POST[fechaEntradaHidden]\"";
+
+  $conexion->exec($modificacion);
+  include "./listaReservas.php";
+}

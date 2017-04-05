@@ -24,7 +24,11 @@
           
           $(document).ready(function(){
             $( ".inputFecha" ).datepicker({
+<<<<<<< HEAD
               dateFormat: "mm-dd-yy"
+=======
+              dateFormat: "dd-mm-yy"
+>>>>>>> 6f70f332edfc99d4261ab5fcb77a56f8a678505c
             });
           });
         </script>    

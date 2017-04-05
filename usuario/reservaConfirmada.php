@@ -25,8 +25,15 @@
               echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
               die ("Error: " . $e->getMessage());
           }
+          
+          $fechaEntrada = $_POST['fechaEntrada'];
+          $fechaSalida = $_POST['fechaSalida'];
+
+          $fechaEntradaEsp = "STR_TO_DATE('$fechaEntrada', '%d-%m-%Y')";
+          $fechaSalidaEsp = "STR_TO_DATE('$fechaSalida', '%d-%m-%Y')";
+          
           $insercion = "INSERT INTO RESERVA (codCliente, codHabitacion,	fechaEntrada,	fechaSalida) VALUES ('$_POST[codCliente]',"
-              . "'$_POST[codHabitacion]','$_POST[fechaEntrada]' ,'$_POST[fechaSalida]')";
+              . "'$_POST[codHabitacion]',$fechaEntradaEsp ,$fechaSalidaEsp)";
           $conexion->exec($insercion);
           header( "location:/usuario/index.php" );
           $conexion->close();

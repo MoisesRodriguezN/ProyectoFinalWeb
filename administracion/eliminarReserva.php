@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
   session_start(); // Inicio de sesión
 ?>
 <!DOCTYPE html>
@@ -46,18 +47,21 @@
                 <input type="hidden" name="fechaEntrada" value="<?=$_POST['fechaEntrada']?>">
                 <input type="submit" class="btnEnvio2NoMargin btnEnvio3NoMargin" value="Eliminar">
               </form>
+=======
+>>>>>>> 6f70f332edfc99d4261ab5fcb77a56f8a678505c
 
-              <a href="reservas.php"><button type="button" class="btnEnvio2NoMargin btnEnvio3NoMargin">Volver</button></a>
-            </div>
-          </div>
-        <?php
-        }
-        ?>
-        <?php
-          }else{
-            echo "Debes iniciar sesión para poder entrar en esta zona";
-            header("location:login.php");
-          }
-         ?>
-    </body>
-</html>
+session_start(); // Inicio de sesión
+
+if ($_SESSION['logueadoAdmin'] == true) {
+  try {
+    $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");
+  } catch (PDOException $e) {
+    echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
+    die("Error: " . $e->getMessage());
+  }
+
+  $fecha = "fechaEntrada= '$_POST[fechaEntrada]'";
+  $borrar = "DELETE FROM reserva WHERE codHabitacion=" . $_POST['codHabitacion']
+    . " AND codCliente=" . $_POST['codCliente'] . " AND " . $fecha;
+  $conexion->exec($borrar);
+}
