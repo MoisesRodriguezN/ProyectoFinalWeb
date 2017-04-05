@@ -8,130 +8,22 @@
         <title>Mi cuenta</title>
         <link rel="stylesheet" type="text/css" href="../css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script>
-        $(document).ready(function(){
-          var usuario;
-          var dni2;
-          
-          //-----------------Modificacion datos usuario-------------------------
-          $("#formModificar").validate({
-            rules: {
-               DNI: { required: true, minlength: 9, maxlength:9},
-               nombre: { required:true},
-               apellido1: { required: true},
-               apellido2: { required: true}
-            },
-            messages: {
-                DNI: "Debe introducir un dni Válido.",
-                nombre : "Debe introducir un Nombre.",
-                apellido1 : "Debe introducir un apellido.",
-                apellido2 : "Debe introducir un apellido.",
-            }
-          });
-          
-          $( "#dialogoNuevoCliente" ).dialog({
-            autoOpen: false,
-            resizable: false,
-            minWidth: 200,
-            modal: true,
-            buttons: {
-            "Guardar": function() {		
-              if ($('#formModificar').valid()){
-                $.post("actualizaDatosUsuario.php", {
-                  nombre : $("#inputNombre").val() ,
-                  apellido1: $("#inputApellido").val() ,
-                  apellido2: $("#inputApellido2").val() ,
-                  DNI : $("#inputDni").val() ,
-                  dni2 : dni2,
-                  usuario: usuario
-                },function(data,status){				
-                  $("#datosUsuario").html(data);
-                });//get			
-
-                $(this).dialog( "close" );	
-              }
-            },
-              "Cancelar": function() {
-                $(this).dialog( "close" );
-              }
-            }//buttons
-          });
-
-            //Boton Nuevo Cliente	
-          $(document).on("click","#cambiarDatos",function(){	
-            $("#dialogoNuevoCliente").dialog("open");
-            $("#inputNombre").val($.trim($(this).parent().siblings("td.nombre").text()));
-            $("#inputApellido").val($.trim($(this).parent().siblings("td.apellido").text()));
-            $("#inputApellido2").val($.trim($(this).parent().siblings("td.apellido2").text()));
-            $("#inputDni").val($.trim($(this).parent().siblings("td.dni").text()));
-            usuario = $(this).parent().siblings("td.usuario").text().trim();
-            dni2 = $(this).parent().siblings("td.dni").text().trim();
-            
-          });		 
-          
-          //-----------------FIN modificación datos usuario---------------------
-          //-----------------Modificacion clave usuario-------------------------
-          $("#formModificarClave").validate({
-            rules: {
-               clave: { required: true, minlength: 6}
-            },
-            messages: {
-                clave: "Es necesario una clave de almenos 6 carácteres"
-            }
-          });
-          
-          $( "#dialogoNuevaClave" ).dialog({
-            autoOpen: false,
-            resizable: false,
-            minWidth: 200,
-            modal: true,
-            buttons: {
-            "Guardar": function() {		
-              if ($('#formModificarClave').valid()){
-                $.post("actualizaClaveUsuario.php", {
-                  usuario: usuario,
-                  clave : $("#inputClave").val()
-                },function(data,status){				
-                  $("#datosUsuario").html(data);
-                });//get			
-
-                $(this).dialog( "close" );	
-              }
-            },
-              "Cancelar": function() {
-                $(this).dialog( "close" );
-              }
-            }//buttons
-          });
-
-            //Boton Nuevo Cliente	
-          $(document).on("click","#cambiarClave",function(){	
-            $("#dialogoNuevaClave").dialog("open");
-            usuario = $(this).parent().siblings("td.usuario").text().trim();
-          });
-          //-----------------FIN Modificacion clave usuario---------------------
-        });
-        </script>
-        <style>
-        #dialogoNuevoCliente{
-          display: none;
-        }
-        
-        #dialogoNuevaClave{
-          display: none;
-        }
-        </style>
     </head>
     <body class="fondoCuerpo">
       <?php
       if ( $_SESSION['logueadoUser'] == true){
-      
+      try {
+          $conexion = new PDO("mysql:host=localhost;dbname=hotel;charset=utf8", "root");
+      } catch (PDOException $e) {
+          echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
+          die ("Error: " . $e->getMessage());
+      }
+
       $usuario = $_SESSION[nombreUser];
-      
+      $sql = "SELECT * FROM login l , cliente c WHERE c.codCliente=l.codCliente AND "
+        . "l.usuario = '$usuario' ";
+      $consulta = $conexion->query($sql);
+
       $mensaje = "<div class='mensaje1'>
                   <span>Clave Actualizada. Vuelva a iniciar sesión.</span>
                   </div>";
@@ -169,11 +61,42 @@
               <li class="menu2 esquinaD"><a href="logout.php">Cerrar sesión</a></li>
             </ul>
 
-     
-            <div id="datosUsuario">
-              <?php include "./datosMiCuenta.php"?>
-            </div>
-                 <!-- <form name="actualizarDatosUsuario" action="actualizarDatosUsuario.php" method="POST">
+            <?php
+            if($_GET[estado]=="logOut"){
+              echo $mensaje;
+              session_destroy();
+            }
+            if($consulta ->rowCount() > 0){
+            ?>
+            <table class="tablaHabitaciones">
+              <th class="tablahabitacionesTh">Nombre</th>
+              <th class="tablahabitacionesTh">Apellido1</th>
+              <th class="tablahabitacionesTh">Apellido2</th>
+              <th class="tablahabitacionesTh">DNI</th>
+              <th class="tablahabitacionesTh">Usuario</th>
+              <th class="tablahabitacionesTh">Modificar Datos</th>
+              <th class="tablahabitacionesTh">Cambiar Clave</th>
+              <?php
+                while ($hab = $consulta->fetchObject()) {
+              ?>
+              <tr>
+                <td>
+                  <?= $hab->nombre?>
+                </td>
+                <td>
+                  <?= $hab->apellido1?>
+                </td>
+                <td>
+                  <?= $hab->apellido2?>
+                </td>
+                <td>
+                  <?= $hab->DNI?>
+                </td>
+                <td>
+                  <?= $hab->usuario?>
+                </td>
+                <td>
+                  <form name="actualizarDatosUsuario" action="actualizarDatosUsuario.php" method="POST">
                     <input type="hidden"  name="nombre" value="<?= $hab->nombre?>">
                     <input type="hidden"  name="apellido1" value="<?= $hab->apellido1?>">
                     <input type="hidden"  name="apellido2" value="<?= $hab->apellido2?>">
@@ -181,7 +104,6 @@
                     <input type="hidden"  name="usuario" value="<?= $hab->usuario?>">
                     <input type="submit" class="btnEnvio2NoMargin" value="Modificar" />
                   </form>
-                 
                 </td>
                 <td>
                   <form name="actualizarClaveUsuario" action="actualizarDatosUsuario.php" method="POST">
@@ -189,8 +111,12 @@
                     <input type="hidden"  name="accion" value="actClave">
                     <input type="submit" class="btnEnvio2NoMargin" value="Cambiar" />
                   </form>
-                </td>-->
-
+                </td>
+              </tr>
+              <?php
+                }
+              ?>
+            </table>
             <?php
             }else{
               ?>
@@ -200,14 +126,10 @@
               </div>
               <?php
             }
-      ?>
-        </div>
-        <div id="dialogoNuevoCliente" title="Modificación datos de usuario">
-          <?php include "./formModificarDatosUsuario.php"?>
-        </div>
-        
-        <div id="dialogoNuevaClave" title="Modificación clave de usuario">
-          <?php include "./formModificarClaveUsuario.php"?>
+      }else{
+        header("location:login.php");
+      }
+            ?>
         </div>
     </body>
 </html>

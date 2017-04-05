@@ -2,11 +2,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading cabeceraDivForm">Modificación de clientes</div>
         <div class="cuadroForm">
-<<<<<<< HEAD
           <form action="modificarCliente.php" class="formCentrado" method="post">
-=======
-          <form action="modificarCliente.php" class="formCentrado" id="formModificar" method="post">
->>>>>>> 6f70f332edfc99d4261ab5fcb77a56f8a678505c
             <div class="form-group">
               <label for="inputCodCliente">CodCliente:</label>
               <input type="text" name="codCliente" id="inputCodCliente" class="form-control" value="" readonly="readonly">
@@ -31,13 +27,7 @@
               <label for="inputApellido2">Apellido2:</label>
               <input type="text" name="apellido2" id="inputApellido2" class="form-control" value="">
             </div>
-<<<<<<< HEAD
   
-=======
-            <div class="form-group">
-              <input type="hidden" name="inputPag" id="inputPag" class="form-control" value="">
-            </div>
->>>>>>> 6f70f332edfc99d4261ab5fcb77a56f8a678505c
           </form>
         </div>
       </div>

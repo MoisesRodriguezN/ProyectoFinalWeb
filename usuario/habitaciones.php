@@ -21,22 +21,21 @@
       $fechaEntrada = $_GET['fechaEntrada'];
       $fechaSalida = $_GET['fechaSalida'];
       $personas = $_GET['personas'];
-      
-      $fechaEntradaEsp = "STR_TO_DATE('$fechaEntrada', '%d-%m-%Y')";
-      $fechaSalidaEsp = "STR_TO_DATE('$fechaSalida', '%d-%m-%Y')";
-      
+
       $sql = "SELECT h.codHabitacion, h.tipo, h.planta, h.tarifa, h.capacidad
         FROM habitacion h
-        WHERE EXISTS (SELECT * FROM reserva r WHERE r.codHabitacion = h.codHabitacion AND ((r.fechaEntrada <= $fechaEntradaEsp AND r.fechaSalida > $fechaEntradaEsp) OR (r.fechaEntrada < $fechaSalidaEsp AND r.fechaSalida >= $fechaSalidaEsp))) = FALSE
+        WHERE EXISTS (SELECT * FROM reserva r WHERE r.codHabitacion = h.codHabitacion AND ((r.fechaEntrada <= DATE('$fechaEntrada') AND r.fechaSalida > DATE('$fechaEntrada')) OR (r.fechaEntrada < DATE('$fechaSalida') AND r.fechaSalida >= DATE('$fechaSalida')))) = FALSE
           AND  h.capacidad='$personas'";
+
       $sql2 = "SELECT h.codHabitacion, h.tipo, h.planta, h.tarifa, h.capacidad"
         . " FROM habitacion h "
         . "WHERE EXISTS (SELECT * FROM reserva r WHERE r.codHabitacion = h.codHabitacion"
-        . " AND (((r.fechaEntrada <= $fechaEntradaEsp AND r.fechaSalida > $fechaEntradaEsp) "
-        . "OR (r.fechaEntrada < $fechaSalidaEsp AND r.fechaSalida >= $fechaSalidaEsp)))"
+        . " AND (((r.fechaEntrada <= DATE('$fechaEntrada') AND r.fechaSalida > DATE('$fechaEntrada')) "
+        . "OR (r.fechaEntrada < DATE('$fechaSalida') AND r.fechaSalida >= DATE('$fechaSalida'))))"
         . " OR EXISTS (SELECT * FROM reserva r WHERE r.codHabitacion = h.codHabitacion "
-        . "AND ((r.fechaEntrada > $fechaEntradaEsp AND r.fechaSalida < $fechaSalidaEsp)))) = FALSE "
+        . "AND ((r.fechaEntrada > DATE('$fechaEntrada') AND r.fechaSalida < DATE('$fechaSalida'))))) = FALSE "
         . "AND h.capacidad=$personas ";
+      
       $habsDisponibles = $conexion->query($sql2);
 
       ?>
