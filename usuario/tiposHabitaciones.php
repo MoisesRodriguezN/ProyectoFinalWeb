@@ -6,8 +6,18 @@
     <head>
         <meta charset="UTF-8">
         <title>Hotel Fuente Alegre -  habitaciones</title>
-        <link rel="stylesheet" type="text/css" href="../css/Cuerpo.css">
-        <link rel="stylesheet" type="text/css" href="../css/Cabecera.css">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <script>
+           function myFunction() {
+              var x = document.getElementById("myTopnav");
+              if (x.className === "topnav") {
+                  x.className += " responsive";
+              } else {
+                  x.className = "topnav";
+              }
+          }
+        </script>  
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body class="fondoCuerpo">
@@ -25,6 +35,16 @@
         </div>
         
         <div class="contenedor">
+            <ul class="topnav" id="myTopnav">
+              <li><a href="../index.php">INICIO</a></li>
+              <li><a href="servicios.php">SERVICIOS</a></li>
+              <li><a class="active" href="tiposHabitaciones.php">HABITACIONES</a></li>
+              <li><a href="login.php">CUENTA</a></li>
+              <li><a href="contacto.php">CONTACTO</a></li>
+              <li class="icon">
+                  <a href="javascript:void(0);" class="barrasMenu" onclick="myFunction()"><span class="ion-navicon-round"></span></a>
+              </li>
+            </ul>
             <div class="contenedorTexto">
                 <span class="texto3D">Hotel Fuente Alegre</span>
             </div>

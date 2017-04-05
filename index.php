@@ -6,16 +6,38 @@
     <head>
         <meta charset="UTF-8">
         <title>Inicio - Hotel Fuente Alegre</title>
-        <link rel="stylesheet" type="text/css" href="css/Cuerpo.css">
-        <link rel="stylesheet" type="text/css" href="css/Cabecera.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+           function myFunction() {
+              var x = document.getElementById("myTopnav");
+              if (x.className === "topnav") {
+                  x.className += " responsive";
+              } else {
+                  x.className = "topnav";
+              }
+          }
+          
+          $(document).ready(function(){
+            $( ".inputFecha" ).datepicker({
+              dateFormat: "mm-dd-yy"
+            });
+          });
+        </script>    
     </head>
     <body class="fondoCuerpo">
         <div class="cabecera">
             <div class="logoCabecera">
                 <img src="img/logoHotelHeader.png" class="imgLogoResponsive"> 
             </div>
-            <div class="flex-container space-between">
+        <div class="contenedorTexto2">
+             <span class="texto3D2">Hotel Fuente Alegre</span>
+        </div>
+            <div class="ocultar flex-container space-between">
               <a href="index.php" class="flex-item seleccionado"><p>INICIO <br>Bienvenidos</p></a>
               <a href="usuario/servicios.php" class="flex-item"><p>SERVICIOS <br>¿Que ofrecemos?</p></a>
               <a href="usuario/tiposHabitaciones.php" class="flex-item"><p>HABITACIONES <br>Tu comodidad</p></a>
@@ -25,8 +47,26 @@
         </div>
         
         <div class="contenedor">
+            <ul class="topnav" id="myTopnav">
+              <li><a class="active" href="index.php">INICIO</a></li>
+              <li><a href="usuario/servicios.php">SERVICIOS</a></li>
+              <li><a href="usuario/tiposHabitaciones.php">HABITACIONES</a></li>
+              <li><a href="usuario/login.php">CUENTA</a></li>
+              <li><a href="usuario/contacto.php">CONTACTO</a></li>
+              <li class="icon">
+                  <a href="javascript:void(0);" class="barrasMenu" onclick="myFunction()"><span class="ion-navicon-round"></span></a>
+              </li>
+            </ul>
+            
+            
             <div class="contenedorTexto">
                 <span class="texto3D">Hotel Fuente Alegre</span>
+            </div>
+            <div class="bienvenidaSpan">
+                <span class="bienvenidaInicio">Bienvenido al hotel Fuente Alegre</span><br>
+              <span class="bienvenidaInicio">Reserva una habitación para el día de entrada y salida que desees.</span>
+              <span class="bienvenidaInicio">Puedes ver mas información sobre nuestras habitaciones y servicios en las 
+                  secciones servicios y habitaciones.</span>
             </div>
             <div class="redesSociales">
               <ul class="listaSocial">
@@ -40,14 +80,14 @@
                 <div class="cabeceraReservar">
                   <span class="tituloReservar">Reservar Ahora!</span>
                   <form action="usuario/habitaciones.php" method="get">
-                    Fecha Entrada:<br>
-                    <input type="date" name="fechaEntrada" autofocus="">
+                      <span class="labelFecha">Fecha Entrada:</span><br>
+                    <input type="date" class="inputFecha" name="fechaEntrada">
                     <br>
-                    Fecha Salida:<br>
-                    <input type="date" name="fechaSalida">
+                      <span>Fecha Salida:</span><br>
+                    <input type="date" class="inputFecha" name="fechaSalida">
                     <br>
-                     personas:<br>
-                    <select name="personas">
+                    <span class="labelFecha">personas:</span><br>
+                    <select class="inputPersonas" name="personas">
                         <option value="1">1</option>
                         <option value="2" selected="">2</option>
                     </select><br>

@@ -17,8 +17,7 @@
 <html lang="es">
   <head>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../css/Cuerpo.css">
-    <link rel="stylesheet" type="text/css" href="../css/Cabecera.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Iniciar sesión</title>

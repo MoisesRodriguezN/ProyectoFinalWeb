@@ -6,8 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Habitaciones y tarifas</title>
-        <link rel="stylesheet" type="text/css" href="../css/Cuerpo.css">
-        <link rel="stylesheet" type="text/css" href="../css/Cabecera.css">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body class="fondoCuerpo">
@@ -44,13 +43,12 @@
             <div class="logoCabecera">
                 <img src="../img/logoHotelHeader.png" class="imgLogoResponsive"> 
             </div>
-            <div class="flex-container space-between">
+            <div class="ocultar flex-container space-between">
               <a href="../index.php" class="flex-item seleccionado"><p>INICIO <br>Bienvenidos</p></a>
-              <div class="flex-item"><p>SERVICIOS <br>¿Que ofrecemos?</p></div>
-              <div class="flex-item"><p>HABITACIONES <br>Tu comodidad</p></div>
-              <div class="flex-item"><p>RESERVAS <br>Reserva Ahora!</p></div>
-              <div class="flex-item"><p>MI CUENTA <br>Tus reservas</p></div>
-              <div class="flex-item"><p>CONTACTO <br>Escribenos!</p></div>
+              <a href="servicios.php" class="flex-item"><p>SERVICIOS <br>¿Que ofrecemos?</p></a>
+              <a href="tiposHabitaciones.php" class="flex-item"><p>HABITACIONES <br>Tu comodidad</p></a>
+              <a href="login.php" class="flex-item"><p>MI CUENTA <br>Tus reservas</p></a>
+              <a href="contacto.php" class="flex-item"><p>CONTACTO <br>Escribenos!</p></a>
             </div>
         </div>
         
@@ -73,10 +71,11 @@
             <?php
             if($habsDisponibles ->rowCount() > 0){
             ?>
+            <div class="wrap">
             <table class="tablaHabitaciones">
               <th class="tablahabitacionesTh">Habitación</th>
-              <th class="tablahabitacionesTh">Capacidad</th>
               <th class="tablahabitacionesTh">Tipo</th>
+              <th class="tablahabitacionesTh">Capacidad</th>
               <th class="tablahabitacionesTh">Planta</th>
               <th class="tablahabitacionesTh">Precio/Noche</th>
               <th class="tablahabitacionesTh">Reservar</th>
@@ -112,6 +111,7 @@
                 }
               ?>
             </table>
+            </div>
             <?php
             }else{
               ?>
