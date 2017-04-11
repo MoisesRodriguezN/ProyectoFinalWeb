@@ -1,5 +1,5 @@
 <?php
-  session_start(); // Inicio de sesión
+  //session_start(); // Inicio de sesión
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -316,7 +316,7 @@
   </head>
   <body>
     <?php
-    if ($_SESSION['logueadoAdmin']){
+    //if ($_SESSION['logueadoAdmin']){
       
     ?>
     <div class="container">
@@ -356,18 +356,18 @@
             <button id="nuevo" class="btn btn-default">Nuevo Cliente</button>
         </div>
       <div id="listaClientes" class="table-responsive">
-         <?php include "./listaClientes.php"?>
+         <?php include "./../Controller/obtieneListaClientes.php"?>
       </div>
       </div>
     </div>
     <?php
-      }else{
+//      }else{
     ?>
-      <script>
+<!--      <script>
         window.location.href = "/administracion/login.php";
-      </script>
+      </script>-->
     <?php
-      }
+//      }
     ?>
     <div id="dialogoborrar" title="Eliminar Cliente">
       <p>¿Esta seguro que desea eliminar el cliente?</p>
