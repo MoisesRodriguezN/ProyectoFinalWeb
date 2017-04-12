@@ -26,11 +26,11 @@
             buttons: {
               //BOTON DE BORRAR
               "Borrar": function() {			
-                //Ajax con get
-                $.post("eliminarCliente.php", {"codCliente":codCliente},function(data,status){
+                //Ajax con post
+                $.post("../Controller/borrarCliente.php", {"codCliente":codCliente},function(data,status){
                   //alert("Funciona!"); //Manda codCliente y recibe un resultado y estado.
                   $("#cliente_" + codCliente).fadeOut(500);
-                });//get			
+                });//post			
                 //Cerrar la ventana de dialogo				
                 $(this).dialog("close");												
               },
@@ -374,7 +374,7 @@
     </div>
     
     <div id="dialogomodificar" title="Modificar Cliente">
-         <?php include "./formModificarCliente.php"?>
+         <?php include "../View/formModificarCliente.php"?>
     </div>
     
     <div id="dialogoreservar" title="Reservar Habitacion">

@@ -122,5 +122,24 @@ class Cliente {
         
         return $clientes;
     }
+    
+    /**
+    * Método que elimina el cliente que tenga el código que se pase por parámetro.
+    * @param String $codCliente Código del cliente a eliminar.
+    */
+    public static function deteleCliente($codCliente){
+        $conexion = HotelDB::connectDB();
+        $borrado = "DELETE FROM cliente WHERE codCliente=".$codCliente;
+        $conexion->query($borrado);
+    }
+    
+    public function modCliente(){
+        $conexion = HotelDB::connectDB(); 
+        $modificacion = "UPDATE cliente SET  DNI=\"$this->dni\", "
+            . "nombre=\"$this->nombre\", apellido1=\"$this->apellido1\", "
+            . "apellido2=\"$this->apellido2\""
+            . " WHERE codCliente=\"$this->codCliente\"";
+        $conexion->query($modificacion);
+    }
 
 }
