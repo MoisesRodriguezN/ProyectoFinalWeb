@@ -180,6 +180,9 @@
             resizable: false,
             minWidth: 450,
             modal: true,
+            close: function(){
+                $("#nuevo").show();
+            },
             buttons: {
             "Guardar": function() {		
               if ($('#formNuevoCliente').valid()){
@@ -382,7 +385,7 @@
     </div> 
       
     <div id="dialogoNuevoCliente" title="Nuevo Cliente">
-        <?php include "./formNuevoCliente.php"?>
+        <?php include "../View/formNuevoCliente.php"?>
     </div> 
    
   </body>

@@ -108,21 +108,20 @@ class Cliente {
     * @return Array Array de objetos con el listado de clientes
     * 
     */
-    public static function getClientes($orderBy, $inicio, $tamano_pagina){
+    public static function getClientes($orderBy, $inicio, $tamano_pagina) {
         $conexion = HotelDB::connectDB();
         $seleccion = "SELECT * FROM cliente " . $orderBy . " LIMIT " . $inicio . "," . $tamano_pagina;
         $consulta = $conexion->query($seleccion);
-        
+
         $clientes = [];
-        
+
         while ($registro = $consulta->fetchObject()) {
-            $clientes[] = new Cliente($registro->codCliente, $registro->DNI, 
-                    $registro->nombre, $registro->apellido1, $registro->apellido2);
+            $clientes[] = new Cliente($registro->codCliente, $registro->DNI, $registro->nombre, $registro->apellido1, $registro->apellido2);
         }
-        
+
         return $clientes;
     }
-    
+
     /**
     * Método que elimina el cliente que tenga el código que se pase por parámetro.
     * @param String $codCliente Código del cliente a eliminar.
@@ -133,13 +132,28 @@ class Cliente {
         $conexion->query($borrado);
     }
     
-    public function modCliente(){
-        $conexion = HotelDB::connectDB(); 
+    /**
+    * Método que modifica los datos del cliente creado (new Cliente()).
+    */
+   public function modCliente() {
+        $conexion = HotelDB::connectDB();
         $modificacion = "UPDATE cliente SET  DNI=\"$this->dni\", "
-            . "nombre=\"$this->nombre\", apellido1=\"$this->apellido1\", "
-            . "apellido2=\"$this->apellido2\""
-            . " WHERE codCliente=\"$this->codCliente\"";
+                . "nombre=\"$this->nombre\", apellido1=\"$this->apellido1\", "
+                . "apellido2=\"$this->apellido2\""
+                . " WHERE codCliente=\"$this->codCliente\"";
         $conexion->query($modificacion);
+    }
+    
+    /**
+    * Método que agrega un nuevo cliente.
+    */
+    public function addCliente() {
+        $conexion = HotelDB::connectDB();
+        $insercion = "INSERT INTO cliente (codCliente, DNI, nombre, apellido1, "
+                . "apellido2) VALUES ('$this->codCliente',"
+                . "'$this->dni','$this->nombre' ,'$this->apellido1' ,"
+                . "'$this->apellido2')";
+        $conexion->query($insercion);
     }
 
 }
