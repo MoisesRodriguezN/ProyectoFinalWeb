@@ -273,9 +273,10 @@
           $(document).on("click",".paginacion a",function(event){
             event.preventDefault();
             var numeroPagina = $(this).data("pagina");
-            var orden = $("#tablaordendatos").data("orden");
+            var orden = $("#tabladatos").data("orden");
             var tipoOrden = $("#tabladatos").data("tipo-orden");
-            $.get("listaClientes.php", {
+            alert(orden);
+            $.get("../Controller/obtieneListaClientes.php", {
                   pagina : numeroPagina,
                   orden : orden,
                   tipoOrden: tipoOrden
@@ -288,7 +289,7 @@
         $(document).on("click",".btn-ordenar",function(){
           var orden = $('select[name=orden]').val();
           var tipoOrden = $('select[name=tipoOrden]').val();
-          $.get("listaClientes.php", {
+          $.get("../Controller/obtieneListaClientes.php", {
                   orden : orden,
                   tipoOrden: tipoOrden
                 },function(data){
