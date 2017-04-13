@@ -1,0 +1,886 @@
+@font-face {
+  font-family: 'Francois One';
+  src: url(../fuentes/FrancoisOne.ttf);
+}
+
+@font-face {
+  font-family: 'GreatVibes-Regular';
+  src: url(../fuentes/daniel.ttf);
+}
+
+body {
+  margin: 0;
+}
+
+.fondoCuerpo {
+  background-color: #ecce86;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.contenedor {
+  width: 90%;
+}
+
+.contenedorTexto {
+  text-align: center;
+  margin-right: 4%;
+  margin-bottom: 1%;
+}
+
+.texto3D {
+  text-shadow: 1px 1px 0px rgb(230, 230, 230), 2px 2px 0px rgb(200, 200, 200), 3px 3px 0px rgb(180, 180, 180), 4px 4px 0px rgb(160, 160, 160), 5px 5px 0px rgb(0, 0, 0), 8px 8px 20px rgb(0, 0, 0);
+  font-size: 46px;
+}
+
+.contenedorCarusel {
+  text-align: center;
+  width: 70%;
+
+  /*80%;*/
+  height: 400px;
+  margin: 0 auto;
+  margin-left: 21%;
+
+  /*16%*/
+  position: relative;
+}
+
+.img1Carousel {
+  text-align: center;
+  width: 100%;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+  background: url('../img/hotel1.jpg') no-repeat;
+  background-size: 100% auto;
+  transition: opacity 1s ease-out;
+}
+
+.imagenCarousel {
+  width: 60%;
+  height: auto;
+}
+
+.footerCarousel {
+  width: 100%;
+  background-color: rgba(205, 133, 63, 0.7);
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  border-radius: 0 0 18px 18px;
+}
+
+.bienvenidacarouselDiv {
+  width: 40%;
+  display: inline;
+}
+
+.BienvenidoCarousel {
+  font-family: 'GreatVibes-Regular', sans-serif;
+  font-size: 3em;
+  color: white;
+}
+
+#galeriaAnimada > img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: transparent;
+  opacity: 0;
+  z-index: 0;
+  -webkit-backface-visibility: hidden;
+
+  /* Chrome, Safari, Opera */
+  backface-visibility: hidden;
+  -webkit-animation: animacionGaleria 30s linear infinite 0s;
+  -moz-animation: animacionGaleria 30s linear infinite 0s;
+  -o-animation: animacionGaleria 30s linear infinite 0s;
+  -ms-animation: animacionGaleria 30s linear infinite 0s;
+  animation: animacionGaleria 30s linear infinite 0s;
+  border-radius: 20px;
+
+  &:nth-child(2) {
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s;
+  }
+
+  &:nth-child(3) {
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s;
+  }
+
+  &:nth-child(4) {
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s;
+  }
+
+  &:nth-child(5) {
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s;
+  }
+}
+
+.formularioFloatLeft {
+  float: left;
+}
+
+.table-responsive{
+    clear: left;
+}
+
+@-webkit-keyframes animacionGaleria {
+  0% {
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  22% {
+    opacity: 1;
+  }
+
+  35% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.formularioReserva {
+  width: 19%;
+  height: 100px;
+  background: linear-gradient(to bottom right, rgb(216, 164, 38), rgb(222, 184, 135));
+  float: left;
+  text-align: center;
+  margin-left: 1%;
+  border-radius: 20px;
+  margin-top: 6%;
+}
+
+.cabeceraReservar {
+  background-color: #ff9f25;
+  width: 100%;
+  font-family: 'Francois One', sans-serif;
+  font-size: 1.1rem;
+  border-radius: 20px;
+}
+
+.tituloReservar {
+  color: antiquewhite;
+  font-size: 1.9rem;
+}
+
+.btnEnvio1 {
+  width: 71%;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+  margin: 0 10px 20px 0;
+  border: 1px solid #ccc;
+  background: #eee;
+  border-radius: 8px 8px 8px 8px;
+
+  &:hover {
+    background: #ddd;
+  }
+}
+
+.redesSociales {
+  width: 51px;
+  float: right;
+  left: 91%;
+  position: fixed;
+}
+
+#elemento1, #elemento2, #elemento3, #elemento4 {
+  background-image: url("../img/spriteSocial.png");
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  width: 72px;
+  height: 96px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: 100%;
+}
+
+#elemento1 {
+  background-position: 2px 27px;
+  height: 104px;
+}
+
+#elemento2 {
+  background-position: 7px -210px;
+  height: 71px;
+}
+
+#elemento3 {
+  background-position: 7px -72px;
+  height: 71px;
+}
+
+#elemento4 {
+  background-position: 7px -142px;
+  height: 71px;
+}
+
+.listaSocial {
+  list-style: none;
+}
+
+div.tituloTabla {
+  display: block;
+  width: 37%;
+  margin-left: 37%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  background-color: #ff9f25;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.spanTituloTabla {
+  color: #fafafa;
+  font-size: 1.8rem;
+  font-family: helvetica, arial, sans-serif;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  border-radius: 6px;
+}
+
+.spanTituloTabla2 {
+  color: #fafafa;
+  font-size: 1.3rem;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.tablaHabitaciones {
+  margin-left: 14%;
+  border-collapse: collapse;
+  width: 80%;
+  margin-bottom: 4%;
+}
+
+textarea {
+  resize: none;
+}
+
+.tablahabitacionesTh {
+  background-color: #4CAF50;
+  color: white;
+  height: 36px;
+  font-size: 1.4rem;
+  text-align: left;
+  font-family: 'Francois One', sans-serif;
+}
+
+.tablaHabitaciones tr {
+  td {
+    height: 36px;
+    font-family: 'Francois One', sans-serif;
+  }
+
+  &:nth-child(even) {
+    background-color: #ffa229;
+  }
+
+  &:nth-child(odd) {
+    background-color: #ffd297;
+  }
+}
+
+.btnEnvio2NoMargin {
+  width: 71%;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+  border: 1px solid #ccc;
+  background: #eee;
+  border-radius: 8px 8px 8px 8px;
+
+  &:hover {
+    background: #ddd;
+  }
+}
+
+.mensaje1 {
+  background-color: #ff5959;
+  width: 37%;
+  margin-left: 37%;
+  font-size: 1.8rem;
+  text-align: center;
+  font-family: helvetica, arial, sans-serif;
+  font-weight: normal;
+}
+
+.registroLogin {
+  background: url('http://i.imgur.com/Eor57Ae.jpg') no-repeat fixed center center;
+  background-size: cover;
+  font-family: Montserrat;
+}
+
+.logo {
+  width: 322px;
+  height: 36px;
+  margin: 10px auto;
+  padding-bottom: 10px;
+}
+
+.login-block {
+  width: 320px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  border-top: 5px solid #ff656c;
+  margin: 0 auto;
+
+  h1 {
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  input {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+
+    &#username {
+      background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px top no-repeat;
+      background-size: 16px 80px;
+
+      &:focus {
+        background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px bottom no-repeat;
+        background-size: 16px 80px;
+      }
+    }
+
+    &#password {
+      background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px top no-repeat;
+      background-size: 16px 80px;
+
+      &:focus {
+        background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px bottom no-repeat;
+        background-size: 16px 80px;
+      }
+    }
+
+    &:active, &:focus {
+      border: 1px solid #ff656c;
+    }
+  }
+
+  button {
+    width: 100%;
+    height: 40px;
+    background: #ff656c;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #e15960;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: Montserrat;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+.btnRegistro {
+  background: #aa656c;
+  color: #faf;
+}
+
+.login-block button:hover {
+  background: #ff7b81;
+}
+
+#error {
+  color: #f8363f;
+}
+
+.imgHab {
+  width: 20%;
+  margin-left: 4%;
+  margin-bottom: 4%;
+  float: left;
+}
+
+.textoDescripciones {
+  font-family: 'Francois One', sans-serif;
+  font-size: 1.3rem;
+  display: block;
+  margin-left: 26%;
+}
+
+.limpiarFloat {
+  clear: both;
+}
+
+.marginLogin {
+  margin-left: 41%;
+}
+
+.contenedorForm {
+  width: 35%;
+  margin: 2% auto 0 auto;
+}
+
+.formCentrado {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cuadroForm {
+  margin: 3% auto;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  width: 95%;
+  background-color: lightblue;
+  border-radius: 10px;
+}
+
+.bienvenidaSpan {
+  display: none;
+}
+
+.texto3D3 {
+  margin-left: 0;
+  text-shadow: 1px 1px 0px rgb(230, 230, 230), 2px 2px 0px rgb(200, 200, 200), 3px 3px 0px rgb(180, 180, 180), 4px 4px 0px rgb(160, 160, 160), 5px 5px 0px rgb(0, 0, 0), 8px 8px 20px rgb(0, 0, 0);
+  font-size: 46px;
+}
+
+@media screen and (max-width: 1255px) {
+  .texto3D3 {
+    margin-left: 20%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .redesSociales {
+    left: 88%;
+  }
+
+  .bienvenidaSpan {
+    display: none;
+  }
+
+  .texto3D3 {
+    margin-left: 28%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  /*M├│viles*/
+
+  .texto3D3 {
+    margin-left: -10%;
+  }
+
+  .contenedorForm {
+    width: 60%;
+    margin: 2% auto 0 auto;
+  }
+
+  input {
+    &[type=text], &[type=password], &[type=email] {
+      height: 3rem;
+      font-size: 1.3rem;
+    }
+  }
+
+  textArea {
+    height: 6rem;
+    font-size: 1.5rem;
+    width: 312px;
+  }
+
+  button[type=submit] {
+    font-size: 1.3rem;
+  }
+
+  label {
+    font-size: 1.7rem;
+  }
+
+  .cabeceraDivForm {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .redesSociales {
+    left: 86%;
+  }
+
+  .bienvenidaSpan {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+    display: none;
+  }
+
+  .marginLogin {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .contenedorCarusel {
+    display: none;
+  }
+
+  .redesSociales {
+    left: 82%;
+  }
+
+  .formularioReserva {
+    width: 45%;
+    margin-left: 30%;
+  }
+
+  .contenedor {
+    width: 100%;
+  }
+
+  .formularioReserva {
+    width: 60%;
+    margin-left: 20%;
+  }
+
+  .tituloReservar {
+    font-size: 2.6rem;
+  }
+
+  .inputFecha {
+    width: 200px;
+    font-size: 1.4rem;
+  }
+
+  .labelFecha {
+    font-size: 1.3rem;
+  }
+
+  .inputPersonas {
+    font-size: 1.4rem;
+  }
+
+  .btnEnvio1 {
+    font-size: 1.4rem;
+    margin-top: 20px;
+  }
+
+  .bienvenidaInicio {
+    display: block;
+    font-family: 'Francois One', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .bienvenidaSpan {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  redesSociales {
+    display: none;
+  }
+
+  .formularioReserva {
+    width: 76%;
+    margin-left: 13%;
+  }
+
+  .tituloReservar {
+    font-size: 2.6rem;
+  }
+
+  .inputFecha {
+    width: 200px;
+    font-size: 1.4rem;
+  }
+
+  .labelFecha {
+    font-size: 1.2rem;
+  }
+
+  .inputPersonas {
+    font-size: 1.4rem;
+  }
+
+  .btnEnvio1 {
+    font-size: 1.4rem;
+    margin-top: 20px;
+  }
+
+  .redesSociales {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  /*M├│viles*/
+
+  .contenedorForm {
+    width: 100%;
+    margin: 2% auto 0 auto;
+  }
+
+  input {
+    &[type=text], &[type=password] {
+      height: 2.7rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  button[type=submit] {
+    font-size: 1.4rem;
+  }
+
+  label {
+    font-size: 2rem;
+  }
+
+  .cabeceraDivForm {
+    text-align: center;
+    font-size: 4rem;
+  }
+
+  input[type="number"] {
+    width: 80px;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .centrado {
+    margin: 1em 5%;
+  }
+
+  div.tituloTabla {
+    width: 240px;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .redesSociales, .bienvenidaSpan {
+    display: none;
+  }
+}
+
+.contenedorConfirmar {
+  margin-top: 20%;
+}
+
+.cabeceraConfirmar {
+  margin: 0 auto;
+  width: 40%;
+  height: 40px;
+  background-color: #d7d7d7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > span {
+    font-family: 'Francois One', sans-serif;
+    font-weight: bold;
+  }
+}
+
+.cuerpoConfirmar {
+  width: 40%;
+  margin: 0 auto;
+  width: 40%;
+  height: 78px;
+  background-color: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > span {
+    font-family: 'Francois One', sans-serif;
+  }
+}
+
+.botonesConfirmar {
+  width: 40%;
+  margin: 0 auto;
+  height: 35px;
+  background-color: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnEnvio3NoMargin {
+  width: 100%;
+}
+
+.fondoAzul {
+  background-color: aliceblue;
+}
+
+.contenedorForm {
+  width: 35%;
+  margin: 2% auto 0 auto;
+}
+
+.formCentrado {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cuadroForm {
+  margin: 3% auto;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  width: 95%;
+  background-color: lightblue;
+  border-radius: 10px;
+}
+
+/*
+  @media screen and (max-width: 1000px){ /*M├│viles*/
+
+      /*    
+          .contenedorForm{
+            width:60%;  
+            margin: 2% auto 0 auto;
+          } 
+          div .form-group > input[type=text]{
+            height: 3rem;
+            font-size: 2rem;
+          }
+
+          form .formCentrado > button[type=submit]{
+            font-size: 2rem;
+          }
+
+          div .form-group > label{
+            font-size: 2rem;
+          }
+
+          .cabeceraDivForm{
+              text-align: center;
+              font-size: 2rem; 
+          }
+        }
+      
+         @media screen and (max-width: 640px){ /*M├│viles*/
+
+        /*  
+          .contenedorForm{
+            width:100%;  
+            margin: 2% auto 0 auto;
+          } 
+           div .form-group > input[type=text]{
+            height: 4rem;
+            font-size: 2rem;
+          }
+
+         form .formCentrado > button[type=submit]{
+            font-size: 2rem;
+          }
+
+         div .form-group > label{
+            font-size: 2rem;
+          }
+
+          .cabeceraDivForm{
+              text-align: center;
+              font-size: 4rem; 
+          }
+        }*/
+
+.menu1 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, rgba(50, 157, 200, 1) 0%, rgba(21, 144, 188, 1) 27%, rgba(18, 112, 140, 1) 52%, rgba(50, 157, 200, 1) 100%);
+  font-family: 'Francois One', sans-serif;
+  font-size: 1.2rem;
+  width: 56%;
+  border-radius: 10px;
+  padding-left: 13%;
+  margin: 2% 0 2% 20%;
+}
+
+.menu2 {
+  float: left;
+
+  a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+
+    &:hover {
+      background: linear-gradient(to bottom, rgba(149, 206, 228, 1) 0%, rgba(81, 194, 236, 1) 27%, rgba(27, 165, 208, 1) 52%, rgba(149, 206, 228, 1) 100%);
+    }
+  }
+}
+
+.esquinaI a:hover {
+  background: linear-gradient(to bottom, rgba(149, 206, 228, 1) 0%, rgba(81, 194, 236, 1) 27%, rgba(27, 165, 208, 1) 52%, rgba(149, 206, 228, 1) 100%);
+  margin-left: -12px;
+  padding-left: 21px;
+  margin-right: 1px;
+}
+
+.esquinaD a:hover {
+  background: linear-gradient(to bottom, rgba(149, 206, 228, 1) 0%, rgba(81, 194, 236, 1) 27%, rgba(27, 165, 208, 1) 52%, rgba(149, 206, 228, 1) 100%);
+  padding-right: 20px;
+}
+
+.seleccionadoMenuUsuario {
+  background: linear-gradient(to bottom, rgba(149, 206, 228, 1) 0%, rgba(81, 194, 236, 1) 27%, rgba(27, 165, 208, 1) 52%, rgba(149, 206, 228, 1) 100%);
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+    outline: 0;
+  }
+
+  text-decoration: none;
+  outline: 0;
+}

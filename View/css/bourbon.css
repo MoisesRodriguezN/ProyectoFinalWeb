@@ -1,0 +1,51 @@
+.menu1 {
+  background: -webkit-radial-gradient(ellipse, #329dc8, #1590bc, #12708c, #329dc8);
+  background: radial-gradient(ellipse, #329dc8, #1590bc, #12708c, #329dc8); }
+
+#elemento1:hover, #elemento2:hover, #elemento3:hover, #elemento4:hover {
+  -webkit-animation-name: rotate;
+  -moz-animation-name: rotate;
+  animation-name: rotate;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1; }
+
+#elemento1, #elemento2, #elemento3, #elemento4 {
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  transition-duration: 1s; }
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: scale(1) rotate(0deg); }
+  to {
+    -webkit-transform: scale(1) rotate(360deg); } }
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: scale(1) rotate(0deg); }
+  to {
+    -moz-transform: scale(1) rotate(360deg); } }
+@keyframes rotate {
+  from {
+    -webkit-transform: scale(1) rotate(0deg);
+    -moz-transform: scale(1) rotate(0deg);
+    -ms-transform: scale(1) rotate(0deg);
+    -o-transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg); }
+  to {
+    -webkit-transform: scale(1) rotate(360deg);
+    -moz-transform: scale(1) rotate(360deg);
+    -ms-transform: scale(1) rotate(360deg);
+    -o-transform: scale(1) rotate(360deg);
+    transform: scale(1) rotate(360deg); } }
+
+/*# sourceMappingURL=bourbon.css.map */
