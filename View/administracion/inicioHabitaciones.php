@@ -290,11 +290,11 @@
     </div>
       
     <div id="dialogomodificar" title="Modificar Cliente">
-      <?php include "./formModificarHabitacion.php"?>
+        <?php include "../../View/administracion/formModificarHabitacion.php"?>
     </div>
       
     <div id="dialogoNuevaHabitacion" title="Nueva Habitación">
-        <?php include "./formNuevaHabitacion.php"?>
+        <?php include "../../view/administracion/formNuevaHabitacion.php"?>
     </div> 
   </body>
 </html>

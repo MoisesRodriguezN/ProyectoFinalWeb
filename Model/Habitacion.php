@@ -91,5 +91,16 @@ class Habitacion {
         $borrado = "DELETE FROM habitacion WHERE codHabitacion=".$codHabitacion;
         $conexion->query($borrado);
     }
+    
+    /**
+    * Método que modifica los datos de la habitación creada (new Habitación()).
+    */
+   public function modHabitacion() {
+        $conexion = HotelDB::connectDB();
+        $modificacion = "UPDATE habitacion SET  tipo=\"$this->tipo\", "
+      . "capacidad=\"$this->capacidad\", planta=\"$this->planta\", tarifa=\"$this->tarifa\" "        
+      . " WHERE codHabitacion=\"$this->codHabitacion\"";
+        $conexion->query($modificacion);
+    }
 
 }
