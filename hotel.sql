@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2016 a las 10:29:55
--- Versión del servidor: 10.1.10-MariaDB
--- Versión de PHP: 7.0.4
+-- Tiempo de generación: 13-04-2017 a las 14:04:27
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -48,7 +48,9 @@ INSERT INTO `cliente` (`codCliente`, `DNI`, `nombre`, `apellido1`, `apellido2`) 
 (11, '32478907t', 'grabiel', 'calle', 'machuca'),
 (13, '14346657R', 'Susana', 'Cortijo', 'Marquez'),
 (14, '94567854J', 'moises', 'rodriguez', 'naranjo'),
-(21, '43654746E', 'test4', 'test3', 'test2');
+(21, '43654746E', 'test4', 'test3', 'test2'),
+(22, '26400975F', 'María', 'Mercedes', 'Montañez'),
+(28, '47562958R', 'Laura', 'Aviva', 'Llamas');
 
 -- --------------------------------------------------------
 
@@ -69,6 +71,7 @@ CREATE TABLE `habitacion` (
 --
 
 INSERT INTO `habitacion` (`codHabitacion`, `tipo`, `capacidad`, `planta`, `tarifa`) VALUES
+(0, 'individual', 2, 3, 260),
 (1, 'Individual', 1, 1, 62),
 (2, 'Individual', 1, 1, 60),
 (3, 'Individual', 1, 1, 50),
@@ -89,7 +92,8 @@ INSERT INTO `habitacion` (`codHabitacion`, `tipo`, `capacidad`, `planta`, `tarif
 (18, 'Individual', 1, 1, 60),
 (19, 'Individual', 1, 1, 60),
 (20, 'Individual', 1, 1, 60),
-(35, 'test3', 2, 1, 88);
+(35, 'test3', 2, 1, 88),
+(40, 'individual', 2, 3, 260);
 
 -- --------------------------------------------------------
 
@@ -198,6 +202,15 @@ ALTER TABLE `reserva`
   ADD PRIMARY KEY (`codHabitacion`,`codCliente`,`fechaEntrada`),
   ADD KEY `codCliente` (`codCliente`);
 
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `codCliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- Restricciones para tablas volcadas
 --

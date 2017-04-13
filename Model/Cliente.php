@@ -44,7 +44,7 @@ class Cliente {
     }
     
     /**
-     * Método que devuelve el total de filas de la consulta.
+     * Método que devuelve el total de filas de la consulta de clientes.
      * @return Int Cantiad de filas.
      * 
      */
