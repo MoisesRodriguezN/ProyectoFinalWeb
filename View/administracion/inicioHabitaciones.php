@@ -5,7 +5,7 @@
     <title>Administración Hotel - Habitaciones</title>
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="../css/main.css">
+      <link rel="stylesheet" type="text/css" href="../../View/css/main.css">
       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -26,7 +26,7 @@
           //BOTON DE BORRAR
           "Borrar": function() {			
             //Ajax con post
-            $.post("eliminarHabitacion.php", {"codHabitacion":codHabitacion},function(data,status){
+            $.post("borrarHabitacion.php", {"codHabitacion":codHabitacion},function(data,status){
               $("#habitacion_" + codHabitacion).fadeOut(500);
             });//post		
             //Cerrar la ventana de dialogo				

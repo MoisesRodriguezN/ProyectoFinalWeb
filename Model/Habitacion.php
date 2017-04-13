@@ -81,5 +81,15 @@ class Habitacion {
 
         return $habitaciones;
     }
+    
+    /**
+    * Método que elimina la habitación que tenga el código que se pase por parámetro.
+    * @param String $codHabitacion Código de la habitación a eliminar.
+    */
+    public static function deleteHabitacion($codHabitacion){
+        $conexion = HotelDB::connectDB();
+        $borrado = "DELETE FROM habitacion WHERE codHabitacion=".$codHabitacion;
+        $conexion->query($borrado);
+    }
 
 }
