@@ -204,7 +204,7 @@
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
                             <li><a href="index.php">Clientes</a></li>
-                            <li><a href="adminHabitaciones.php">Habitaciones</a></li>
+                            <li><a href="habitaciones.php">Habitaciones</a></li>
                             <li class="active"><a href="reservas.php">Reservas</a></li>
                             <!-- <li><a href="#">Page 3</a></li>-->
                         </ul>
