@@ -380,7 +380,7 @@
     </div>
 
     <div id="dialogoreservar" title="Reservar Habitacion">
-        <?php include "./formReservarHabitacion.php" ?>
+        <?php include "../../View/administracion/formReservarHabitacion.php" ?>
     </div> 
 
     <div id="dialogoNuevoCliente" title="Nuevo Cliente">

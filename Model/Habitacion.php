@@ -14,14 +14,15 @@ class Habitacion {
     private $capacidad;
     private $planta;
     private $tarifa;
-    
-    function __construct($codHabitacion, $tipo, $capacidad, $planta, $tarifa) {
+
+    function __construct($codHabitacion,$tipo, $capacidad, $planta, $tarifa) {
         $this->codHabitacion = $codHabitacion;
         $this->tipo = $tipo;
         $this->capacidad = $capacidad;
         $this->planta = $planta;
         $this->tarifa = $tarifa;
     }
+
     
     function getCodHabitacion() {
         return $this->codHabitacion;
@@ -95,12 +96,23 @@ class Habitacion {
     /**
     * Método que modifica los datos de la habitación creada (new Habitación()).
     */
-   public function modHabitacion() {
+    public function modHabitacion() {
         $conexion = HotelDB::connectDB();
         $modificacion = "UPDATE habitacion SET  tipo=\"$this->tipo\", "
       . "capacidad=\"$this->capacidad\", planta=\"$this->planta\", tarifa=\"$this->tarifa\" "        
       . " WHERE codHabitacion=\"$this->codHabitacion\"";
         $conexion->query($modificacion);
     }
-
+    
+    /**
+    * Método que agrega una nueva habitación
+    */
+    public function addHabitacion() {
+        $conexion = HotelDB::connectDB();
+        $insercion = "INSERT INTO habitacion (tipo, capacidad, planta, tarifa)"
+                . " VALUES ('$this->tipo','$this->capacidad'"
+                . " ,'$this->planta' ,'$this->tarifa')";
+        $conexion->query($insercion);
+    }
+    
 }

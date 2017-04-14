@@ -4,7 +4,7 @@
         <form action="" class="formCentrado" id="formNuevaHabitacion" method="post">
             <div class="form-group">
                 <label for="codHabitacionNuevo">codHabitacion:</label>
-                <input type="text" name="codHabitacion" id="codHabitacionNuevo" class="form-control" value="">
+                <input type="text" name="codHabitacion" id="codHabitacionNuevo" class="form-control" disabled value="">
             </div>
 
             <div class="form-group">
