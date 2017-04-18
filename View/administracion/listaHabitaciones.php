@@ -1,4 +1,8 @@
 <?php
+  session_start();
+  if ($_SESSION['logueadoAdmin']){
+?>
+<?php
 
     $opcionesOrden = array();
     $opcionesOrden["codHabitacion"] = "codHabitacion";
@@ -95,4 +99,8 @@
       }
     ?>
   </div>
-
+<?php
+    }else{
+        //Error, mensaje, redirección...
+        echo "Zona Inaccesible. Requiere Inicio de sesión"; //Mensaje de prueba
+    }

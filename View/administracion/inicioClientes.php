@@ -1,5 +1,6 @@
 <?php
-  //session_start(); // Inicio de sesión
+  session_start();
+  if ($_SESSION['logueadoAdmin']){
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -389,3 +390,9 @@
 
 </body>
 </html>
+
+<?php
+    }else{
+        //Error, mensaje, redirección...
+        echo "Zona Inaccesible. Requiere Inicio de sesión"; //Mensaje de prueba
+    }
