@@ -21,6 +21,7 @@
                 <input type="hidden" name="codHabitacion"  value="<?= $codHabitacion ?>"/>
                 <input type="hidden" name="fechaEntrada" value="<?= $fechaEntrada ?>" />
                 <input type="hidden" name="fechaSalida" value="<?= $fechaSalida ?>" />
+                <input type="hidden" name="estadoReserva" value="<?= $reservaHab ?>" />
                 <button type="submit">Entrar</button>
             </form>
             <br>

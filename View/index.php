@@ -21,7 +21,8 @@
           
           $(document).ready(function(){
             $( ".inputFecha" ).datepicker({
-              dateFormat: "dd-mm-yy"
+              dateFormat: "dd-mm-yy",
+              minDate: 0
             });
           });
         </script>    

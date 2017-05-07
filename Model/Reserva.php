@@ -63,7 +63,7 @@ class Reserva {
     }
 
     
-        /**
+     /**
      * Método que devuelve el total de filas de la consulta de reservas.
      * @return Int Cantiad de filas.
      * 
@@ -138,11 +138,31 @@ class Reserva {
         $conexion->query($modificacion);
     }
     
+    /**
+    * Método que guarda en bbdd una reserva creada (new Reserva()).
+    * Uso en la web de administración.
+    */
     public function reservar(){
         $conexion = HotelDB::connectDB();
         $reserva = "INSERT INTO RESERVA (codCliente, codHabitacion, fechaEntrada, "
                 . "fechaSalida) VALUES ('$this->codCliente',"
                 . "'$this->codHabitacion','$this->fechaEntrada' ,'$this->fechaSalida')";
+        
+        var_dump($reserva);
+        $conexion->query($reserva);
+    }
+    
+    /**
+    * Método que guarda en bbdd una reserva creada (new Reserva()).
+    * Uso en la web de usuario.
+    */
+    public function reservarUsuario(){
+        $conexion = HotelDB::connectDB();
+        $reserva = "INSERT INTO RESERVA (codCliente, codHabitacion, fechaEntrada, "
+                . "fechaSalida) VALUES ('$this->codCliente',"
+                . "'$this->codHabitacion',$this->fechaEntrada ,$this->fechaSalida)";
+        
+        var_dump($reserva);
         $conexion->query($reserva);
     }
 

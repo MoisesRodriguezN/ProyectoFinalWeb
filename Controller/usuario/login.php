@@ -4,28 +4,32 @@
 
 session_start(); // Inicio de sesión
 
+$reservaHab = 0;
+$codHabitacion = $_GET['codHabitacion'];
+$fechaEntrada = $_GET['fechaEntrada'];
+$fechaSalida = $_GET['fechaSalida'];
+
+//Usuario no logueado sin reserva
 if (!isset($_SESSION['logueadoUser'])) {
     $_SESSION['logueadoUser'] = false;
 }
 
-if ($_SESSION['logueadoUser'] == true && $_SESSION['reservar2'] != 1) {
+//Usuario loguqeado sin reservar. Redirecciona a la página de inicio de usuario.
+    if ($_SESSION['logueadoUser'] && $_SESSION['reservar'] == FALSE) {
     header("location:index.php");
 }
 
-if (!isset($_SESSION['reservar2'])) {
-    $_SESSION['reservar2'] = $_GET['reserva'];
+//Usuario loguqeado con reserva. Redirecciona a la página de inicio de usuario.
+    if ($_SESSION['logueadoUser'] && $_SESSION['reservar'] == TRUE) {
+     header("location:confirmarReserva.php?codHabitacion=$codHabitacion&fechaEntrada=$fechaEntrada&fechaSalida=$fechaSalida");
 }
 
-$codHabitacion = $_GET['codHabitacion'];
-$fechaEntrada = $_GET['fechaEntrada'];
-$fechaSalida = $_GET['fechaSalida'];
-$reservar = false;
+//Usuario sin loguear y llegan datos de reseva de una habitación
+if ($_SESSION['logueadoUser'] == FALSE && $_SESSION['reservar'] == TRUE 
+        && !empty($codHabitacion) && !empty($fechaEntrada) && !empty($fechaSalida)) {
 
-if (empty($codHabitacion && $fechaEntrada && $fechaSalida) && $_SESSION['reservar2'] == 1) {
-    $reservar = true;
-    $codHabitacion = $_POST['codHabitacion'];
-    $fechaEntrada = $_POST['fechaEntrada'];
-    $fechaSalida = $_POST['fechaSalida'];
+    $_SESSION['reservar'] = FALSE;
+    $reservaHab = 1;
 }
 
 require_once '../../Model/Login.php';
@@ -35,21 +39,29 @@ $clave = $_POST['clave'];
 
 $datos = Login::getTotalFilas($usuario, $clave);
 
-if($datos[filas] == 1){
-    if($datos[rol] == "usuario"){
-      $_SESSION['logueadoUser'] = true;
-      $_SESSION['nombreUser'] = $usuario;
-      $_SESSION['codCliente'] = $datos[CodCliente];
+if ($datos[filas] == 1) {
+    if ($datos[rol] == "usuario") {
+        $_SESSION['logueadoUser'] = true;
+        $_SESSION['nombreUser'] = $usuario;
+        $_SESSION['codCliente'] = $datos[CodCliente];
 
-      if($reservar == 2){
-        header("location:confirmarReserva.php?codHabitacion=$codHabitacion&fechaEntrada=$fechaEntrada&fechaSalida=$fechaSalida");
-      }else{
-        header("location:index.php");
-      }
+        if (!empty($_POST['estadoReserva']) && $_POST['estadoReserva'] == 1) {
+            $codHabitacion = $_POST['codHabitacion'];
+            $fechaEntrada = $_POST['fechaEntrada'];
+            $fechaSalida = $_POST['fechaSalida'];
+            header("location:confirmarReserva.php?codHabitacion=$codHabitacion&fechaEntrada=$fechaEntrada&fechaSalida=$fechaSalida");
+        } else {
+            header("location:index.php");
+        }
     }
-
-    }else if(($datos[filas] == 0) && isset ($_POST['usuario']) && isset ($_POST['clave'])){
-      $error = "<h1 id='error'>Usuario o Clave incorrectos</h1>";
-    }
+} else if (($datos[filas] == 0) && isset($_POST['usuario']) && isset($_POST['clave'])) {
+    $error = "<h1 id='error'>Usuario o Clave incorrectos</h1>";
     
-    include_once '../../View/usuario/loginView.php';
+    //Se vuelve a obtener los datos de la reserva.
+    $codHabitacion = $_POST['codHabitacion'];
+    $fechaEntrada = $_POST['fechaEntrada'];
+    $fechaSalida = $_POST['fechaSalida'];
+    $reservaHab = 1;
+}
+
+include_once '../../View/usuario/loginView.php';

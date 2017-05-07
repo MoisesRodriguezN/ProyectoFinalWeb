@@ -269,7 +269,7 @@ textarea {
   font-weight: normal; }
 
 .registroLogin {
-  background: url("http://i.imgur.com/Eor57Ae.jpg") no-repeat fixed center center;
+  background: url("../img/fondoLogin1.jpg") no-repeat fixed center center;
   background-size: cover;
   font-family: Montserrat; }
 
@@ -305,16 +305,16 @@ textarea {
     padding: 0 20px 0 50px;
     outline: none; }
     .login-block input#username {
-      background: #fff url("http://i.imgur.com/u0XmBmv.png") 20px top no-repeat;
+      background: #fff url("../img/fondoLogin1.jpg") 20px top no-repeat;
       background-size: 16px 80px; }
       .login-block input#username:focus {
-        background: #fff url("http://i.imgur.com/u0XmBmv.png") 20px bottom no-repeat;
+        background: #fff url("../img/iconoUsuario.png") 20px bottom no-repeat;
         background-size: 16px 80px; }
     .login-block input#password {
-      background: #fff url("http://i.imgur.com/Qf83FTt.png") 20px top no-repeat;
+      background: #fff url("../img/iconoClave.png") 20px top no-repeat;
       background-size: 16px 80px; }
       .login-block input#password:focus {
-        background: #fff url("http://i.imgur.com/Qf83FTt.png") 20px bottom no-repeat;
+        background: #fff url("../img/iconoClave.png") 20px bottom no-repeat;
         background-size: 16px 80px; }
     .login-block input:active, .login-block input:focus {
       border: 1px solid #ff656c; }

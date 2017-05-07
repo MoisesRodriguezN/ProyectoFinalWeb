@@ -84,6 +84,36 @@ class Habitacion {
     }
     
     /**
+    * Método que devuelve una lista de habitaciones disponibles según una fecha
+    * @param String $fechaEntradaEsp Fecha de entrada en formato: dd-mm-yyy.
+    * @param Int $fechaSalidaEsp Fecha de salida en formato: dd-mm-yyy.
+    * @param Int $personas Número de personas por Habitación.
+     *  por página
+    * @return Array Array de objetos con el listado de habitaciones
+    * 
+    */
+    public static function getHabitacionesDisp($fechaEntradaEsp, $fechaSalidaEsp, $personas) {
+        $conexion = HotelDB::connectDB();
+        $seleccion = "SELECT h.codHabitacion, h.tipo, h.planta, h.tarifa, h.capacidad"
+        . " FROM habitacion h "
+        . "WHERE EXISTS (SELECT * FROM reserva r WHERE r.codHabitacion = h.codHabitacion"
+        . " AND (((r.fechaEntrada <= $fechaEntradaEsp AND r.fechaSalida > $fechaEntradaEsp) "
+        . "OR (r.fechaEntrada < $fechaSalidaEsp AND r.fechaSalida >= $fechaSalidaEsp)))"
+        . " OR EXISTS (SELECT * FROM reserva r WHERE r.codHabitacion = h.codHabitacion "
+        . "AND ((r.fechaEntrada > $fechaEntradaEsp AND r.fechaSalida < $fechaSalidaEsp)))) = FALSE "
+        . "AND h.capacidad=$personas ";
+        $consulta = $conexion->query($seleccion);
+
+        $habitaciones = [];
+
+        while ($registro = $consulta->fetchObject()) {
+            $habitaciones[] = new Habitacion($registro->codHabitacion, $registro->tipo, $registro->capacidad, $registro->planta, $registro->tarifa);
+        }
+
+        return $habitaciones;
+    }
+    
+    /**
     * Método que elimina la habitación que tenga el código que se pase por parámetro.
     * @param String $codHabitacion Código de la habitación a eliminar.
     */
