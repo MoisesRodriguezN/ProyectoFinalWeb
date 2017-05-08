@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-04-2017 a las 14:04:27
+-- Tiempo de generación: 08-05-2017 a las 21:40:16
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -50,7 +50,9 @@ INSERT INTO `cliente` (`codCliente`, `DNI`, `nombre`, `apellido1`, `apellido2`) 
 (14, '94567854J', 'moises', 'rodriguez', 'naranjo'),
 (21, '43654746E', 'test4', 'test3', 'test2'),
 (22, '26400975F', 'María', 'Mercedes', 'Montañez'),
-(28, '47562958R', 'Laura', 'Aviva', 'Llamas');
+(23, '77889912Y', 'Mariana', 'Velena', 'Lorez'),
+(24, '45treg', 'gfhbhg', 'gfhgg', 'gfhg'),
+(25, '11112234U', 'Manuela', 'Picardo', 'Nardo');
 
 -- --------------------------------------------------------
 
@@ -71,29 +73,32 @@ CREATE TABLE `habitacion` (
 --
 
 INSERT INTO `habitacion` (`codHabitacion`, `tipo`, `capacidad`, `planta`, `tarifa`) VALUES
-(0, 'individual', 2, 3, 260),
-(1, 'Individual', 1, 1, 62),
-(2, 'Individual', 1, 1, 60),
+(1, 'Individual', 1, 1, 50),
+(2, 'Individual', 1, 1, 50),
 (3, 'Individual', 1, 1, 50),
-(4, 'Individual', 1, 0, 50),
+(4, 'Individual', 1, 1, 50),
 (5, 'Individual', 1, 1, 50),
-(6, 'Superior', 2, 2, 90),
-(7, 'Superior', 2, 2, 90),
-(8, 'Superior', 2, 2, 110),
-(9, 'Superior', 2, 2, 110),
-(10, 'Superior', 2, 2, 80),
-(11, 'Superior', 2, 2, 80),
-(12, 'superior', 2, 2, 120),
-(13, 'Superior', 2, 2, 120),
-(14, 'Superior', 2, 2, 80),
-(15, 'Superior', 2, 2, 80),
-(16, 'Individual', 1, 1, 60),
-(17, 'Individual', 1, 1, 60),
-(18, 'Individual', 1, 1, 60),
-(19, 'Individual', 1, 1, 60),
-(20, 'Individual', 1, 1, 60),
-(35, 'test3', 2, 1, 88),
-(40, 'individual', 2, 3, 260);
+(6, 'Individual', 1, 1, 50),
+(7, 'Individual', 2, 1, 70),
+(8, 'Individual', 2, 1, 70),
+(9, 'Individual', 2, 1, 70),
+(10, 'Individual', 2, 1, 70),
+(11, 'Individual', 2, 2, 100),
+(12, 'Individual', 2, 2, 100),
+(13, 'Individual', 2, 2, 100),
+(14, 'Individual', 2, 2, 100),
+(15, 'Doble', 3, 2, 150),
+(16, 'Doble', 3, 2, 150),
+(17, 'Doble', 3, 2, 150),
+(18, 'Doble', 3, 2, 150),
+(19, 'Doble', 3, 2, 150),
+(20, 'Doble', 4, 2, 180),
+(21, 'Doble', 4, 3, 220),
+(22, 'Doble', 4, 3, 220),
+(23, 'Doble', 2, 2, 80),
+(24, 'Doble', 2, 2, 80),
+(25, 'Doble', 2, 2, 80),
+(26, 'Test', 1, 2, 10);
 
 -- --------------------------------------------------------
 
@@ -117,7 +122,8 @@ INSERT INTO `login` (`usuario`, `clave`, `rol`, `codCliente`) VALUES
 ('alicia', 'ali', 'usuario', NULL),
 ('emilia', 'simon', 'usuario', NULL),
 ('fernando', 'fernando', 'usuario', NULL),
-('moi2', 'moi2', 'usuario', 14),
+('manuela', 'manuela2', 'usuario', 25),
+('moi2', 'moi222', 'usuario', 14),
 ('moises', 'moises', 'administrador', NULL),
 ('susana', 'susana2', 'usuario', 13),
 ('tefr4y', 'efnerg', 'usuario', NULL),
@@ -144,33 +150,15 @@ CREATE TABLE `reserva` (
 --
 
 INSERT INTO `reserva` (`codHabitacion`, `codCliente`, `fechaEntrada`, `fechaSalida`) VALUES
-(1, 3, '2016-12-06', '2016-12-08'),
-(1, 14, '2016-01-02', '2016-01-04'),
-(1, 14, '2016-11-15', '2016-11-11'),
-(1, 14, '2016-12-08', '2016-12-09'),
-(2, 13, '2016-03-06', '2016-03-10'),
-(2, 14, '2016-01-01', '2016-01-07'),
-(2, 14, '2016-02-02', '2016-02-05'),
-(3, 13, '2016-01-01', '2016-01-02'),
-(4, 14, '2016-01-10', '2016-01-10'),
-(4, 14, '2016-02-07', '2016-02-16'),
-(5, 13, '2016-12-08', '2016-12-09'),
-(6, 7, '2016-11-24', '2016-11-25'),
-(10, 5, '2016-11-23', '2016-11-26'),
-(10, 14, '2016-01-01', '2016-01-03'),
-(10, 14, '2016-01-31', '2016-02-02'),
-(11, 8, '2016-11-30', '2016-12-04'),
-(11, 14, '2016-01-02', '2016-01-10'),
-(12, 5, '2016-12-06', '2016-12-11'),
-(12, 13, '2016-01-01', '2016-01-03'),
-(12, 14, '2016-12-06', '2016-12-09'),
-(14, 8, '2016-11-20', '2016-11-26'),
-(14, 10, '2016-12-06', '2016-12-08'),
-(16, 14, '2016-11-28', '2016-12-02'),
-(17, 13, '2016-01-02', '2016-01-04'),
-(17, 14, '2016-12-06', '2016-12-08'),
-(18, 14, '2016-12-08', '2016-12-09'),
-(19, 13, '2016-12-06', '2016-12-08');
+(1, 2, '2017-04-01', '2017-04-22'),
+(1, 2, '2017-04-10', '2017-04-26'),
+(1, 7, '2017-04-15', '2017-04-16'),
+(1, 11, '2017-04-18', '2017-04-20'),
+(8, 7, '2017-04-19', '2017-04-20'),
+(9, 14, '2017-05-13', '2017-05-20'),
+(12, 21, '2017-04-02', '2017-04-30'),
+(17, 11, '2017-04-14', '2017-04-15'),
+(25, 14, '2017-05-07', '2017-05-14');
 
 --
 -- Índices para tablas volcadas
@@ -210,7 +198,12 @@ ALTER TABLE `reserva`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `codCliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `codCliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT de la tabla `habitacion`
+--
+ALTER TABLE `habitacion`
+  MODIFY `codHabitacion` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- Restricciones para tablas volcadas
 --
@@ -225,8 +218,8 @@ ALTER TABLE `login`
 -- Filtros para la tabla `reserva`
 --
 ALTER TABLE `reserva`
-  ADD CONSTRAINT `reserva_ibfk_1` FOREIGN KEY (`codHabitacion`) REFERENCES `habitacion` (`codHabitacion`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `reserva_ibfk_2` FOREIGN KEY (`codCliente`) REFERENCES `cliente` (`codCliente`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `reserva_ibfk_2` FOREIGN KEY (`codCliente`) REFERENCES `cliente` (`codCliente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `reserva_ibfk_3` FOREIGN KEY (`codHabitacion`) REFERENCES `habitacion` (`codHabitacion`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
