@@ -37,57 +37,56 @@
                 <span class="spanTituloTabla">Habitaciones y tarifas</span>
             </div>
             <?php
-            if($totalHabsDisp > 0){
-            ?>
-            <div class="wrap">
-                <table class="tablaHabitaciones">
-                    <th class="tablahabitacionesTh">Habitación</th>
-                    <th class="tablahabitacionesTh">Tipo</th>
-                    <th class="tablahabitacionesTh">Capacidad</th>
-                    <th class="tablahabitacionesTh">Planta</th>
-                    <th class="tablahabitacionesTh">Precio/Noche</th>
-                    <th class="tablahabitacionesTh">Reservar</th>
-                    <?php
-                    foreach ($data['habitaciones'] as $hab) {
-                        ?>
-                        <tr>
-                            <td>
-                                Habitación Nº <?= $hab->GetCodHabitacion() ?>
-                            </td>
-                            <td>
-                                Habitacion <?= $hab->GetTipo() ?>
-                            </td>
-                            <td>
-                                Capacidad <?= $hab->GetCapacidad() ?>
-                            </td>
-                            <td>
-                                Planta <?= $hab->GetPlanta() ?>
-                            </td>
-                            <td>
-                                Precio <?= $hab->GetTarifa() ?>€
-                            </td>
-                            <td>
-                                <form name="reservar" action="confirmarReserva.php" method="GET">
-                                    <input type="hidden"  name="codHabitacion" value="<?= $hab->GetCodHabitacion() ?>">
-                                    <input type="hidden"  name="fechaEntrada" value="<?= $fechaEntrada ?>">
-                                    <input type="hidden"  name="fechaSalida" value="<?= $fechaSalida ?>">
-                                    <input type="submit" class="btnEnvio2NoMargin" value="Reservar" />
-                                </form>
-                            </td>
-                        </tr>
+            if ($totalHabsDisp > 0) {
+                ?>
+                <div class="wrap">
+                    <table class="tablaHabitaciones">
+                        <th class="tablahabitacionesTh">Habitación</th>
+                        <th class="tablahabitacionesTh">Tipo</th>
+                        <th class="tablahabitacionesTh">Capacidad</th>
+                        <th class="tablahabitacionesTh">Planta</th>
+                        <th class="tablahabitacionesTh">Precio/Noche</th>
+                        <th class="tablahabitacionesTh">Reservar</th>
                         <?php
-                    }
-                    ?>
-                </table>
-            </div>
-            <?php
-            }else{
-              
-            ?>
-            <div class="mensaje1">
-                <span>No hay habitaciones disponibles para la fecha seleccionada</span>
-            </div>
-            //<?php
+                        foreach ($data['datos'] as $hab) {
+                            ?>
+                            <tr>
+                                <td>
+                                    Habitación Nº <?= $hab->GetCodHabitacion() ?>
+                                </td>
+                                <td>
+                                    Habitacion <?= $hab->GetTipo() ?>
+                                </td>
+                                <td>
+                                    Capacidad <?= $hab->GetCapacidad() ?>
+                                </td>
+                                <td>
+                                    Planta <?= $hab->GetPlanta() ?>
+                                </td>
+                                <td>
+                                    Precio <?= $hab->GetTarifa() ?>€
+                                </td>
+                                <td>
+                                    <form name="reservar" action="confirmarReserva.php" method="GET">
+                                        <input type="hidden"  name="codHabitacion" value="<?= $hab->GetCodHabitacion() ?>">
+                                        <input type="hidden"  name="fechaEntrada" value="<?= $fechaEntrada ?>">
+                                        <input type="hidden"  name="fechaSalida" value="<?= $fechaSalida ?>">
+                                        <input type="submit" class="btnEnvio2NoMargin" value="Reservar" />
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                    </table>
+                </div>
+                <?php
+            } else {
+                ?>
+                <div class="mensaje1">
+                    <span>No hay habitaciones disponibles para la fecha seleccionada</span>
+                </div>
+                <?php
             }
             ?>
         </div>

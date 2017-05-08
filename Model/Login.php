@@ -112,7 +112,7 @@ class Login {
      * del usuario logueado en la sesión. 
      * codigo del cliente.
      * @param String $usuario Usuario que está reservando.
-     * @return Array asociativo con el número de filas, el rol y el código de cliente.
+     * @return Array de objeto con los datos del cliente y el usuario.
      * 
      */
     public static function getDatosUsuario($usuario) {
@@ -126,8 +126,14 @@ class Login {
             $datos[] = new UsuarioLogin($registro->usuario, $registro->rol, $registro->codCliente, $registro->DNI, $registro->nombre, $registro->apellido1, $registro->apellido2);
         }
 
-
         return $datos;
+    }
+    
+    public static function cambiaClaveUsuario($usuario, $clave){
+        $conexion = HotelDB::connectDB();
+        $modificacionClave = "UPDATE login SET clave=\"$clave\" "
+            . " WHERE usuario=\"$usuario\"";
+        $conexion->query($modificacionClave);
     }
 
 }

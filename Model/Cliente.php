@@ -155,5 +155,26 @@ class Cliente {
                 . "'$this->apellido2')";
         $conexion->query($insercion);
     }
+    
+    /**
+    * Método que devuelve un cliente filtrada por DNI. No tiene paginación.
+    * @param String $dni DNI con el que realizar la búsqueda
+    * @return Array Array de objeto con el cliente
+    * 
+    */
+    public static function getClienteByDniNoPag($dni){
+        $conexion = HotelDB::connectDB();
+        $seleccion = "SELECT codCliente FROM cliente WHERE DNI=\"$dni\"";
+        $consulta = $conexion->query($seleccion);
+        
+        $clientes = [];
+        
+        while ($registro = $consulta->fetchObject()) {
+            $clientes[] = new Cliente($registro->codCliente, $registro->DNI, 
+                    $registro->nombre, $registro->apellido1, $registro->apellido2);
+        }
+        
+        return $clientes;
+    }
 
 }

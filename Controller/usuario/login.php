@@ -61,6 +61,7 @@ if ($datos[filas] == 1) {
     $codHabitacion = $_POST['codHabitacion'];
     $fechaEntrada = $_POST['fechaEntrada'];
     $fechaSalida = $_POST['fechaSalida'];
+    
     $reservaHab = 1;
 }
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of usuario_login
+ * Clase para obtener datos de cliente y usuario.
  *
  * @author Moisés
  */

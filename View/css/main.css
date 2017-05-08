@@ -305,7 +305,7 @@ textarea {
     padding: 0 20px 0 50px;
     outline: none; }
     .login-block input#username {
-      background: #fff url("../img/fondoLogin1.jpg") 20px top no-repeat;
+      background: #fff url("../img/iconoUsuario.png") 20px top no-repeat;
       background-size: 16px 80px; }
       .login-block input#username:focus {
         background: #fff url("../img/iconoUsuario.png") 20px bottom no-repeat;
