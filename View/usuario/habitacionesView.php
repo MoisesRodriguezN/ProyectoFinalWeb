@@ -48,7 +48,7 @@
                         <th class="tablahabitacionesTh">Precio/Noche</th>
                         <th class="tablahabitacionesTh">Reservar</th>
                         <?php
-                        foreach ($data['datos'] as $hab) {
+                        foreach ($data['habitaciones'] as $hab) {
                             ?>
                             <tr>
                                 <td>

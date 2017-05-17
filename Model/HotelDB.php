@@ -1,10 +1,12 @@
 <?php
 
+include 'bbdd.php';
+
 abstract class HotelDB {
-  private static $server = 'localhost';
-  private static $db = 'hotel';
-  private static $user = 'root';
-  private static $password = '';
+  private static $server = SERVER;
+  private static $db = DB;
+  private static $user = USER;
+  private static $password = PASSWORD;
 
   public static function connectDB() {
     try {

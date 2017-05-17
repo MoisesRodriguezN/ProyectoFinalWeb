@@ -24,13 +24,18 @@ if (!isset($_SESSION['logueadoUser'])) {
      header("location:confirmarReserva.php?codHabitacion=$codHabitacion&fechaEntrada=$fechaEntrada&fechaSalida=$fechaSalida");
 }
 
+
 //Usuario sin loguear y llegan datos de reseva de una habitación
 if ($_SESSION['logueadoUser'] == FALSE && $_SESSION['reservar'] == TRUE 
         && !empty($codHabitacion) && !empty($fechaEntrada) && !empty($fechaSalida)) {
 
     $_SESSION['reservar'] = FALSE;
+    
     $reservaHab = 1;
+    
 }
+
+
 
 require_once '../../Model/Login.php';
 
@@ -44,8 +49,9 @@ if ($datos[filas] == 1) {
         $_SESSION['logueadoUser'] = true;
         $_SESSION['nombreUser'] = $usuario;
         $_SESSION['codCliente'] = $datos[CodCliente];
+        $reservaHab = $_POST['estadoReserva'];
 
-        if (!empty($_POST['estadoReserva']) && $_POST['estadoReserva'] == 1) {
+        if (!empty($reservaHab) && $reservaHab == 1) {
             $codHabitacion = $_POST['codHabitacion'];
             $fechaEntrada = $_POST['fechaEntrada'];
             $fechaSalida = $_POST['fechaSalida'];
@@ -61,8 +67,7 @@ if ($datos[filas] == 1) {
     $codHabitacion = $_POST['codHabitacion'];
     $fechaEntrada = $_POST['fechaEntrada'];
     $fechaSalida = $_POST['fechaSalida'];
-    
-    $reservaHab = 1;
+    $reservaHab = $_POST['estadoReserva'];
 }
 
 include_once '../../View/usuario/loginView.php';

@@ -103,7 +103,6 @@ class Habitacion {
         . "AND ((r.fechaEntrada > $fechaEntradaEsp AND r.fechaSalida < $fechaSalidaEsp)))) = FALSE "
         . "AND h.capacidad=$personas ";
         $consulta = $conexion->query($seleccion);
-
         $habitaciones = [];
 
         while ($registro = $consulta->fetchObject()) {

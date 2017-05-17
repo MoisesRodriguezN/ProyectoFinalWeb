@@ -10,7 +10,7 @@ $personas = $_GET['personas'];
 $fechaEntradaEsp = "STR_TO_DATE('$fechaEntrada', '%d-%m-%Y')";
 $fechaSalidaEsp = "STR_TO_DATE('$fechaSalida', '%d-%m-%Y')";
 
-$data['habitaciones'] = Habitacion::getHabitacionesDisp($fechaEntrada, $fechaSalida, $personas);
+$data['habitaciones'] = Habitacion::getHabitacionesDisp($fechaEntradaEsp, $fechaSalidaEsp, $personas);
 
 $totalHabsDisp = count($data['habitaciones']);
 
