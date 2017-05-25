@@ -40,7 +40,7 @@
                 <li class="menu2 esquinaD"><a href="logout.php">Cerrar sesión</a></li>
             </ul>
 <?php
-            if($numeroHabs > 0){
+            if(!empty($data['datos'])){
             ?>
             <table class="tablaHabitaciones">
               <th class="tablahabitacionesTh">Habitación</th>
