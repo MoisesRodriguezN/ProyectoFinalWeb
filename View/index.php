@@ -79,10 +79,10 @@
                   <span class="tituloReservar">Reservar Ahora!</span>
                   <form action="usuario/habitaciones.php" method="get">
                       <span class="labelFecha">Fecha Entrada:</span><br>
-                    <input type="date" class="inputFecha" name="fechaEntrada">
+                    <input type="text" class="inputFecha" name="fechaEntrada">
                     <br>
                       <span>Fecha Salida:</span><br>
-                    <input type="date" class="inputFecha" name="fechaSalida">
+                    <input type="text" class="inputFecha" name="fechaSalida">
                     <br>
                     <span class="labelFecha">personas:</span><br>
                     <select class="inputPersonas" name="personas">
