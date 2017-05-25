@@ -402,6 +402,10 @@ textarea {
 .form-control-usuario{
     margin: 2px;
 }
+
+#claveUserComprueba{
+    display: none;
+}
 @media screen and (max-width: 1255px) {
   .texto3D3 {
     margin-left: 20%; } }
