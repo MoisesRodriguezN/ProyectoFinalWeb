@@ -166,6 +166,10 @@ a:link {
   left: 91%;
   position: fixed; }
 
+.elementosOcultos {
+    display: none;
+}
+
 #elemento1, #elemento2, #elemento3, #elemento4 {
   background-image: url("../img/spriteSocial.png");
   background-position: 0px 0px;
@@ -345,7 +349,7 @@ textarea {
 
 .imgHab {
   width: 20%;
-  margin-left: 4%;
+  margin-right: 2%;
   margin-bottom: 4%;
   float: left; }
 
@@ -353,7 +357,12 @@ textarea {
   font-family: 'Francois One', sans-serif;
   font-size: 1.3rem;
   display: block;
-  margin-left: 26%; }
+  overflow: auto;
+  margin-left: 3%; }
+
+.textoDescripcionesBottom {
+  margin-bottom: 5%; 
+}
 
 .limpiarFloat {
   clear: both; }
@@ -469,7 +478,7 @@ textarea {
     margin-left: 30%; }
 
   .contenedor {
-    width: 100%; }
+    width: 84%; }
 
   .formularioReserva {
     width: 60%;
@@ -505,6 +514,10 @@ textarea {
 @media screen and (max-width: 680px) {
   redesSociales {
     display: none; }
+  
+   .contenedor{
+      width: 100%;
+     }
 
   .formularioReserva {
     width: 76%;
