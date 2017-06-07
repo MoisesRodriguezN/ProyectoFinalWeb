@@ -96,7 +96,7 @@
             </nav>
             
             <h2>Configuración del Hotel</h2>
-  <p>Aquí podrás cambiar las cofiguraciones del hotel, como el nombre, la galería de imagenes, logos...</p>            
+  <p>Aquí podrás cambiar las cofiguraciones del hotel, como el nombre, la clave de administrador, la galería de imagenes, logos...</p>            
   <table class="table table-striped">
     <thead>
       <tr class="info">
@@ -107,7 +107,8 @@
     </thead>
     <tbody>
       <tr>
-        <td>Nombre del hotel:</td>
+        <td>Nombre del hotel
+        </td>
         <td><?= $nombreHotel->nombreHotel?></td>
         <td><button type="button" class="btn btn-info">Editar</button></td>
       </tr>
@@ -180,7 +181,7 @@
       
       <tr>
         <td>Galería Hotel. Imagen 4</td>
-        <td id="respuestaimg2GaleriaForm">
+        <td id="respuestaimg4GaleriaForm">
             <?php
                 $id="img4Galeria"; 
                 $img = datosHotel::getImagenHotel($id);
