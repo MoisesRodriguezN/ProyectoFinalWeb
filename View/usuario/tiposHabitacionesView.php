@@ -166,7 +166,7 @@
                 </li>
             </ul>
             <div class="contenedorTexto">
-                <span class="texto3D">Hotel Fuente Alegre</span>
+                <span class="texto3D"><?= $nombreHotel->nombreHotel?></span>
             </div>
             <div class="redesSociales">
                 <ul class="listaSocial">

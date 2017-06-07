@@ -17,6 +17,8 @@ if ($_POST[accion] == enviar) {
     }
 }
 
+require_once '../../Model/datosHotel.php';
+  
+$nombreHotel = datosHotel::getNombreDelHotel(); 
 require_once '../../View/usuario/contactoView.php';
-?>
 

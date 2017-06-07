@@ -9,6 +9,9 @@ if ($_SESSION['logueadoUser'] == true) {
     $data['datos'] = ReservaHabitacion::getDatosReservaHab($usuario);
     
     $numeroHabs = count($data);
+    require_once '../../Model/datosHotel.php';
+  
+    $nombreHotel = datosHotel::getNombreDelHotel(); 
     
     include_once '../../View/usuario/index.php';
 } else {

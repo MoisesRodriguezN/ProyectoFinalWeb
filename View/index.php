@@ -33,7 +33,7 @@
                 <img src="../View/img/logoHotelHeader.png" class="imgLogoResponsive"> 
             </div>
         <div class="contenedorTexto2">
-             <span class="texto3D2">Hotel Fuente Alegre</span>
+             <span class="texto3D2"><?= $nombreHotel->nombreHotel?></span>
         </div>
             <div class="ocultar flex-container space-between">
               <a href="index.php" class="flex-item seleccionado"><p>INICIO <br>Bienvenidos</p></a>

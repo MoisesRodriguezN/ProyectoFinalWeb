@@ -44,7 +44,7 @@
                 </li>
             </ul>
             <div class="contenedorTexto">
-                <span class="texto3D3">Hotel Fuente Alegre</span>
+                <span class="texto3D3"><?= $nombreHotel->nombreHotel?></span>
             </div>
             <div class="redesSociales">
                 <ul class="listaSocial">

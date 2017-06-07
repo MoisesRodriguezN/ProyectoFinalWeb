@@ -8,6 +8,10 @@ if ($_SESSION['logueadoUser'] == true) {
                   <span>Clave Actualizada. Vuelva a iniciar sesión.</span>
                   </div>";
     
+    require_once '../../Model/datosHotel.php';
+  
+    $nombreHotel = datosHotel::getNombreDelHotel(); 
+    
     include_once '../../View/usuario/miCuentaView.php';
 }else{
     header("location:../../Controller/usuario/login.php");

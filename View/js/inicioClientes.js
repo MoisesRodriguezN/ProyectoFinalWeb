@@ -240,10 +240,11 @@ $(document).ready(function () {
 
     });
     //------------FIN Reserva---------
-
+    
+    //------------Buscador DNI------------
     $("#buscadorDni").keyup(function (e) {
         var consulta = $("#buscadorDni").val();
-        $.get("listaClientes.php", {
+        $.get("../../Controller/administracion/obtieneListaClientes.php", {
             dni: consulta,
             //orden : orden,
             //tipoOrden: tipoOrden
@@ -252,7 +253,7 @@ $(document).ready(function () {
             $("#listaClientes").html(data);
         });//post	
     });
-
+    //--------------FIN Buscador DNI------
     $(document).on("click", ".paginacion a", function (event) {
         event.preventDefault();
         var numeroPagina = $(this).data("pagina");
