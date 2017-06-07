@@ -289,6 +289,11 @@ textarea {
   background-size: cover;
   font-family: Montserrat; }
 
+.configuradorInicial {
+  background: url("../img/datacenter.jpg") no-repeat fixed center center;
+  background-size: cover;
+  font-family: Montserrat; }
+
 .logo {
   width: 322px;
   height: 36px;
@@ -427,6 +432,10 @@ textarea {
 #claveUserComprueba{
     display: none;
 }
+.imgMiniaturaConfig{
+   width: 200px;
+}
+
 @media screen and (max-width: 1255px) {
   .texto3D3 {
     margin-left: 20%; } }

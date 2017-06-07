@@ -27,5 +27,27 @@ class datosHotel {
         $clientes = $consulta->fetchObject();
         return $clientes;
     } 
-            
+    
+    public static function setNombreDelHotel($nombreHotel){
+        $conexion = HotelDB::connectDB();
+        $seleccion = "UPDATE texto SET nombreHotel='" . $nombreHotel;
+        $conexion->exec($seleccion);
+
+    }
+    
+    public static function setImagenHotel($idImagen, $ruta){
+        $conexion = HotelDB::connectDB();
+        $seleccion = "UPDATE imagen SET ruta='" .$ruta . "' WHERE codImagen='" . $idImagen . "'";
+        $conexion->exec($seleccion);
+    }
+    
+    
+    public static function getImagenHotel($idImagen){
+        $conexion = HotelDB::connectDB();
+        $seleccion = "SELECT ruta FROM imagen WHERE codImagen='" . $idImagen ."'";
+        $consulta = $conexion->query($seleccion);
+        
+        $rutaImg= $consulta->fetchObject();
+        return $rutaImg;
+    }       
 }
