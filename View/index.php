@@ -60,12 +60,17 @@
             <div class="contenedorTexto">
                 <span class="texto3D">Hotel Fuente Alegre</span>
             </div>
-            <div class="bienvenidaSpan">
+            <div class="bienvenidaSpan2">
+                
+              <span class="bienvenidaInicio">Reserva una habitación para el día de entrada y salida que desees.</span>
+              <span class="bienvenidaInicio">Puedes ver mas información en las secciones servicios y habitaciones.</span>
+            </div>
+<!--            <div class="bienvenidaSpan">
                 <span class="bienvenidaInicio">Bienvenido al hotel Fuente Alegre</span><br>
               <span class="bienvenidaInicio">Reserva una habitación para el día de entrada y salida que desees.</span>
               <span class="bienvenidaInicio">Puedes ver mas información sobre nuestras habitaciones y servicios en las 
                   secciones servicios y habitaciones.</span>
-            </div>
+            </div>-->
             <div class="redesSociales">
               <ul class="listaSocial">
                 <a href="https://www.facebook.com/" target="_blank"><li><span id="elemento1"></span></li></a>
@@ -79,10 +84,10 @@
                   <span class="tituloReservar">Reservar Ahora!</span>
                   <form action="usuario/habitaciones.php" method="get">
                       <span class="labelFecha">Fecha Entrada:</span><br>
-                    <input type="text" class="inputFecha" name="fechaEntrada">
+                    <input type="text" class="inputFecha" name="fechaEntrada" autocomplete="off">
                     <br>
                       <span>Fecha Salida:</span><br>
-                    <input type="text" class="inputFecha" name="fechaSalida">
+                    <input type="text" class="inputFecha" name="fechaSalida" autocomplete="off">
                     <br>
                     <span class="labelFecha">personas:</span><br>
                     <select class="inputPersonas" name="personas">

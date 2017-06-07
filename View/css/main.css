@@ -170,6 +170,18 @@ a:link {
     display: none;
 }
 
+.bienvenidaSpan2 {
+    display: block;
+    width: 60%;
+    margin: 0 27%
+                 }
+
+.bienvenidaInicio {
+    display: block;
+    font-family: 'Francois One', sans-serif;
+    font-size: 1.2rem;
+    text-align: center; }
+
 #elemento1, #elemento2, #elemento3, #elemento4 {
   background-image: url("../img/spriteSocial.png");
   background-position: 0px 0px;
@@ -861,7 +873,12 @@ a {
     padding-top: 26px; }
 
   .contenedorTexto {
-    display: none; } }
+    display: none; }
+
+  .bienvenidaSpan2 {
+      margin: 0 21%;
+  }
+}
 @media screen and (max-width: 790px) and (max-width: 680px) {
   ul.topnav li:not(:first-child) {
     display: none; }
@@ -913,7 +930,11 @@ a {
     margin-top: 20px; } }
 @media screen and (max-width: 790px) and (max-width: 383px) {
   .contenedorTexto2 {
-    padding-top: 16px; } }
+    padding-top: 16px; } 
+  .bienvenidaSpan2{
+    display: none;
+}
+}
 .menu1 {
   background: -webkit-radial-gradient(ellipse, #329dc8, #1590bc, #12708c, #329dc8);
   background: radial-gradient(ellipse, #329dc8, #1590bc, #12708c, #329dc8); }
@@ -935,5 +956,6 @@ transition: transform 1s;
   -webkit-transform: rotate(360deg); 
   transform: rotate(360deg);
 }
+
 
 /*# sourceMappingURL=main.css.map */
