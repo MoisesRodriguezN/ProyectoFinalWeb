@@ -25,8 +25,8 @@
                     <input type="text"  name="nombre" value="<?= $datosUser->GetNombre() ?>" disabled>
                     <input type="text"  name="apellido1" value="<?= $datosUser->GetApellido1() ?>" disabled>
                     <input type="text"  name="apellido2" value="<?= $datosUser->GetApellido2() ?>" disabled>
-                    <input type="date"  name="fechaEntrada" value="<?= $fechaEntrada ?>">
-                    <input type="date"  name="fechaSalida" value="<?= $fechaSalida ?>">
+                    <input type="text"  name="fechaEntrada"  value="<?= $fechaEntrada ?>" disabled>
+                    <input type="text"  name="fechaSalida" value="<?= $fechaSalida ?>" disabled>
                     <button type="submit">Confirmar</button>
                 </form>
                 <?php

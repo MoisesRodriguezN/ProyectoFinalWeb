@@ -24,6 +24,11 @@
               dateFormat: "dd-mm-yy",
               minDate: 0
             });
+            var salida = new Date();
+            salida.setDate(salida.getDate() + 2);
+            
+            $(".fechaEntradaPicker").datepicker("setDate",new Date());
+            $(".fechaSalidaPicker").datepicker("setDate",salida);
           });
         </script>    
     </head>
@@ -84,10 +89,10 @@
                   <span class="tituloReservar">Reservar Ahora!</span>
                   <form action="usuario/habitaciones.php" method="get">
                       <span class="labelFecha">Fecha Entrada:</span><br>
-                    <input type="text" class="inputFecha" name="fechaEntrada" autocomplete="off">
+                    <input type="text" class="inputFecha fechaEntradaPicker" name="fechaEntrada" autocomplete="off">
                     <br>
                       <span>Fecha Salida:</span><br>
-                    <input type="text" class="inputFecha" name="fechaSalida" autocomplete="off">
+                    <input type="text" class="inputFecha fechaSalidaPicker" name="fechaSalida" autocomplete="off">
                     <br>
                     <span class="labelFecha">personas:</span><br>
                     <select class="inputPersonas" name="personas">
@@ -100,11 +105,11 @@
             </div>       
             <div class="contenedorCarusel">
                 <div id="galeriaAnimada">
-                    <img src = "../View/img/hotel1.jpg" alt = "Imagen hotel habitacion">
-                  <img src = "../View/img/hotel2.jpg" alt = "Piscina">
-                  <img src = "../View/img/hotel3.jpg" alt = "Habitacion superior">
-                  <img src = "../View/img/hotel4.jpg" alt = "Pasillos">
-                  <img src = "../View/img/hotel5.jpg" alt = "Salon">
+                  <img src = "../View/img/uploads/<?=$imagenesGaleria[img1]->nombre?>" alt = "Imagen hotel habitacion">
+                  <img src = "../View/img/uploads/<?=$imagenesGaleria[img2]->nombre?>" alt = "Piscina">
+                  <img src = "../View/img/uploads/<?=$imagenesGaleria[img3]->nombre?>" alt = "Habitacion superior">
+                  <img src = "../View/img/uploads/<?=$imagenesGaleria[img4]->nombre?>" alt = "Pasillos">
+                  <img src = "../View/img/uploads/<?=$imagenesGaleria[img5]->nombre?>" alt = "Salon">
                 </div>
                 <div class="footerCarousel">
                   <div class="bienvenidacarouselDiv">
