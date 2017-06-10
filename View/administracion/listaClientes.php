@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Lista de clientes</title>
+        <title><?= $nombreHotel->nombreHotel?> - Lista de clientes</title>
     </head>
     <body>
         <?php

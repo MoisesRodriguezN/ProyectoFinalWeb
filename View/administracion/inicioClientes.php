@@ -54,6 +54,7 @@
                             <li class="active"><a href="index.php">Clientes</a></li>
                             <li><a href="../../Controller/administracion/habitaciones.php">Habitaciones</a></li>
                             <li><a href="reservas.php">Reservas</a></li>
+                            <li><a href="../../Controller/administracion/configuracionHotel.php">Configuración</a></li>
                             <!--<li><a href="#">Page 3</a></li>-->
                         </ul>
                         <ul class="nav navbar-nav navbar-right">

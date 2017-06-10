@@ -6,8 +6,6 @@ if ($_SESSION['logueadoUser'] == TRUE) {
     header("location:index.php");
 }
 
-//TODO Validaciones de campos. 
-
 include_once '../../Model/Login.php';
 
 Login::registrarUsuario($_POST[nombre], $_POST[dni], $_POST[apellido1],

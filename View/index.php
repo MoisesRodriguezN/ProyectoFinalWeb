@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Inicio - Hotel Fuente Alegre</title>
+        <title><?= $nombreHotel->nombreHotel?> - Inicio</title>
         <link rel="stylesheet" type="text/css" href="../View/css/main.css">
         <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -35,11 +35,8 @@
     <body class="fondoCuerpo">
         <div class="cabecera">
             <div class="logoCabecera">
-                <img src="../View/img/logoHotelHeader.png" class="imgLogoResponsive"> 
+                <img src="../View/img/uploads/<?=$logo->nombre?>" class="imgLogoResponsive"> 
             </div>
-        <div class="contenedorTexto2">
-             <span class="texto3D2"><?= $nombreHotel->nombreHotel?></span>
-        </div>
             <div class="ocultar flex-container space-between">
               <a href="index.php" class="flex-item seleccionado"><p>INICIO <br>Bienvenidos</p></a>
               <a href="usuario/servicios.php" class="flex-item"><p>SERVICIOS <br>¿Que ofrecemos?</p></a>
@@ -63,7 +60,7 @@
             
             
             <div class="contenedorTexto">
-                <span class="texto3D">Hotel Fuente Alegre</span>
+                <span class="texto3D2"><?= $nombreHotel->nombreHotel?></span>
             </div>
             <div class="bienvenidaSpan2">
                 
@@ -78,10 +75,25 @@
             </div>-->
             <div class="redesSociales">
               <ul class="listaSocial">
-                <a href="https://www.facebook.com/" target="_blank"><li><span id="elemento1"></span></li></a>
-                <a href="https://plus.google.com/?hl=es" target="_blank"><li><span id="elemento2"></span></li></a>
-                <a href="https://www.instagram.com/" target="_blank"><li><span id="elemento3"></span></li></a>
-                <a href="https://twitter.com/?lang=es" target="_blank"><li><span id="elemento4"></span></li></a>
+                <?php 
+                
+                    if($estadoImg['facebook']->estado == "habilitado"){
+                         
+                        ?><a href="<?=$urlSociales['facebook']->ruta?>" target="_blank"><li><span id="elemento1"></span></li></a><?php
+                    } 
+                    
+                    if($estadoImg['googlePlus']->estado == "habilitado"){
+                        ?><a href="<?=$urlSociales['googlePlus']->ruta?>" target="_blank"><li><span id="elemento2"></span></li></a><?php
+                    }
+                    
+                    if($estadoImg['instagram']->estado == "habilitado"){
+                        ?><a href="<?=$urlSociales['instagram']->ruta?>" target="_blank"><li><span id="elemento3"></span></li></a><?php
+                    }
+                    
+                    if($estadoImg['twitter']->estado == "habilitado"){
+                        ?><a href="<?=$urlSociales['twitter']->ruta?>" target="_blank"><li><span id="elemento4"></span></li></a><?php
+                    }
+                ?>
               </ul>
             </div> 
             <div class="formularioReserva">

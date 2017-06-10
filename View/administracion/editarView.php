@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Edición de servicios</title>
+        <title>Administración Hotel - Edición de servicios</title>
         <script src='../../View/js/tinymce/jquery.tinymce.min.js'></script>
         <script src='../../View/js/tinymce/tinymce.min.js'></script>
         <script>

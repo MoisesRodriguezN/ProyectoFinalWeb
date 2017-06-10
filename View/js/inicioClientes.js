@@ -66,7 +66,7 @@ $(document).ready(function () {
                         tipoOrden: tipoOrden2 //ASC DESC
                     }, function (data, status) {
                         $("#listaClientes").html(data);
-                    });//get	
+                    });//post	
 
                     $(this).dialog("close");
                 }

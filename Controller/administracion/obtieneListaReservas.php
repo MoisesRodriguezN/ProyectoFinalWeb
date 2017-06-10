@@ -4,7 +4,7 @@
 
     $totalFilas = Reserva::getTotalReservas();
 
-    $tamano_pagina = 3;
+    $tamano_pagina = 10;
     $pagina = $_REQUEST["pagina"];
 
     if (empty($pagina)) {

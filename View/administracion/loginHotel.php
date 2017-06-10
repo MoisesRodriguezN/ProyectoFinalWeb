@@ -4,7 +4,7 @@
     <head>
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <meta charset="UTF-8">
-        <title>Iniciar sesión</title>
+        <title>Administración Hotel - Iniciar sesión</title>
         <link rel="stylesheet" type="text/css" href="../../View/css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>

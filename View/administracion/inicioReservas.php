@@ -44,14 +44,15 @@
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
                             <li><a href="index.php">Clientes</a></li>
-                            <li><a href="habitaciones.php">Habitaciones</a></li>
+                            <li><a href="../../Controller/administracion/habitaciones.php">Habitaciones</a></li>
                             <li class="active"><a href="reservas.php">Reservas</a></li>
-                            <!-- <li><a href="#">Page 3</a></li>-->
+                            <li><a href="../../Controller/administracion/configuracionHotel.php">Configuración</a></li>
+                            <!--<li><a href="#">Page 3</a></li>-->
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="index.php"><span class="glyphicon glyphicon-user"></span> <?= ucfirst($_SESSION['nombreAdmin']) ?></a></li>
-                            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
-                        </ul>
+                            <li><a href="index.php"><span class="glyphicon glyphicon-user"></span> <?= ucfirst($_SESSION['nombreAdmin']) ?></a></li> 
+                            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li> 
+                        </ul> <!-- ucfirst() Pone en mayúscula la primera letra-->
                     </div>
                 </div>
             </nav>

@@ -97,7 +97,7 @@ $(document).ready(function () {
         }//buttons
     });
 
-    //Boton Nuevo Cliente	
+    //Boton Cambiar Clave	
     $(document).on("click", "#cambiarClave", function () {
         $("#dialogoNuevaClave").dialog("open");
         usuario = $(this).parent().siblings("td.usuario").text().trim();

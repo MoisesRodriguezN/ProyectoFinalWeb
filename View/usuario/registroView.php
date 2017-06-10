@@ -8,11 +8,11 @@
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
         <script src="../../View/js/usuario/registroView.js"></script>
         <meta charset="UTF-8">
-        <title>Iniciar sesión</title>
+        <title><?= $nombreHotel->nombreHotel?> - Iniciar sesión</title>
     </head>
 
     <body class="registroLogin">
-        <div class="logo"><img class="logo" src="../../View/img/logoLogin.png"></div>
+        <div class="logo"><img class="logo" src="../../View/img/uploads/<?=$logo->nombre?>"></div>
         <div class="login-block">
             <h1>Login</h1>
             <?= $error ?>

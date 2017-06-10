@@ -10,5 +10,10 @@ if ($_SESSION['logueadoUser'] == TRUE) {
     header("location:index.php");
 }
 
+    require_once '../../Model/datosHotel.php';
+    
+    $idImgLogo = "imgCabeceraGenForm";
+ 
+    $logo = datosHotel::getNombreImagen($idImgLogo);
 include_once '../../View/usuario/registroView.php';
 

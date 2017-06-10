@@ -70,4 +70,9 @@ if ($datos[filas] == 1) {
     $reservaHab = $_POST['estadoReserva'];
 }
 
+    require_once '../../Model/datosHotel.php';
+    
+    $idImgLogo = "imgCabeceraGenForm";
+ 
+    $logo = datosHotel::getNombreImagen($idImgLogo);
 include_once '../../View/usuario/loginView.php';

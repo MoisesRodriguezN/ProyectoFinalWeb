@@ -2,14 +2,14 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Habitaciones y tarifas</title>
+        <title><?= $nombreHotel->nombreHotel?> - Habitaciones y tarifas</title>
         <link rel="stylesheet" type="text/css" href="../../View/css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body class="fondoCuerpo">
         <div class="cabecera">
             <div class="logoCabecera">
-                <img src="../../View/img/logoHotelHeader.png" class="imgLogoResponsive"> 
+                <img src="../../View/img/uploads/<?=$logo->nombre?>" class="imgLogoResponsive"> 
             </div>
             <div class="ocultar flex-container space-between">
                 <a href="../index.php" class="flex-item seleccionado"><p>INICIO <br>Bienvenidos</p></a>
@@ -22,15 +22,30 @@
 
         <div class="contenedor">
             <div class="contenedorTexto">
-                <span class="texto3D">Hotel Fuente Alegre</span>
+                <span class="texto3D2"><?= $nombreHotel->nombreHotel?></span>
             </div>
             <div class="redesSociales">
                 <ul class="listaSocial">
-                    <li><span id="elemento1"></span></li>
-                    <li><span id="elemento2"></span></li>
-                    <li><span id="elemento3"></span></li>
-                    <li><span id="elemento4"></span></li>
-                </ul>
+                <?php 
+                
+                    if($estadoImg['facebook']->estado == "habilitado"){
+                         
+                        ?><a href="<?=$urlSociales['facebook']->ruta?>" target="_blank"><li><span id="elemento1"></span></li></a><?php
+                    } 
+                    
+                    if($estadoImg['googlePlus']->estado == "habilitado"){
+                        ?><a href="<?=$urlSociales['googlePlus']->ruta?>" target="_blank"><li><span id="elemento2"></span></li></a><?php
+                    }
+                    
+                    if($estadoImg['instagram']->estado == "habilitado"){
+                        ?><a href="<?=$urlSociales['instagram']->ruta?>" target="_blank"><li><span id="elemento3"></span></li></a><?php
+                    }
+                    
+                    if($estadoImg['twitter']->estado == "habilitado"){
+                        ?><a href="<?=$urlSociales['twitter']->ruta?>" target="_blank"><li><span id="elemento4"></span></li></a><?php
+                    }
+                ?>
+              </ul>
             </div> 
 
             <div class="tituloTabla">
