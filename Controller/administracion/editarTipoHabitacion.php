@@ -1,5 +1,7 @@
 <?php
-
+session_start();
+if ($_SESSION['logueadoAdmin'] == true) {
+require_once 'compruebaDB.php';
 session_start();
 include_once '../../Model/HotelDB.php';
 $conexion = HotelDB::connectDB();
@@ -42,4 +44,6 @@ if (isset($_POST['descripHab'])) {
 } else {
     include_once '../../View/administracion/editarView.php';
 }
-
+}else {
+    header("location:../../Controller/administracion/login.php");
+}

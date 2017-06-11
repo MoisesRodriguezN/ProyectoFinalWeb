@@ -1,6 +1,6 @@
 <?php
   session_start();
-  
+  require_once 'compruebaDB.php';
   include_once '../../Model/HotelDB.php';
 
     $conexion = HotelDB::connectDB();
@@ -30,5 +30,9 @@
         'instagram' => datosHotel::getUrlSocial($idImagen2[2]),
         'twitter' => datosHotel::getUrlSocial($idImagen2[3]),  
     );
+    
+    if($_SESSION['logueadoAdmin']){
+        $logued = "<div class='elementosOcultos' id='admLog'>true</div>";
+    }
   require_once '../../View/usuario/serviciosView.php';
 

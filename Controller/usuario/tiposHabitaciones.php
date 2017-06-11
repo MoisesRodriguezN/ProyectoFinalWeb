@@ -1,5 +1,5 @@
 <?php
-
+require_once 'compruebaDB.php';
 session_start();
 include_once '../../Model/HotelDB.php';
 
@@ -33,5 +33,9 @@ $idImagenSocial = array("facebook", "googlePlus", "instagram", "twitter");
         'instagram' => datosHotel::getUrlSocial($idImagen2[2]),
         'twitter' => datosHotel::getUrlSocial($idImagen2[3]),  
     );
+       
+    if($_SESSION['logueadoAdmin']){
+        $logued = "<div class='elementosOcultos' id='admLog'>true</div>";
+    }
 
 require_once '../../View/usuario/tiposHabitacionesView.php';

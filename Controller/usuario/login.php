@@ -1,5 +1,5 @@
 <?php
-
+require_once 'compruebaDB.php';
 /* Login de usuarios */
 
 session_start(); // Inicio de sesión

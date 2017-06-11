@@ -37,7 +37,11 @@
 
                 //Cambia de color el contenedor al poner el ratón encima
                 $("#pag2Texto1").mouseover(function () {
-                    $("#pag2Texto1").css("background-color", "lightgray");
+                    if($('#admLog').text() === 'true'){
+                       $("#pag2Texto1").css("background-color", "lightgray"); 
+                    }else{
+                       $('#pag2Texto1').css('cursor','auto');
+                    }
                 });
 
                 $("#pag2Texto1").mouseout(function () {
@@ -45,7 +49,11 @@
                 });
 
                 $("#pag2Texto2").mouseover(function () {
-                    $("#pag2Texto2").css("background-color", "lightgray");
+                    if($('#admLog').text() === 'true'){
+                        $("#pag2Texto2").css("background-color", "lightgray");
+                    }else{
+                       $('#pag2Texto2').css('cursor','auto');
+                    }
                 });
 
                 $("#pag2Texto2").mouseout(function () {
@@ -122,6 +130,7 @@
 
                 //Peticiones ajax para la carga del texto clicado en el editor
                 $(document).on("click", "#pag2Texto1, #pag2Texto2", function () {
+                    if($('#admLog').text() === 'true'){
                     idTexto = $(this).attr("id");
                     $.ajax({
                         data: {idTextoEdit: idTexto},
@@ -135,6 +144,7 @@
                             }, 200);
                         }
                     });
+                }
                 });
             });
         </script>  
@@ -253,7 +263,7 @@
             </div>-->
         </div>
         
-        <div id="dialogoTexto1" title="Edición de servicios"></div>
+        <div id="dialogoTexto1" title="Edición de habitaciones"></div>
 
         <div id="dialogoCorrecto" title="Contenido guardado">
             <p>
@@ -266,5 +276,7 @@
 
             <p>Puede tardar unos segundos</p>
         </div>
+        
+        <?=$logued?>
     </body>
 </html>

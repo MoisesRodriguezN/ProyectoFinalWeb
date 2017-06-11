@@ -1,5 +1,5 @@
 <?php
-
+require_once 'compruebaDB.php';
 session_start();
 include_once '../../Model/ReservaHabitacion.php';
 

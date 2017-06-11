@@ -1,4 +1,5 @@
 <?php
+require_once 'compruebaDB.php';
 session_start(); // Inicio de sesión
 
 include_once '../../Model/Habitacion.php';

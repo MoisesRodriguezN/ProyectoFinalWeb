@@ -1,8 +1,9 @@
 <?php
-
+session_start();
+if ($_SESSION['logueadoAdmin'] == true) {
+require_once 'compruebaDB.php';
 include_once '../../Model/datosHotel.php';
 $idImagen = $_POST["id"];
-
 if (isset($_FILES[$idImagen]) ||$_FILES[$idImagen] != null){
     $file = $_FILES[$idImagen];
     $nombre = $file["name"];
@@ -26,6 +27,12 @@ if (isset($_FILES[$idImagen]) ||$_FILES[$idImagen] != null){
         case "img5Galeria":
             $nombre = "img5Galeria.jpg";
             break;
+        case "imgLoginGenForm":
+            $nombre = "imgLoginGenForm.jpg";
+            break;
+        case "imgCabeceraGenForm":
+            $nombre = "imgCabeceraGenForm.jpg";
+            break;
         default:
             break;
     }
@@ -43,7 +50,7 @@ if (isset($_FILES[$idImagen]) ||$_FILES[$idImagen] != null){
     $dimensiones = getimagesize($ruta_provisional);
     $width = $dimensiones[0];
     $height = $dimensiones[1];
-    $carpeta = "uploads/";
+    $carpeta = "../../View/img/uploads/";
     
     if ($tipo != 'image/jpg' && $tipo != 'image/jpeg' && $tipo != 'image/png' && $tipo != 'image/gif')
     {
@@ -53,13 +60,13 @@ if (isset($_FILES[$idImagen]) ||$_FILES[$idImagen] != null){
     {
       echo "Error, el tamaño máximo permitido es un 10MB";
     }
-    else if ($width > 500 || $height > 500)
+    else if ($width > 5000 || $height > 5000)
     {
-        echo "Error la anchura y la altura maxima permitida es 500px";
+        echo "Error la anchura y la altura maxima permitida es 5000px";
     }
-    else if($width < 60 || $height < 60)
+    else if($width < 20 || $height < 20)
     {
-        echo "Error la anchura y la altura mínima permitida es 60px";
+        echo "Error la anchura y la altura mínima permitida es 20px";
     }
     else
     {
@@ -67,6 +74,11 @@ if (isset($_FILES[$idImagen]) ||$_FILES[$idImagen] != null){
         unlink($src);
         move_uploaded_file($ruta_provisional, $src);
         datosHotel::setImagenHotel($idImagen, $src);
+        datosHotel::setNombreImagen($idImagen, $nombre);
         echo $src;
     }
+}
+
+}else {
+    header("location:../../Controller/administracion/login.php");
 }

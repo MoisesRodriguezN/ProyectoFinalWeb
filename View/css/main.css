@@ -116,6 +116,9 @@ a:link {
 .table-responsive {
   clear: left; }
 
+#textArea{
+    width: 98%;
+}
 @-webkit-keyframes animacionGaleria {
   0% {
     opacity: 0; }
@@ -458,8 +461,8 @@ textarea {
     margin: 2% auto 0 auto; }
 
   input[type=text], input[type=password], input[type=email] {
-    height: 3rem;
-    font-size: 1.3rem; }
+    font-size: 1.3rem;
+    width: 88%; }
 
   textArea {
     height: 6rem;
@@ -499,7 +502,7 @@ textarea {
     margin-left: 30%; }
 
   .contenedor {
-    width: 84%; }
+    width: 100%; }
 
   .formularioReserva {
     width: 60%;

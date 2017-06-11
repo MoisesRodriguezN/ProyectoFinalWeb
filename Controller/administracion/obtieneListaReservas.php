@@ -1,5 +1,7 @@
 <?php
-
+session_start();
+if ($_SESSION['logueadoAdmin'] == true) {
+require_once 'compruebaDB.php';
     require_once '../../Model/Reserva.php';
 
     $totalFilas = Reserva::getTotalReservas();
@@ -39,3 +41,7 @@
     $data['reservas'] = Reserva::getReservas($orderBy, $inicio, $tamano_pagina);
     
     require_once '../../View/administracion/listaReservas.php';
+    
+    }else {
+    header("location:../../Controller/administracion/login.php");
+}

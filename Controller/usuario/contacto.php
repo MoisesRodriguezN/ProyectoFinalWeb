@@ -1,4 +1,5 @@
 <?php
+require_once 'compruebaDB.php';
 if ($_POST[accion] == enviar) {
     $para = "moises_rodiguez@hotmail.com";
     $titulo = 'Contacto Hotel';

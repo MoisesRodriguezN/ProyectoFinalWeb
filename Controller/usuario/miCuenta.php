@@ -1,5 +1,5 @@
 <?php
-
+require_once 'compruebaDB.php';
 session_start();
 if ($_SESSION['logueadoUser'] == true) {
     $usuario = $_SESSION[nombreUser];

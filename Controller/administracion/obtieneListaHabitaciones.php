@@ -1,5 +1,7 @@
 <?php
-
+session_start();
+if ($_SESSION['logueadoAdmin'] == true) {
+require_once 'compruebaDB.php';
     require_once '../../Model/Habitacion.php';
 
     $totalFilas = Habitacion::getTotalHabitaciones();
@@ -30,3 +32,6 @@
     $data['habitaciones'] = Habitacion::getHabitaciones($orderBy, $inicio, $tamano_pagina);
     
     require_once '../../View/administracion/listaHabitaciones.php';
+    }else {
+    header("location:../../Controller/administracion/login.php");
+}

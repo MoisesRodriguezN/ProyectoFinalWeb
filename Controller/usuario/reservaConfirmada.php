@@ -1,5 +1,5 @@
 <?php
-
+require_once 'compruebaDB.php';
 session_start(); // Inicio de sesión
 include_once '../../Model/Reserva.php';
 if ($_SESSION['logueadoUser'] == true) {

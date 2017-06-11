@@ -1,9 +1,12 @@
 <?php
-
+session_start();
+if ($_SESSION['logueadoAdmin'] == true) {
 $server = $_POST['server'];
 $db = $_POST['db'];
 $user = $_POST['user'];
 $password = $_POST['password'];
+$admin = $_POST['admin'];
+$adminPassword = $_POST['adminPassword'];
 
 if (!empty($server) && !empty($db) && !empty($user) && isset($password)) {
     if (!file_exists("../../Model/bbdd.php")) {
@@ -29,13 +32,17 @@ if (!empty($server) && !empty($db) && !empty($user) && isset($password)) {
 
             $sql = file_get_contents("../../Model/hotel.sql");
 
-            $stmt = $connection->prepare($sql2);
+            $stmt = $connection->prepare($sql);
             $stmt->execute();
-            
+
             $file = "../../Model/hotel.sql";
             if (!unlink($file)) {
               die("Error borrando $file");
              }
+            
+            include_once '../../Model/Login.php';
+            
+            Login::creaAdmin($admin, $adminPassword);
             
         } catch (PDOException $e) {
             $error = "No se han podido crear las tablas.";
@@ -48,5 +55,6 @@ if (!empty($server) && !empty($db) && !empty($user) && isset($password)) {
     include_once '../../View/administracion/configuracionView.php';
 }
 
-
-
+}else {
+    header("location:../../Controller/administracion/login.php");
+}

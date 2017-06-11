@@ -79,7 +79,7 @@
                     <input type="text" name="apellido1" required placeholder="Apellido 1"/>
                     <input type="text" name="apellido2" required placeholder="Apellido 2"/>
                     <input type="email" name="email" required placeholder="Email"/>
-                    <textarea rows="4" cols="37" name="comentario" placeholder="Comentario" ></textarea>
+                    <textarea rows="4" cols="37" id="textArea" name="comentario" placeholder="Comentario" ></textarea>
                     <button type="submit">Enviar</button>
                 </form>
             </div>

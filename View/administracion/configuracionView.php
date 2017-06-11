@@ -35,6 +35,12 @@
                 <input type="text" name="db" class="camposRegistroUsusarios" placeholder="Base de datos"/>
                 <input type="text" name="user" class="camposRegistroUsusarios" placeholder="Usuario"/>
                 <input type="text" name="password" class="camposRegistroUsusarios" placeholder="Contraseña"/>
+                <hr>
+                <h5>
+                    Crear Usuario y clave del adminsitrador
+                </h5>
+                <input type="text" name="admin" class="camposRegistroUsusarios" placeholder="Usuario administrador"/>
+                <input type="text" name="adminPassword" class="camposRegistroUsusarios" placeholder="Contraseña"/>
                 <button type="submit">Guardar</button>
             </form>
         </div>
