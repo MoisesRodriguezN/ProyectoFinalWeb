@@ -1,6 +1,4 @@
 <?php
-session_start();
-if ($_SESSION['logueadoAdmin'] == true) {
 $server = $_POST['server'];
 $db = $_POST['db'];
 $user = $_POST['user'];
@@ -53,8 +51,4 @@ if (!empty($server) && !empty($db) && !empty($user) && isset($password)) {
     header("location:../index.php");
 } else {
     include_once '../../View/administracion/configuracionView.php';
-}
-
-}else {
-    header("location:../../Controller/administracion/login.php");
 }
