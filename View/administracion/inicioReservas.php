@@ -15,6 +15,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
         <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="icon" type="image/png" href="../../View/img/favicon.png">
         <style>
             #dialogoborrar{
                 display: none;

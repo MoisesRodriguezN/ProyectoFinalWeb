@@ -9,6 +9,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="icon" type="image/png" href="../../View/img/favicon.png">
         <script>
             function myFunction() {
                 var x = document.getElementById("myTopnav");

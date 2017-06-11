@@ -7,6 +7,7 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
         <script src="../../View/js/usuario/registroView.js"></script>
+        <link rel="icon" type="image/png" href="../../View/img/favicon.png">
         <meta charset="UTF-8">
         <title><?= $nombreHotel->nombreHotel?> - Iniciar sesión</title>
     </head>
