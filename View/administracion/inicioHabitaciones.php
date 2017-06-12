@@ -76,7 +76,7 @@
     </div>
       
     <div id="dialogoNuevaHabitacion" title="Nueva Habitación">
-        <?php include "../../view/administracion/formNuevaHabitacion.php"?>
+        <?php include "../../View/administracion/formNuevaHabitacion.php"?>
     </div> 
   </body>
 </html>
