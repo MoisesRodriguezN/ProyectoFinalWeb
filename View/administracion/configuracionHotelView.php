@@ -550,7 +550,7 @@ if ($_SESSION['logueadoAdmin']) {
         <?php
     } else {
         //Error, mensaje, redirección...
-        echo "Zona Inaccesible. Requiere Inicio de sesión"; //Mensaje de prueba
+        echo "Zona Inaccesible. Requiere Inicio de sesión";
         ?>
         <script>
             window.location.href = "../../Controller/administracion/login.php";
