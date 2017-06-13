@@ -20,6 +20,8 @@ require_once 'compruebaDB.php';
     $orden = $_REQUEST["orden"];
     if (!empty($orden)) {
         $orderBy = "ORDER BY " . $orden;
+    }else{
+        $orden = "tipo";
     }
 
     $tipoOrden = $_REQUEST["tipoOrden"];
