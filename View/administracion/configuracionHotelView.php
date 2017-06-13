@@ -327,6 +327,18 @@ if ($_SESSION['logueadoAdmin']) {
                             <td><button type="button" class="btn btn-info" id="cambiarClave">Editar</button></td>
                         </tr>
                         <tr>
+                        <tr>
+                            <td>Documentación
+                            </td>
+                            <td>Español</td>
+                            <td><button type="button" class="btn btn-info" id="cambiarClave">Ver</button></td>
+                        </tr>
+                        <tr>
+                            <td>Documentación funcionalidades
+                            </td>
+                            <td>Ingles</td>
+                            <td><button type="button" class="btn btn-info" id="cambiarClave">Ver</button></td>
+                        </tr>
                             <td>Enlaces Redes Sociales
                             </td>
                             <td>
