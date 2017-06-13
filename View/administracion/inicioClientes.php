@@ -112,8 +112,6 @@
 
 <?php
     }else{
-        //Error, mensaje, redirección...
-        echo "Zona Inaccesible. Requiere Inicio de sesión"; //Mensaje de prueba
         ?>
             <script>
                 window.location.href = "../../Controller/administracion/login.php";

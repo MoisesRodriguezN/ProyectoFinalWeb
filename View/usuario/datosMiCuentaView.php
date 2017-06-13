@@ -40,4 +40,3 @@ if ($numFilas > 0) {
     }
     ?>
 </table>
-

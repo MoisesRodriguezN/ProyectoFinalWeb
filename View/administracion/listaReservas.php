@@ -1,8 +1,8 @@
 <?php
-  session_start();
-  if ($_SESSION['logueadoAdmin']){
-?>
-<?php
+session_start();
+if ($_SESSION['logueadoAdmin']) {
+    ?>
+    <?php
     $opcionesOrden = array();
     $opcionesOrden["h.codHabitacion"] = "codCliente";
     $opcionesOrden["c.nombre"] = "nombre";
@@ -60,7 +60,7 @@
             <?php
             foreach ($data['reservas'] as $reserva) {
                 ?>
-                <tr id="reserva_<?= $reserva->getCodHabitacion(), $reserva->getCodCliente(), $reserva->getFechaEntrada() ?>" data-codHabitacion="<?= $reserva->getCodHabitacion() ?>" data-codCliente="<?= $reserva->getCodCliente() ?>" data-fechaEntrada="<?= $reserva->getFechaEntrada()?>">
+                <tr id="reserva_<?= $reserva->getCodHabitacion(), $reserva->getCodCliente(), $reserva->getFechaEntrada() ?>" data-codHabitacion="<?= $reserva->getCodHabitacion() ?>" data-codCliente="<?= $reserva->getCodCliente() ?>" data-fechaEntrada="<?= $reserva->getFechaEntrada() ?>">
                     <td class="codHabitacion"><?= $reserva->getCodHabitacion() ?></td>
                     <td class="nombre"><?= $reserva->getNombre() ?></td>
                     <td class="apellido1"><?= $reserva->getApellido1() ?></td>
@@ -103,8 +103,7 @@
         }
         ?>
     </div>
-<?php
-    }else{
-        //Error, mensaje, redirección...
-        echo "Zona Inaccesible. Requiere Inicio de sesión"; //Mensaje de prueba
-    }
+    <?php
+} else {
+
+}

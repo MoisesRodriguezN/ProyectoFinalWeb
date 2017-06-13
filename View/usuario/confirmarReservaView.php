@@ -3,14 +3,14 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title><?= $nombreHotel->nombreHotel?> - Confirmar reserva</title>
+        <title><?= $nombreHotel->nombreHotel ?> - Confirmar reserva</title>
         <link rel="stylesheet" type="text/css" href="../../View/css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="../../View/img/favicon.png">
     </head>
     <body class="fondoCuerpo">
 
-        <div class="logo"><img class="logo" src="../../View/img/uploads/<?=$logo->nombre?>"></div>
+        <div class="logo"><img class="logo" src="../../View/img/uploads/<?= $logo->nombre ?>"></div>
         <div class="login-block">
             <h1>Confirmar reserva</h1>
             <?= $error ?>

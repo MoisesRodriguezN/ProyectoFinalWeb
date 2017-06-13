@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="../View/img/favicon.png">
+        <script src="../View/js/usuario/inicio.js"></script>
         <script>
            function myFunction() {
               var x = document.getElementById("myTopnav");
@@ -18,19 +19,7 @@
               } else {
                   x.className = "topnav";
               }
-          }
-          
-          $(document).ready(function(){
-            $( ".inputFecha" ).datepicker({
-              dateFormat: "dd-mm-yy",
-              minDate: 0
-            });
-            var salida = new Date();
-            salida.setDate(salida.getDate() + 2);
-            
-            $(".fechaEntradaPicker").datepicker("setDate",new Date());
-            $(".fechaSalidaPicker").datepicker("setDate",salida);
-          });
+          } 
         </script>    
     </head>
     <body class="fondoCuerpo">
