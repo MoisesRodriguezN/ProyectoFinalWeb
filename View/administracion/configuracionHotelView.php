@@ -94,13 +94,13 @@ if ($_SESSION['logueadoAdmin']) {
                                 <td>Documentación
                                 </td>
                                 <td>Español</td>
-                                <td><button type="button" class="btn btn-info" id="cambiarClave">Ver</button></td>
+                                <td><a href="../../View/varios/documentacion.pdf" target="_blank"><button type="button" class="btn btn-info">Ver</button></a></td>
                             </tr>
                             <tr>
                                 <td>Documentación funcionalidades
                                 </td>
                                 <td>Ingles</td>
-                                <td><button type="button" class="btn btn-info" id="cambiarClave">Ver</button></td>
+                                <td><a href="../../View/varios/documentacionIngles.pdf" target="_blank"><button type="button" class="btn btn-info">Ver</button></a></td>
                             </tr>
                         <td>Enlaces Redes Sociales
                         </td>
