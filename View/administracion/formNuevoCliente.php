@@ -10,7 +10,7 @@
 
                 <div class="form-group">
                     <label for="dniNuevo">DNI:</label>
-                    <input type="text" name="DNI" id="dniNuevo" class="form-control"  maxlength="9" value="">
+                    <input type="text" name="DNI" id="dniNuevo" class="form-control" value="">
                 </div>
 
                 <div class="form-group">

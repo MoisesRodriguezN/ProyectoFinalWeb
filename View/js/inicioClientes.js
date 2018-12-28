@@ -161,7 +161,7 @@ $(document).ready(function () {
     $("#dialogoNuevoCliente").dialog({
         autoOpen: false,
         resizable: false,
-        minWidth: 510,
+        minWidth: 450,
         modal: true,
         close: function () {
             $("#nuevo").show();
@@ -202,7 +202,7 @@ $(document).ready(function () {
     $("#dialogoreservar").dialog({
         autoOpen: false,
         resizable: false,
-        minWidth: 510,
+        minWidth: 450,
         modal: true,
         buttons: {
             "Guardar": function () {

@@ -1,3 +1,17 @@
+<!--<form action="../../Controller/administracion/configuracion.php" method="post">
+  Servidor:<br>
+  <input type="text" value="" name="server">
+  <br>
+  base de datos:<br>
+  <input type="text" value="" name="db"><br>
+  usuario:<br>
+  <input type="text" value="" name="user"><br>
+  Clave:<br>
+  <input type="text" value="" name="password">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>-->
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -21,13 +35,13 @@
                 <input type="text" name="server" class="camposRegistroUsusarios" placeholder="Servidor" autofocus=""/>
                 <input type="text" name="db" class="camposRegistroUsusarios" placeholder="Base de datos"/>
                 <input type="text" name="user" class="camposRegistroUsusarios" placeholder="Usuario"/>
-                <input type="password" name="password" class="camposRegistroUsusarios" placeholder="Contraseña"/>
+                <input type="text" name="password" class="camposRegistroUsusarios" placeholder="Contraseña"/>
                 <hr>
                 <h5>
                     Crear Usuario y clave del adminsitrador
                 </h5>
                 <input type="text" name="admin" class="camposRegistroUsusarios" placeholder="Usuario administrador"/>
-                <input type="password" name="adminPassword" class="camposRegistroUsusarios" placeholder="Contraseña"/>
+                <input type="text" name="adminPassword" class="camposRegistroUsusarios" placeholder="Contraseña"/>
                 <button type="submit">Guardar</button>
             </form>
         </div>

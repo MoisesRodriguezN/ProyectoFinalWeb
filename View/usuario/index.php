@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title><?= $nombreHotel->nombreHotel ?> - Mis reservas</title>
+        <title><?= $nombreHotel->nombreHotel?> - Mis reservas</title>
         <link rel="stylesheet" type="text/css" href="../../View/css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="../../View/img/favicon.png">
@@ -10,7 +10,7 @@
     <body class="fondoCuerpo">
         <div class="cabecera">
             <div class="logoCabecera">
-                <img src="../../View/img/uploads/<?= $logo->nombre ?>" class="imgLogoResponsive"> 
+                <img src="../../View/img/uploads/<?=$logo->nombre?>" class="imgLogoResponsive"> 
             </div>
             <div class="flex-container space-between">
                 <a href="../index.php" class="flex-item"><p>INICIO <br>Bienvenidos</p></a>
@@ -23,28 +23,30 @@
 
         <div class="contenedor">
             <div class="contenedorTexto">
-                <span class="texto3D"><?= $nombreHotel->nombreHotel ?></span>
+                <span class="texto3D"><?= $nombreHotel->nombreHotel?></span>
             </div>
             <div class="redesSociales">
                 <ul class="listaSocial">
-                    <?php
-                    if ($estadoImg['facebook']->estado == "habilitado") {
-                        ?><a href="<?= $urlSociales['facebook']->ruta ?>" target="_blank"><li><span id="elemento1"></span></li></a><?php
+                <?php 
+                
+                    if($estadoImg['facebook']->estado == "habilitado"){
+                         
+                        ?><a href="<?=$urlSociales['facebook']->ruta?>" target="_blank"><li><span id="elemento1"></span></li></a><?php
+                    } 
+                    
+                    if($estadoImg['googlePlus']->estado == "habilitado"){
+                        ?><a href="<?=$urlSociales['googlePlus']->ruta?>" target="_blank"><li><span id="elemento2"></span></li></a><?php
                     }
-
-                    if ($estadoImg['googlePlus']->estado == "habilitado") {
-                        ?><a href="<?= $urlSociales['googlePlus']->ruta ?>" target="_blank"><li><span id="elemento2"></span></li></a><?php
+                    
+                    if($estadoImg['instagram']->estado == "habilitado"){
+                        ?><a href="<?=$urlSociales['instagram']->ruta?>" target="_blank"><li><span id="elemento3"></span></li></a><?php
                     }
-
-                    if ($estadoImg['instagram']->estado == "habilitado") {
-                        ?><a href="<?= $urlSociales['instagram']->ruta ?>" target="_blank"><li><span id="elemento3"></span></li></a><?php
-                            }
-
-                            if ($estadoImg['twitter']->estado == "habilitado") {
-                                ?><a href="<?= $urlSociales['twitter']->ruta ?>" target="_blank"><li><span id="elemento4"></span></li></a><?php
-                            }
-                            ?>
-                </ul>
+                    
+                    if($estadoImg['twitter']->estado == "habilitado"){
+                        ?><a href="<?=$urlSociales['twitter']->ruta?>" target="_blank"><li><span id="elemento4"></span></li></a><?php
+                    }
+                ?>
+              </ul>
             </div> 
 
             <ul class="menu1">
@@ -54,52 +56,52 @@
                 <li class="menu2 esquinaD"><a href="logout.php">Cerrar sesión</a></li>
             </ul>
 <?php
-if (!empty($data['datos'])) {
-    ?>
-                <table class="tablaHabitaciones">
-                    <th class="tablahabitacionesTh">Habitación</th>
-                    <th class="tablahabitacionesTh">Tipo</th>
-                    <th class="tablahabitacionesTh">Capacidad</th>
-                    <th class="tablahabitacionesTh">Planta</th>
-                    <th class="tablahabitacionesTh">Precio/Noche</th>
-                    <th class="tablahabitacionesTh">Fecha Entrada</th>
-                    <th class="tablahabitacionesTh">Fecha Salida</th>
-    <?php
-    foreach ($data['datos'] as $hab) {
-        ?>
-                        <tr>
-                            <td>
-                                Habitación Nº <?= $hab->GetCodHabitacion() ?>
-                            </td>
-                            <td>
-                                Habitacion <?= $hab->GetTipo() ?>
-                            </td>
-                            <td>
-                                Capacidad <?= $hab->GetCapacidad() ?>
-                            </td>
-                            <td>
-                                Planta <?= $hab->GetPlanta() ?>
-                            </td>
-                            <td>
-                                Precio <?= $hab->GetTarifa() ?>€
-                            </td>
-                            <td>
-        <?= $hab->GetFechaEntrada() ?>
-                            </td>
-                            <td>
-        <?= $hab->GetFechaSalida() ?>
-                            </td>
-                        </tr>
-        <?php
-    }
-    ?>
-                </table>
-                    <?php
-                } else {
-                    ?>
-                <div class="mensaje1">
-                    <span>No hay habitaciones reservadas</span>
-                    <a class="spanTituloTabla2" href="logout.php">Cerrar sesión</a>
-                </div>
-    <?php
-}
+            if(!empty($data['datos'])){
+            ?>
+            <table class="tablaHabitaciones">
+              <th class="tablahabitacionesTh">Habitación</th>
+              <th class="tablahabitacionesTh">Tipo</th>
+              <th class="tablahabitacionesTh">Capacidad</th>
+              <th class="tablahabitacionesTh">Planta</th>
+              <th class="tablahabitacionesTh">Precio/Noche</th>
+              <th class="tablahabitacionesTh">Fecha Entrada</th>
+              <th class="tablahabitacionesTh">Fecha Salida</th>
+              <?php
+                foreach ($data['datos'] as $hab) {
+              ?>
+              <tr>
+                <td>
+                  Habitación Nº <?= $hab->GetCodHabitacion()?>
+                </td>
+                <td>
+                  Habitacion <?= $hab->GetTipo()?>
+                </td>
+                <td>
+                  Capacidad <?= $hab->GetCapacidad()?>
+                </td>
+                <td>
+                  Planta <?= $hab->GetPlanta()?>
+                </td>
+                <td>
+                  Precio <?= $hab->GetTarifa()?>€
+                </td>
+                <td>
+                  <?= $hab->GetFechaEntrada()?>
+                </td>
+                <td>
+                  <?= $hab->GetFechaSalida()?>
+                </td>
+              </tr>
+              <?php
+                }
+              ?>
+            </table>
+            <?php
+            }else{
+              ?>
+              <div class="mensaje1">
+                  <span>No hay habitaciones reservadas</span>
+                  <a class="spanTituloTabla2" href="logout.php">Cerrar sesión</a>
+              </div>
+              <?php
+            }

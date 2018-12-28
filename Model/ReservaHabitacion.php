@@ -69,7 +69,7 @@ class ReservaHabitacion {
                 . "DATE_FORMAT(r.fechaEntrada, '%d/%m/%Y') as fechaEntrada,"
                 . "DATE_FORMAT(r.fechaSalida, '%d/%m/%Y') as fechaSalida "
                 . "FROM reserva r , login l , habitacion h "
-                . "WHERE R.codCliente = l.codCliente "
+                . "WHERE r.codCliente = l.codCliente "
                 . "AND l.usuario = '$usuario' AND h.codHabitacion = r.codHabitacion";
         $consulta = $conexion->query($seleccion);
         $datos = [];

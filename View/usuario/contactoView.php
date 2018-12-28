@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title><?= $nombreHotel->nombreHotel ?> - Contacto</title>
+        <title><?= $nombreHotel->nombreHotel?> - Contacto</title>
         <link rel="stylesheet" type="text/css" href="../../View/css/main.css">
         <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,7 @@
 
         <div class="cabecera">
             <div class="logoCabecera">
-                <img src="../../View/img/uploads/<?= $logo->nombre ?>" class="imgLogoResponsive"> 
+                <img src="../../View/img/uploads/<?=$logo->nombre?>" class="imgLogoResponsive"> 
             </div>
             <div class="flex-container space-between">
                 <a href="../index.php" class="flex-item"><p>INICIO <br>Bienvenidos</p></a>
@@ -45,28 +45,30 @@
                 </li>
             </ul>
             <div class="contenedorTexto">
-                <span class="texto3D3"><?= $nombreHotel->nombreHotel ?></span>
+                <span class="texto3D3"><?= $nombreHotel->nombreHotel?></span>
             </div>
             <div class="redesSociales">
                 <ul class="listaSocial">
-                    <?php
-                    if ($estadoImg['facebook']->estado == "habilitado") {
-                        ?><a href="<?= $urlSociales['facebook']->ruta ?>" target="_blank"><li><span id="elemento1"></span></li></a><?php
+                <?php 
+                
+                    if($estadoImg['facebook']->estado == "habilitado"){
+                         
+                        ?><a href="<?=$urlSociales['facebook']->ruta?>" target="_blank"><li><span id="elemento1"></span></li></a><?php
+                    } 
+                    
+                    if($estadoImg['googlePlus']->estado == "habilitado"){
+                        ?><a href="<?=$urlSociales['googlePlus']->ruta?>" target="_blank"><li><span id="elemento2"></span></li></a><?php
                     }
-
-                    if ($estadoImg['googlePlus']->estado == "habilitado") {
-                        ?><a href="<?= $urlSociales['googlePlus']->ruta ?>" target="_blank"><li><span id="elemento2"></span></li></a><?php
+                    
+                    if($estadoImg['instagram']->estado == "habilitado"){
+                        ?><a href="<?=$urlSociales['instagram']->ruta?>" target="_blank"><li><span id="elemento3"></span></li></a><?php
                     }
-
-                    if ($estadoImg['instagram']->estado == "habilitado") {
-                        ?><a href="<?= $urlSociales['instagram']->ruta ?>" target="_blank"><li><span id="elemento3"></span></li></a><?php
-                            }
-
-                            if ($estadoImg['twitter']->estado == "habilitado") {
-                                ?><a href="<?= $urlSociales['twitter']->ruta ?>" target="_blank"><li><span id="elemento4"></span></li></a><?php
-                            }
-                            ?>
-                </ul>
+                    
+                    if($estadoImg['twitter']->estado == "habilitado"){
+                        ?><a href="<?=$urlSociales['twitter']->ruta?>" target="_blank"><li><span id="elemento4"></span></li></a><?php
+                    }
+                ?>
+              </ul>
             </div> 
 
             <div class="login-block marginLogin">

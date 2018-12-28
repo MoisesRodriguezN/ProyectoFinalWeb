@@ -36,6 +36,14 @@ if (isset($_FILES[$idImagen]) ||$_FILES[$idImagen] != null){
         default:
             break;
     }
+//    if($idImagen == "logoHotel"){
+//        $nombre = "logoHotelHeader.jpg";
+//        
+//    }
+//    
+//    if($idImagen == "img1Galeria"){
+//        $nombre = "img1Galeria.jpg";
+//    }
     $tipo = $file["type"];
     $ruta_provisional = $file["tmp_name"];
     $size = $file["size"];

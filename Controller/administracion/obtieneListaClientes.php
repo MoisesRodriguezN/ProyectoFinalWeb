@@ -40,8 +40,6 @@ require_once '../../Model/Cliente.php';
     $orden = $_REQUEST["orden"];
     if (!empty($orden)) {
        $orderBy = "ORDER BY ". $orden;
-    }else{
-        $orden = "apellido1";
     }
 
     $tipoOrden = $_REQUEST["tipoOrden"];

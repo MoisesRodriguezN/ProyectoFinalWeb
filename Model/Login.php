@@ -143,20 +143,5 @@ class Login {
                 . "'$clave','administrador' ,NULL)";
         $conexion->query($insercion2);
     }
-    
-    public static function creaUser($usuario, $clave, $codCliente){
-        $conexion = HotelDB::connectDB();
-         $insercion2 = "INSERT INTO login (usuario, clave, rol, codCliente)"
-                . "  VALUES ('$usuario',"
-                . "'$clave','usuario' ,'$codCliente')";
-        $conexion->query($insercion2);
-    }
-    
-    public static function cambiaClaveAdmin($usuario, $clave){
-        $conexion = HotelDB::connectDB();
-        $modificacionClave = "UPDATE login SET clave=\"$clave\" "
-            . " WHERE usuario=\"$usuario\" AND rol ='administrador'";
-        $conexion->query($modificacionClave);
-    }
 
 }
