@@ -4,7 +4,7 @@ La página se compone de dos partes, una de administración, donde el administra
 con el hotel (Clientes, habitaciones...) Y otra parte para usuarios, donde cualquier visitante podrá ver los servicios 
 e instalaciones del hotel,además de poder buscar una habitación disponible para la fecha y días que necesite. 
 
-Video de instalación XAMP y Hotel Fuente Alegre. [enlace en línea](https://youtu.be/z9UK_9ay5ys)
+[Video de instalación XAMP y Hotel Fuente Alegre.](https://youtu.be/z9UK_9ay5ys)
 
 ![Con titulo](https://github.com/MoisesRodriguezN/ProyectoFinalWeb/blob/master/imagenes%20proyecto/img1.PNG "Página principal")
 
